@@ -9,6 +9,7 @@
 #import "BKMainViewController.h"
 #import "BKLogInViewController.h"
 #import "BKUserInfoViewController.h"
+#import "BKAppDelegate.h"
 #import <Parse/Parse.h>
 
 @interface BKMainViewController ()
@@ -40,9 +41,16 @@
         logInVC.fields = PFLogInFieldsFacebook | PFLogInFieldsDismissButton;
         logInVC.delegate = self;
         [self presentViewController:logInVC animated:NO completion:nil];
-    } else {
+    } else if (![[PFUser currentUser] objectForKey:@"GoodReadsUsername"]){
         BKUserInfoViewController *userInfoVC = [[BKUserInfoViewController alloc] initWithNibName:nil bundle:nil];
         [self.navigationController pushViewController:userInfoVC animated:YES];
+    } else {
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+        [request setHTTPMethod:@"GET"];
+        NSString *key = ((BKAppDelegate *)[[UIApplication sharedApplication] delegate]).goodReadsKey;
+        
+        NSString *url = [NSString stringWithFormat:@"http://www.goodreads.com/user/show/?key=%@&username=%@", key, [[PFUser currentUser] objectForKey:@"GoodReadsUsername"]];
+        [request setURL:[NSURL URLWithString:url]];
     }
 }
 

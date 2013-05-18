@@ -110,7 +110,12 @@ CGFloat kPaddingFromEdge = 10.0f;
         PFUser *currentUser = [PFUser currentUser];
         [currentUser setObject:goodReadsUsername forKey:@"GoodReadsUsername" ];
         [currentUser setObject:lookingFor forKey:@"LookingFor"];
-        [currentUser save];
+        [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (error) {
+                NSLog(@"%@",error);
+            }
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
     }
 }
 

@@ -19,6 +19,7 @@
     [Parse setApplicationId:@"xmzp0RZewTe4mnrNEtSj9ASnu1C4826iCAQIwIsT"
                   clientKey:@"x1igbTLWGQyW5fsyAmruCa8uDYPIL4ABUrppHi59"];
     [PFFacebookUtils initializeFacebook];
+    self.goodReadsKey = @"BmtaX8OIKKEqF1JaBkUj1Q";
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     BKMainViewController *mainVC = [[BKMainViewController alloc] initWithNibName:nil bundle:nil];
