@@ -16,15 +16,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    BKMainViewController *mainVC = [[BKMainViewController alloc] initWithNibName:nil bundle:nil];
-    mainVC.view.backgroundColor = [UIColor redColor];
-    self.navController = [[BKNavViewController alloc] initWithRootViewController:mainVC];
-    self.window.rootViewController = self.navController;
-    
     [Parse setApplicationId:@"xmzp0RZewTe4mnrNEtSj9ASnu1C4826iCAQIwIsT"
                   clientKey:@"x1igbTLWGQyW5fsyAmruCa8uDYPIL4ABUrppHi59"];
+    [PFFacebookUtils initializeFacebook];
     
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    BKMainViewController *mainVC = [[BKMainViewController alloc] initWithNibName:nil bundle:nil];
+    self.navController = [[BKNavViewController alloc] initWithRootViewController:mainVC];
+    self.window.rootViewController = self.navController;
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -54,6 +53,15 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    return [PFFacebookUtils handleOpenURL:url];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [PFFacebookUtils handleOpenURL:url];
 }
 
 @end
