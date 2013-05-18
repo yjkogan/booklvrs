@@ -39,6 +39,7 @@
 		E78009141748135200DFC429 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78009131748135200DFC429 /* Social.framework */; };
 		E78009171748151200DFC429 /* booklvrs_logo_black.png in Resources */ = {isa = PBXBuildFile; fileRef = E78009151748151200DFC429 /* booklvrs_logo_black.png */; };
 		E78009181748151200DFC429 /* booklvrs_logo_white.png in Resources */ = {isa = PBXBuildFile; fileRef = E78009161748151200DFC429 /* booklvrs_logo_white.png */; };
+		E780091B17481C5B00DFC429 /* BKUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E780091A17481C5B00DFC429 /* BKUserInfoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +82,8 @@
 		E78009131748135200DFC429 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		E78009151748151200DFC429 /* booklvrs_logo_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = booklvrs_logo_black.png; sourceTree = "<group>"; };
 		E78009161748151200DFC429 /* booklvrs_logo_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = booklvrs_logo_white.png; sourceTree = "<group>"; };
+		E780091917481C5B00DFC429 /* BKUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKUserInfoViewController.h; sourceTree = "<group>"; };
+		E780091A17481C5B00DFC429 /* BKUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKUserInfoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E78008F817480A1100DFC429 /* QuartzCore.framework in Frameworks */,
 				E78009141748135200DFC429 /* Social.framework in Frameworks */,
 				E78008FA17480A1600DFC429 /* Security.framework in Frameworks */,
 				E78009121748134300DFC429 /* libsqlite3.dylib in Frameworks */,
@@ -95,7 +99,6 @@
 				E780090E1748133400DFC429 /* AdSupport.framework in Frameworks */,
 				E78008FE17480A2100DFC429 /* SystemConfiguration.framework in Frameworks */,
 				E78008FC17480A1C00DFC429 /* StoreKit.framework in Frameworks */,
-				E78008F817480A1100DFC429 /* QuartzCore.framework in Frameworks */,
 				E78008F617480A0B00DFC429 /* MobileCoreServices.framework in Frameworks */,
 				E78008F417480A0500DFC429 /* libz.1.1.3.dylib in Frameworks */,
 				E78008F2174809F900DFC429 /* CoreLocation.framework in Frameworks */,
@@ -165,6 +168,8 @@
 				E78008E6174808B300DFC429 /* BKNavViewController.m */,
 				E78008E8174808E400DFC429 /* BKMainViewController.h */,
 				E78008E9174808E400DFC429 /* BKMainViewController.m */,
+				E780091917481C5B00DFC429 /* BKUserInfoViewController.h */,
+				E780091A17481C5B00DFC429 /* BKUserInfoViewController.m */,
 				E780090417480F9F00DFC429 /* BKLogInViewController.h */,
 				E780090517480F9F00DFC429 /* BKLogInViewController.m */,
 				E78008CD174807C000DFC429 /* Supporting Files */,
@@ -273,6 +278,7 @@
 				E78008E7174808B300DFC429 /* BKNavViewController.m in Sources */,
 				E78008EA174808E400DFC429 /* BKMainViewController.m in Sources */,
 				E780090617480F9F00DFC429 /* BKLogInViewController.m in Sources */,
+				E780091B17481C5B00DFC429 /* BKUserInfoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
