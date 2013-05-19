@@ -206,7 +206,7 @@ CGFloat kCellViewHeight = 44.0f;
     if (section==0) {
         return @"Favorite Authors";
     } else if (section==1) {
-        return @"Reviewed Books";
+        return @"Favorite Books";
     }
     return @"";
 }
