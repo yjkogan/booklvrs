@@ -16,7 +16,28 @@
 		E726170C1748D28A005B4B46 /* booklvrs_book_icon_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = E726170B1748D289005B4B46 /* booklvrs_book_icon_blue.png */; };
 		E72617171748E791005B4B46 /* BKChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E72617161748E791005B4B46 /* BKChatViewController.m */; };
 		E726171C174925A2005B4B46 /* BKNearbyBooksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E726171B174925A2005B4B46 /* BKNearbyBooksViewController.m */; };
-		E726171E17492809005B4B46 /* booklvrs book covers in Resources */ = {isa = PBXBuildFile; fileRef = E726171D17492809005B4B46 /* booklvrs book covers */; };
+		E726173717492C24005B4B46 /* cover_1984.png in Resources */ = {isa = PBXBuildFile; fileRef = E726172117492C24005B4B46 /* cover_1984.png */; };
+		E726173817492C24005B4B46 /* cover_casual_vacancy.png in Resources */ = {isa = PBXBuildFile; fileRef = E726172217492C24005B4B46 /* cover_casual_vacancy.png */; };
+		E726173917492C24005B4B46 /* cover_catcher_in_the_rye.png in Resources */ = {isa = PBXBuildFile; fileRef = E726172317492C24005B4B46 /* cover_catcher_in_the_rye.png */; };
+		E726173A17492C24005B4B46 /* cover_clockwork_orange.png in Resources */ = {isa = PBXBuildFile; fileRef = E726172417492C24005B4B46 /* cover_clockwork_orange.png */; };
+		E726173B17492C24005B4B46 /* cover_collapse.png in Resources */ = {isa = PBXBuildFile; fileRef = E726172517492C24005B4B46 /* cover_collapse.png */; };
+		E726173C17492C24005B4B46 /* cover_delivering_happiness.png in Resources */ = {isa = PBXBuildFile; fileRef = E726172617492C24005B4B46 /* cover_delivering_happiness.png */; };
+		E726173D17492C24005B4B46 /* cover_gone_girl.gif in Resources */ = {isa = PBXBuildFile; fileRef = E726172717492C24005B4B46 /* cover_gone_girl.gif */; };
+		E726173E17492C24005B4B46 /* cover_gone_girl.png in Resources */ = {isa = PBXBuildFile; fileRef = E726172817492C24005B4B46 /* cover_gone_girl.png */; };
+		E726173F17492C24005B4B46 /* cover_great_gatsby.png in Resources */ = {isa = PBXBuildFile; fileRef = E726172917492C24005B4B46 /* cover_great_gatsby.png */; };
+		E726174017492C24005B4B46 /* cover_hunger_games.png in Resources */ = {isa = PBXBuildFile; fileRef = E726172A17492C24005B4B46 /* cover_hunger_games.png */; };
+		E726174117492C24005B4B46 /* cover_in_cold_blood.png in Resources */ = {isa = PBXBuildFile; fileRef = E726172B17492C24005B4B46 /* cover_in_cold_blood.png */; };
+		E726174217492C24005B4B46 /* cover_invisible_man.png in Resources */ = {isa = PBXBuildFile; fileRef = E726172C17492C24005B4B46 /* cover_invisible_man.png */; };
+		E726174317492C24005B4B46 /* cover_kite_runner.png in Resources */ = {isa = PBXBuildFile; fileRef = E726172D17492C24005B4B46 /* cover_kite_runner.png */; };
+		E726174417492C24005B4B46 /* cover_lean_in.png in Resources */ = {isa = PBXBuildFile; fileRef = E726172E17492C24005B4B46 /* cover_lean_in.png */; };
+		E726174517492C24005B4B46 /* cover_lean_startup.png in Resources */ = {isa = PBXBuildFile; fileRef = E726172F17492C24005B4B46 /* cover_lean_startup.png */; };
+		E726174617492C24005B4B46 /* cover_made_to_stick.png in Resources */ = {isa = PBXBuildFile; fileRef = E726173017492C24005B4B46 /* cover_made_to_stick.png */; };
+		E726174717492C24005B4B46 /* cover_predictably_irrational.png in Resources */ = {isa = PBXBuildFile; fileRef = E726173117492C24005B4B46 /* cover_predictably_irrational.png */; };
+		E726174817492C24005B4B46 /* cover_rise_of_creative_class.png in Resources */ = {isa = PBXBuildFile; fileRef = E726173217492C24005B4B46 /* cover_rise_of_creative_class.png */; };
+		E726174917492C24005B4B46 /* cover_stumbling_upon_happiness.png in Resources */ = {isa = PBXBuildFile; fileRef = E726173317492C24005B4B46 /* cover_stumbling_upon_happiness.png */; };
+		E726174A17492C24005B4B46 /* cover_white_teeth.png in Resources */ = {isa = PBXBuildFile; fileRef = E726173417492C24005B4B46 /* cover_white_teeth.png */; };
+		E726174B17492C24005B4B46 /* endersgame.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E726173517492C24005B4B46 /* endersgame.jpg */; };
+		E726174C17492C24005B4B46 /* for-whom-the-bell-tolls.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E726173617492C24005B4B46 /* for-whom-the-bell-tolls.jpg */; };
 		E78008C7174807C000DFC429 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78008C6174807C000DFC429 /* UIKit.framework */; };
 		E78008C9174807C000DFC429 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78008C8174807C000DFC429 /* Foundation.framework */; };
 		E78008CB174807C000DFC429 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78008CA174807C000DFC429 /* CoreGraphics.framework */; };
@@ -71,7 +92,28 @@
 		E72617161748E791005B4B46 /* BKChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKChatViewController.m; sourceTree = "<group>"; };
 		E726171A174925A1005B4B46 /* BKNearbyBooksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKNearbyBooksViewController.h; sourceTree = "<group>"; };
 		E726171B174925A2005B4B46 /* BKNearbyBooksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKNearbyBooksViewController.m; sourceTree = "<group>"; };
-		E726171D17492809005B4B46 /* booklvrs book covers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "booklvrs book covers"; sourceTree = "<group>"; };
+		E726172117492C24005B4B46 /* cover_1984.png */ = {isa = PBXFileReference; lastKnownFileType = file; name = cover_1984.png; path = "booklvrs book covers/cover_1984.png"; sourceTree = "<group>"; };
+		E726172217492C24005B4B46 /* cover_casual_vacancy.png */ = {isa = PBXFileReference; lastKnownFileType = file; name = cover_casual_vacancy.png; path = "booklvrs book covers/cover_casual_vacancy.png"; sourceTree = "<group>"; };
+		E726172317492C24005B4B46 /* cover_catcher_in_the_rye.png */ = {isa = PBXFileReference; lastKnownFileType = file; name = cover_catcher_in_the_rye.png; path = "booklvrs book covers/cover_catcher_in_the_rye.png"; sourceTree = "<group>"; };
+		E726172417492C24005B4B46 /* cover_clockwork_orange.png */ = {isa = PBXFileReference; lastKnownFileType = file; name = cover_clockwork_orange.png; path = "booklvrs book covers/cover_clockwork_orange.png"; sourceTree = "<group>"; };
+		E726172517492C24005B4B46 /* cover_collapse.png */ = {isa = PBXFileReference; lastKnownFileType = file; name = cover_collapse.png; path = "booklvrs book covers/cover_collapse.png"; sourceTree = "<group>"; };
+		E726172617492C24005B4B46 /* cover_delivering_happiness.png */ = {isa = PBXFileReference; lastKnownFileType = file; name = cover_delivering_happiness.png; path = "booklvrs book covers/cover_delivering_happiness.png"; sourceTree = "<group>"; };
+		E726172717492C24005B4B46 /* cover_gone_girl.gif */ = {isa = PBXFileReference; lastKnownFileType = file; name = cover_gone_girl.gif; path = "booklvrs book covers/cover_gone_girl.gif"; sourceTree = "<group>"; };
+		E726172817492C24005B4B46 /* cover_gone_girl.png */ = {isa = PBXFileReference; lastKnownFileType = file; name = cover_gone_girl.png; path = "booklvrs book covers/cover_gone_girl.png"; sourceTree = "<group>"; };
+		E726172917492C24005B4B46 /* cover_great_gatsby.png */ = {isa = PBXFileReference; lastKnownFileType = file; name = cover_great_gatsby.png; path = "booklvrs book covers/cover_great_gatsby.png"; sourceTree = "<group>"; };
+		E726172A17492C24005B4B46 /* cover_hunger_games.png */ = {isa = PBXFileReference; lastKnownFileType = file; name = cover_hunger_games.png; path = "booklvrs book covers/cover_hunger_games.png"; sourceTree = "<group>"; };
+		E726172B17492C24005B4B46 /* cover_in_cold_blood.png */ = {isa = PBXFileReference; lastKnownFileType = file; name = cover_in_cold_blood.png; path = "booklvrs book covers/cover_in_cold_blood.png"; sourceTree = "<group>"; };
+		E726172C17492C24005B4B46 /* cover_invisible_man.png */ = {isa = PBXFileReference; lastKnownFileType = file; name = cover_invisible_man.png; path = "booklvrs book covers/cover_invisible_man.png"; sourceTree = "<group>"; };
+		E726172D17492C24005B4B46 /* cover_kite_runner.png */ = {isa = PBXFileReference; lastKnownFileType = file; name = cover_kite_runner.png; path = "booklvrs book covers/cover_kite_runner.png"; sourceTree = "<group>"; };
+		E726172E17492C24005B4B46 /* cover_lean_in.png */ = {isa = PBXFileReference; lastKnownFileType = file; name = cover_lean_in.png; path = "booklvrs book covers/cover_lean_in.png"; sourceTree = "<group>"; };
+		E726172F17492C24005B4B46 /* cover_lean_startup.png */ = {isa = PBXFileReference; lastKnownFileType = file; name = cover_lean_startup.png; path = "booklvrs book covers/cover_lean_startup.png"; sourceTree = "<group>"; };
+		E726173017492C24005B4B46 /* cover_made_to_stick.png */ = {isa = PBXFileReference; lastKnownFileType = file; name = cover_made_to_stick.png; path = "booklvrs book covers/cover_made_to_stick.png"; sourceTree = "<group>"; };
+		E726173117492C24005B4B46 /* cover_predictably_irrational.png */ = {isa = PBXFileReference; lastKnownFileType = file; name = cover_predictably_irrational.png; path = "booklvrs book covers/cover_predictably_irrational.png"; sourceTree = "<group>"; };
+		E726173217492C24005B4B46 /* cover_rise_of_creative_class.png */ = {isa = PBXFileReference; lastKnownFileType = file; name = cover_rise_of_creative_class.png; path = "booklvrs book covers/cover_rise_of_creative_class.png"; sourceTree = "<group>"; };
+		E726173317492C24005B4B46 /* cover_stumbling_upon_happiness.png */ = {isa = PBXFileReference; lastKnownFileType = file; name = cover_stumbling_upon_happiness.png; path = "booklvrs book covers/cover_stumbling_upon_happiness.png"; sourceTree = "<group>"; };
+		E726173417492C24005B4B46 /* cover_white_teeth.png */ = {isa = PBXFileReference; lastKnownFileType = file; name = cover_white_teeth.png; path = "booklvrs book covers/cover_white_teeth.png"; sourceTree = "<group>"; };
+		E726173517492C24005B4B46 /* endersgame.jpg */ = {isa = PBXFileReference; lastKnownFileType = file; name = endersgame.jpg; path = "booklvrs book covers/endersgame.jpg"; sourceTree = "<group>"; };
+		E726173617492C24005B4B46 /* for-whom-the-bell-tolls.jpg */ = {isa = PBXFileReference; lastKnownFileType = file; name = "for-whom-the-bell-tolls.jpg"; path = "booklvrs book covers/for-whom-the-bell-tolls.jpg"; sourceTree = "<group>"; };
 		E78008C3174807C000DFC429 /* Booklvrs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Booklvrs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E78008C6174807C000DFC429 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E78008C8174807C000DFC429 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -246,7 +288,28 @@
 		E780090117480D2F00DFC429 /* assets */ = {
 			isa = PBXGroup;
 			children = (
-				E726171D17492809005B4B46 /* booklvrs book covers */,
+				E726172117492C24005B4B46 /* cover_1984.png */,
+				E726172217492C24005B4B46 /* cover_casual_vacancy.png */,
+				E726172317492C24005B4B46 /* cover_catcher_in_the_rye.png */,
+				E726172417492C24005B4B46 /* cover_clockwork_orange.png */,
+				E726172517492C24005B4B46 /* cover_collapse.png */,
+				E726172617492C24005B4B46 /* cover_delivering_happiness.png */,
+				E726172717492C24005B4B46 /* cover_gone_girl.gif */,
+				E726172817492C24005B4B46 /* cover_gone_girl.png */,
+				E726172917492C24005B4B46 /* cover_great_gatsby.png */,
+				E726172A17492C24005B4B46 /* cover_hunger_games.png */,
+				E726172B17492C24005B4B46 /* cover_in_cold_blood.png */,
+				E726172C17492C24005B4B46 /* cover_invisible_man.png */,
+				E726172D17492C24005B4B46 /* cover_kite_runner.png */,
+				E726172E17492C24005B4B46 /* cover_lean_in.png */,
+				E726172F17492C24005B4B46 /* cover_lean_startup.png */,
+				E726173017492C24005B4B46 /* cover_made_to_stick.png */,
+				E726173117492C24005B4B46 /* cover_predictably_irrational.png */,
+				E726173217492C24005B4B46 /* cover_rise_of_creative_class.png */,
+				E726173317492C24005B4B46 /* cover_stumbling_upon_happiness.png */,
+				E726173417492C24005B4B46 /* cover_white_teeth.png */,
+				E726173517492C24005B4B46 /* endersgame.jpg */,
+				E726173617492C24005B4B46 /* for-whom-the-bell-tolls.jpg */,
 				E726170B1748D289005B4B46 /* booklvrs_book_icon_blue.png */,
 				E72616FC1748B3A0005B4B46 /* booklvrs_cellview_bkground_blue.png */,
 				E72616FA1748AB0C005B4B46 /* booklvrs_arrow_blue.png */,
@@ -332,7 +395,28 @@
 				E72616FB1748AB0C005B4B46 /* booklvrs_arrow_blue.png in Resources */,
 				E72616FD1748B3A0005B4B46 /* booklvrs_cellview_bkground_blue.png in Resources */,
 				E726170C1748D28A005B4B46 /* booklvrs_book_icon_blue.png in Resources */,
-				E726171E17492809005B4B46 /* booklvrs book covers in Resources */,
+				E726173717492C24005B4B46 /* cover_1984.png in Resources */,
+				E726173817492C24005B4B46 /* cover_casual_vacancy.png in Resources */,
+				E726173917492C24005B4B46 /* cover_catcher_in_the_rye.png in Resources */,
+				E726173A17492C24005B4B46 /* cover_clockwork_orange.png in Resources */,
+				E726173B17492C24005B4B46 /* cover_collapse.png in Resources */,
+				E726173C17492C24005B4B46 /* cover_delivering_happiness.png in Resources */,
+				E726173D17492C24005B4B46 /* cover_gone_girl.gif in Resources */,
+				E726173E17492C24005B4B46 /* cover_gone_girl.png in Resources */,
+				E726173F17492C24005B4B46 /* cover_great_gatsby.png in Resources */,
+				E726174017492C24005B4B46 /* cover_hunger_games.png in Resources */,
+				E726174117492C24005B4B46 /* cover_in_cold_blood.png in Resources */,
+				E726174217492C24005B4B46 /* cover_invisible_man.png in Resources */,
+				E726174317492C24005B4B46 /* cover_kite_runner.png in Resources */,
+				E726174417492C24005B4B46 /* cover_lean_in.png in Resources */,
+				E726174517492C24005B4B46 /* cover_lean_startup.png in Resources */,
+				E726174617492C24005B4B46 /* cover_made_to_stick.png in Resources */,
+				E726174717492C24005B4B46 /* cover_predictably_irrational.png in Resources */,
+				E726174817492C24005B4B46 /* cover_rise_of_creative_class.png in Resources */,
+				E726174917492C24005B4B46 /* cover_stumbling_upon_happiness.png in Resources */,
+				E726174A17492C24005B4B46 /* cover_white_teeth.png in Resources */,
+				E726174B17492C24005B4B46 /* endersgame.jpg in Resources */,
+				E726174C17492C24005B4B46 /* for-whom-the-bell-tolls.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
