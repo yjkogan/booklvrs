@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC7462811748AED4002ADED3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC7462801748AED4002ADED3 /* MapKit.framework */; };
+		AC7462841748AF56002ADED3 /* BKNearbyUsersMapController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7462831748AF56002ADED3 /* BKNearbyUsersMapController.m */; };
 		E72616F717489CC4005B4B46 /* iphone_splash_nobuttons.png in Resources */ = {isa = PBXBuildFile; fileRef = E72616F617489CC4005B4B46 /* iphone_splash_nobuttons.png */; };
 		E72616F917489E59005B4B46 /* fb_button.png in Resources */ = {isa = PBXBuildFile; fileRef = E72616F817489E59005B4B46 /* fb_button.png */; };
 		E78008C7174807C000DFC429 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78008C6174807C000DFC429 /* UIKit.framework */; };
@@ -51,6 +53,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC7462801748AED4002ADED3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		AC7462821748AF56002ADED3 /* BKNearbyUsersMapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKNearbyUsersMapController.h; sourceTree = "<group>"; };
+		AC7462831748AF56002ADED3 /* BKNearbyUsersMapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKNearbyUsersMapController.m; sourceTree = "<group>"; };
 		E72616F617489CC4005B4B46 /* iphone_splash_nobuttons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone_splash_nobuttons.png; sourceTree = "<group>"; };
 		E72616F817489E59005B4B46 /* fb_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fb_button.png; sourceTree = "<group>"; };
 		E78008C3174807C000DFC429 /* Booklvrs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Booklvrs.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC7462811748AED4002ADED3 /* MapKit.framework in Frameworks */,
 				E78008F2174809F900DFC429 /* CoreLocation.framework in Frameworks */,
 				E78008F817480A1100DFC429 /* QuartzCore.framework in Frameworks */,
 				E78009141748135200DFC429 /* Social.framework in Frameworks */,
@@ -155,6 +161,7 @@
 		E78008C5174807C000DFC429 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AC7462801748AED4002ADED3 /* MapKit.framework */,
 				E78009131748135200DFC429 /* Social.framework */,
 				E78009111748134300DFC429 /* libsqlite3.dylib */,
 				E780090F1748133B00DFC429 /* Accounts.framework */,
@@ -189,6 +196,8 @@
 				E78008E9174808E400DFC429 /* BKMainViewController.m */,
 				E78009281748909000DFC429 /* BKNearbyUsersTableViewController.h */,
 				E78009291748909000DFC429 /* BKNearbyUsersTableViewController.m */,
+				AC7462821748AF56002ADED3 /* BKNearbyUsersMapController.h */,
+				AC7462831748AF56002ADED3 /* BKNearbyUsersMapController.m */,
 				E780092E1748951900DFC429 /* BKProfileViewController.h */,
 				E780092F1748951900DFC429 /* BKProfileViewController.m */,
 				E780091917481C5B00DFC429 /* BKUserInfoViewController.h */,
@@ -317,6 +326,7 @@
 				E78009211748839F00DFC429 /* XMLDictionary.m in Sources */,
 				E780092A1748909000DFC429 /* BKNearbyUsersTableViewController.m in Sources */,
 				E78009301748951900DFC429 /* BKProfileViewController.m in Sources */,
+				AC7462841748AF56002ADED3 /* BKNearbyUsersMapController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
