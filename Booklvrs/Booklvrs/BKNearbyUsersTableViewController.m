@@ -64,16 +64,11 @@
     
     PFUser *user = [self.nearbyUsers objectAtIndex:indexPath.row];
     
-    NSString *profilePicPath = [NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?type=small", [user objectForKey:@"facebookId"]];
+    NSString *profilePicPath = [NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?type=square", [user objectForKey:@"facebookId"]];
     
-    [FBRequestConnection startWithGraphPath:profilePicPath completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-        
-        if (error) {
-            NSLog(@"%@", error);
-        }
-        NSLog(@"%@",result);
-    }];
+    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:profilePicPath]]];
     
+    cell.imageView.image = image;
     cell.textLabel.text = [user objectForKey:@"name"];
     
     return cell;
