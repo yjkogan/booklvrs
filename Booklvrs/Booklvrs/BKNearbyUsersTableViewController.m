@@ -7,6 +7,7 @@
 //
 
 #import "BKNearbyUsersTableViewController.h"
+#import "BKNearbyUsersMapController.h"
 #import "BKProfileViewController.h"
 
 @interface BKNearbyUsersTableViewController ()
@@ -15,13 +16,23 @@
 
 @implementation BKNearbyUsersTableViewController
 
+@synthesize mapsButtonItem;
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        self.mapsButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Map" style:UIBarButtonItemStylePlain target:self action:@selector(toggleMaps:)];
     }
     return self;
+}
+
+- (void) toggleMaps: (id) sender {
+    NSLog(@"hello");
+    BKNearbyUsersMapController *mapVC = [[BKNearbyUsersMapController alloc] initWithNibName:nil bundle:nil];
+//    profileVC.user = [self.nearbyUsers objectAtIndex:indexPath.row];
+    [self.navigationController pushViewController:mapVC animated:YES];
 }
 
 - (void)viewDidLoad
@@ -35,6 +46,7 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.rightBarButtonItem = self.mapsButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
