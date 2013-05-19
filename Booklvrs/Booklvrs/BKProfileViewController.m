@@ -9,10 +9,16 @@
 #import "BKProfileViewController.h"
 #import "BKAppDelegate.h"
 #import "XMLDictionary.h"
+#import <QuartzCore/QuartzCore.h>
+
+CGFloat kViewPadding = 5.0f;
+CGFloat kCellViewHeight = 44.0f;
 
 @interface BKProfileViewController ()
 
 @property (strong,nonatomic) NSDictionary *goodReadsUserInfo;
+@property (strong,nonatomic) NSMutableArray *favoriteAuthors;
+@property (strong,nonatomic) NSMutableArray *reviewedBooks;
 
 @end
 
@@ -30,6 +36,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UIBarButtonItem *chatBtn = [[UIBarButtonItem alloc] initWithTitle:@"Chat" style:UIBarButtonItemStylePlain target:self action:@selector(chatSelectUser:)];
+    self.navigationItem.rightBarButtonItem = chatBtn;
 
     NSString *key = ((BKAppDelegate *)[[UIApplication sharedApplication] delegate]).goodReadsKey;
     NSString *username = [self.user objectForKey:@"GoodReadsUsername"];
@@ -38,24 +47,66 @@
     
     self.goodReadsUserInfo = [NSDictionary dictionaryWithXMLString:response];
     
-    NSLog(@"%@", [self.goodReadsUserInfo valueForKeyPath:@"user.name"]);
-    for (NSDictionary *author in [self.goodReadsUserInfo valueForKeyPath:@"user.favorite_authors.author"]) {
-        NSLog(@"%@",[author valueForKeyPath:@"name"]);
-    }
-    
     UIScrollView *containerView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width,self.view.frame.size.height)];
-    containerView.backgroundColor = [UIColor redColor];
+    containerView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"booklvrs_bkground.jpg"]];
+    containerView.scrollEnabled = YES;
     
-    UILabel *userName = [[UILabel alloc] initWithFrame:CGRectMake(self.view.center.x - 100, 5.0, 200.0, 40.0)];
-    userName.text = [self.goodReadsUserInfo valueForKeyPath:@"user.name"];
+    UILabel *userName = [[UILabel alloc] initWithFrame:CGRectMake(self.view.center.x - 100, kViewPadding, 200.0, 40.0)];
+    userName.text = [self.user objectForKey:@"name"];
     userName.textAlignment = NSTextAlignmentCenter;
+    userName.backgroundColor = [UIColor clearColor];
     [containerView addSubview:userName];
     
+    NSString *profilePicPath = [NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?width=180&height=180", [self.user objectForKey:@"facebookId"]];
+    
+    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:profilePicPath]]];
+    
+    UIImageView *profileImage = [[UIImageView alloc] initWithFrame:CGRectMake(self.view.center.x-90,
+                                                                             userName.frame.origin.y + userName.frame.size.height + kViewPadding,
+                                                                             180.0,
+                                                                              180.0)];
+    profileImage.layer.masksToBounds = YES;
+    profileImage.layer.cornerRadius = 45.0f;
+    profileImage.image = image;
+    
+    [containerView addSubview:profileImage];
+    
+    self.favoriteAuthors = [[NSMutableArray alloc] init];
+    
+    for (NSDictionary *author in [self.goodReadsUserInfo valueForKeyPath:@"user.favorite_authors.author"]) {
+        // There is a bug here if the user has less than two favorite authors
+        [self.favoriteAuthors addObject:[author valueForKeyPath:@"name"]];
+    }
+    
+    self.reviewedBooks = [[NSMutableArray alloc] init];
+    for(NSDictionary *review in [self.goodReadsUserInfo valueForKeyPath:@"user.updates.update"]) {
+        if ([[review valueForKeyPath:@"_type"] isEqualToString:@"review"]) {
+            [self.reviewedBooks addObject:[review valueForKeyPath:@"object.book.title"]];
+        }
+    }
+    
+    UITableView *goodReadsTableView = [[UITableView alloc] initWithFrame:CGRectMake(kViewPadding,
+                                                                                    profileImage.frame.origin.y + profileImage.frame.size.height + 4*kViewPadding,
+                                                                                    self.view.frame.size.width - 2*kViewPadding,
+                                                                                    0) style:UITableViewStyleGrouped];
+    
+    goodReadsTableView.delegate = self;
+    goodReadsTableView.dataSource = self;
+    goodReadsTableView.backgroundView = nil;
+    goodReadsTableView.backgroundColor = [UIColor clearColor];
+    
+    [goodReadsTableView layoutIfNeeded];
+    goodReadsTableView.frame = CGRectMake(goodReadsTableView.frame.origin.x,
+                                          goodReadsTableView.frame.origin.y,
+                                          goodReadsTableView.frame.size.width,
+                                          goodReadsTableView.contentSize.height);
+    
+    [containerView addSubview:goodReadsTableView];
+    
+    containerView.contentSize = CGSizeMake(self.view.frame.size.width,
+                                           700);
+    
     [self.view addSubview:containerView];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-
 }
 
 - (NSString *)getDataFrom:(NSString *)url {
@@ -76,4 +127,104 @@
     
     return [[NSString alloc] initWithData:oResponseData encoding:NSUTF8StringEncoding];
 }
+
+- (void)chatSelectUser:(id)sender {
+    NSLog(@"chat tapped");
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (section==0) {
+        return self.favoriteAuthors.count;
+    } else if (section==1) {
+        return self.reviewedBooks.count;
+    }
+    return 0;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    if (indexPath.section == 0) {
+        cell.textLabel.text = [self.favoriteAuthors objectAtIndex:indexPath.row];
+    } else if (indexPath.section == 1) {
+        cell.textLabel.text = [self.reviewedBooks objectAtIndex:indexPath.row];
+    }
+    
+    return cell;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (section==0) {
+        return @"Favorite Authors";
+    } else if (section==1) {
+        return @"Reviewed Books";
+    }
+    return @"";
+}
+
+/*
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
+
+/*
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the row from the data source
+ [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ }
+ else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+ }
+ }
+ */
+
+/*
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+ {
+ }
+ */
+
+/*
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Navigation logic may go here. Create and push another view controller.
+    /*
+     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+     // ...
+     // Pass the selected object to the new view controller.
+     [self.navigationController pushViewController:detailViewController animated:YES];
+     */
+}
+
 @end

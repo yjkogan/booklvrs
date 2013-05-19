@@ -27,6 +27,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.navigationItem.title = @"Nearby Users";
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -68,7 +70,11 @@
     
     UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:profilePicPath]]];
     
+    UIImageView *accessoryArrow = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,25,25)];
+    accessoryArrow.image = [UIImage imageNamed:@"booklvrs_arrow_blue.png"];
+    
     cell.imageView.image = image;
+    cell.accessoryView = accessoryArrow;
     cell.textLabel.text = [user objectForKey:@"name"];
     
     return cell;

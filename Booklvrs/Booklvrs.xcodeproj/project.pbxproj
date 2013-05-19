@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		E72616F717489CC4005B4B46 /* iphone_splash_nobuttons.png in Resources */ = {isa = PBXBuildFile; fileRef = E72616F617489CC4005B4B46 /* iphone_splash_nobuttons.png */; };
 		E72616F917489E59005B4B46 /* fb_button.png in Resources */ = {isa = PBXBuildFile; fileRef = E72616F817489E59005B4B46 /* fb_button.png */; };
+		E72616FB1748AB0C005B4B46 /* booklvrs_arrow_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = E72616FA1748AB0C005B4B46 /* booklvrs_arrow_blue.png */; };
+		E72616FD1748B3A0005B4B46 /* booklvrs_cellview_bkground_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = E72616FC1748B3A0005B4B46 /* booklvrs_cellview_bkground_blue.png */; };
 		E78008C7174807C000DFC429 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78008C6174807C000DFC429 /* UIKit.framework */; };
 		E78008C9174807C000DFC429 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78008C8174807C000DFC429 /* Foundation.framework */; };
 		E78008CB174807C000DFC429 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78008CA174807C000DFC429 /* CoreGraphics.framework */; };
@@ -53,6 +55,8 @@
 /* Begin PBXFileReference section */
 		E72616F617489CC4005B4B46 /* iphone_splash_nobuttons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone_splash_nobuttons.png; sourceTree = "<group>"; };
 		E72616F817489E59005B4B46 /* fb_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fb_button.png; sourceTree = "<group>"; };
+		E72616FA1748AB0C005B4B46 /* booklvrs_arrow_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = booklvrs_arrow_blue.png; sourceTree = "<group>"; };
+		E72616FC1748B3A0005B4B46 /* booklvrs_cellview_bkground_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = booklvrs_cellview_bkground_blue.png; sourceTree = "<group>"; };
 		E78008C3174807C000DFC429 /* Booklvrs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Booklvrs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E78008C6174807C000DFC429 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E78008C8174807C000DFC429 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -219,6 +223,8 @@
 		E780090117480D2F00DFC429 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				E72616FC1748B3A0005B4B46 /* booklvrs_cellview_bkground_blue.png */,
+				E72616FA1748AB0C005B4B46 /* booklvrs_arrow_blue.png */,
 				E72616F817489E59005B4B46 /* fb_button.png */,
 				E72616F617489CC4005B4B46 /* iphone_splash_nobuttons.png */,
 				E780092617488A3E00DFC429 /* goodreads.png */,
@@ -298,6 +304,8 @@
 				E780092717488A3E00DFC429 /* goodreads.png in Resources */,
 				E72616F717489CC4005B4B46 /* iphone_splash_nobuttons.png in Resources */,
 				E72616F917489E59005B4B46 /* fb_button.png in Resources */,
+				E72616FB1748AB0C005B4B46 /* booklvrs_arrow_blue.png in Resources */,
+				E72616FD1748B3A0005B4B46 /* booklvrs_cellview_bkground_blue.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
