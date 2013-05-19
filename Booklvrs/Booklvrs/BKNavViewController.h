@@ -10,4 +10,6 @@
 
 @interface BKNavViewController : UINavigationController
 
+@property (nonatomic) BOOL showNearbyList;
+
 @end

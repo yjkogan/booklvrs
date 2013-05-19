@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 #import "BKLogInViewController.h"
+#import "BKNearbyUsersMapController.h"
+#import "BKNearbyUsersTableViewController.h"
 
-@interface BKMainViewController : UIViewController <BKLogInViewDelegate>
+@interface BKMainViewController : UIViewController <BKLogInViewDelegate,BKNearbyUsersMapControllerDelegate, BKNearbyUsersTableViewControllerDelegate>
 
 @end

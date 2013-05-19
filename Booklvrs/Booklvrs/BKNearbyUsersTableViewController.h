@@ -8,9 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@class BKNearbyUsersTableViewController;
+
+@protocol BKNearbyUsersTableViewControllerDelegate <NSObject>
+
+- (void)changeToMapViewFrom:(BKNearbyUsersTableViewController *)controller;
+
+@end
+
 @interface BKNearbyUsersTableViewController : UITableViewController
 
 @property (strong,nonatomic) NSArray *nearbyUsers;
 @property (strong) UIBarButtonItem *mapsButtonItem;
+@property (weak, nonatomic) id<BKNearbyUsersTableViewControllerDelegate> delegate;
 
 @end

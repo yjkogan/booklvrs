@@ -29,10 +29,7 @@
 }
 
 - (void) toggleMaps: (id) sender {
-    NSLog(@"hello");
-    BKNearbyUsersMapController *mapVC = [[BKNearbyUsersMapController alloc] initWithNibName:nil bundle:nil];
-//    profileVC.user = [self.nearbyUsers objectAtIndex:indexPath.row];
-    [self.navigationController pushViewController:mapVC animated:YES];
+    [self.delegate changeToMapViewFrom:self];
 }
 
 - (void)viewDidLoad
@@ -47,6 +44,8 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"booklvrs_bkground.jpg"]];
+    [self.tableView setSeparatorColor:[UIColor blackColor]];
     self.navigationItem.rightBarButtonItem = self.mapsButtonItem;
 }
 

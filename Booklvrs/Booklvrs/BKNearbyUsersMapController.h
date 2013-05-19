@@ -9,8 +9,18 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-@interface BKNearbyUsersMapController : UIViewController
+@class BKNearbyUsersMapController;
 
-@property (strong) MKMapView *mapView;
+@protocol BKNearbyUsersMapControllerDelegate <NSObject>
+
+- (void)changeToListViewFrom:(BKNearbyUsersMapController *)controller;
+
+@end
+
+@interface BKNearbyUsersMapController : UIViewController <MKMapViewDelegate>
+
+@property (strong,nonatomic) MKMapView *mapView;
+@property (strong,nonatomic) NSArray *nearbyUsers;
+@property (weak, nonatomic) id<BKNearbyUsersMapControllerDelegate> delegate;
 
 @end

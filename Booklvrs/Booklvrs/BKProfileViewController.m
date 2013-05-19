@@ -142,8 +142,10 @@ CGFloat kCellViewHeight = 44.0f;
     return [[NSString alloc] initWithData:oResponseData encoding:NSUTF8StringEncoding];
 }
 
+#pragma mark - chat btn tapped
+
 - (void)chatSelectUser:(id)sender {
-    NSLog(@"chat tapped");
+
 }
 
 #pragma mark - Table view data source

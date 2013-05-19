@@ -12,9 +12,13 @@
 #import "BKAppDelegate.h"
 #import "XMLDictionary.h"
 #import "BKNearbyUsersTableViewController.h"
+#import "BKNearbyUsersMapController.h"
 #import <Parse/Parse.h>
 
 @interface BKMainViewController ()
+
+@property (nonatomic) BOOL showList;
+@property (nonatomic) BOOL animateTransition;
 
 @end
 
@@ -31,6 +35,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.showList = YES;
+    self.animateTransition = YES;
     UIImageView *backgroundImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     
     backgroundImage.image = [UIImage imageNamed:@"iphone_splash_nobuttons.png"];
@@ -50,15 +56,39 @@
         [self.navigationController pushViewController:userInfoVC animated:YES];
     } else {
 
-        BKNearbyUsersTableViewController *nearbyUserListVC = [[BKNearbyUsersTableViewController alloc] initWithStyle:UITableViewStylePlain];
-        
-        PFQuery *nearbyUsersQuery = [PFUser query];
-        [nearbyUsersQuery whereKey:@"facebookId" notEqualTo:[[PFUser currentUser] objectForKey:@"facebookId"]];
-        [nearbyUsersQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-            nearbyUserListVC.nearbyUsers = objects;
-            [self.navigationController pushViewController:nearbyUserListVC animated:YES];
-        }];
+        if (self.showList) {
+            BKNearbyUsersTableViewController *nearbyUserListVC = [[BKNearbyUsersTableViewController alloc] initWithStyle:UITableViewStylePlain];
+            nearbyUserListVC.delegate = self;
+            
+            PFQuery *nearbyUsersQuery = [PFUser query];
+            [nearbyUsersQuery whereKey:@"facebookId" notEqualTo:[[PFUser currentUser] objectForKey:@"facebookId"]];
+            [nearbyUsersQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                nearbyUserListVC.nearbyUsers = objects;
+                [self.navigationController pushViewController:nearbyUserListVC animated:self.animateTransition];
+            }];
+        } else {
+            BKNearbyUsersMapController *nearbyUsersMapVC = [[BKNearbyUsersMapController alloc] initWithNibName:nil bundle:nil];
+            nearbyUsersMapVC.delegate = self;
+            PFQuery *nearbyUsersQuery = [PFUser query];
+            [nearbyUsersQuery whereKey:@"facebookId" notEqualTo:[[PFUser currentUser] objectForKey:@"facebookId"]];
+            [nearbyUsersQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                nearbyUsersMapVC.nearbyUsers = objects;
+                [self.navigationController pushViewController:nearbyUsersMapVC animated:self.animateTransition];
+            }];
+        }
     }
+}
+
+- (void)changeToMapViewFrom:(BKNearbyUsersTableViewController *)controller {
+    self.showList = NO;
+    self.animateTransition = NO;
+    [self.navigationController popViewControllerAnimated:NO];
+}
+
+- (void)changeToListViewFrom:(BKNearbyUsersMapController *)controller {
+    self.showList = YES;
+    self.animateTransition = NO;
+    [self.navigationController popViewControllerAnimated:NO];
 }
 
 #pragma mark -- LogInView Delegate Methods --
