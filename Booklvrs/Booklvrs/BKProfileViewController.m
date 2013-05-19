@@ -9,6 +9,7 @@
 #import "BKProfileViewController.h"
 #import "BKAppDelegate.h"
 #import "XMLDictionary.h"
+#import "UIChatViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
 CGFloat kViewPadding = 5.0f;

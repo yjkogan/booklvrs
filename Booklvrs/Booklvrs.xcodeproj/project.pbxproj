@@ -19,7 +19,7 @@
 		E72617081748D00B005B4B46 /* for-whom-the-bell-tolls.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E72617071748D00B005B4B46 /* for-whom-the-bell-tolls.jpg */; };
 		E726170A1748D082005B4B46 /* endersgame.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E72617091748D082005B4B46 /* endersgame.jpg */; };
 		E726170C1748D28A005B4B46 /* booklvrs_book_icon_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = E726170B1748D289005B4B46 /* booklvrs_book_icon_blue.png */; };
-		E72617141748E72C005B4B46 /* BKChatView.m in Sources */ = {isa = PBXBuildFile; fileRef = E72617131748E72C005B4B46 /* BKChatView.m */; };
+		E72617171748E791005B4B46 /* BKChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E72617161748E791005B4B46 /* BKChatViewController.m */; };
 		E78008C7174807C000DFC429 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78008C6174807C000DFC429 /* UIKit.framework */; };
 		E78008C9174807C000DFC429 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78008C8174807C000DFC429 /* Foundation.framework */; };
 		E78008CB174807C000DFC429 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78008CA174807C000DFC429 /* CoreGraphics.framework */; };
@@ -75,8 +75,8 @@
 		E72617071748D00B005B4B46 /* for-whom-the-bell-tolls.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "for-whom-the-bell-tolls.jpg"; path = "booklvrs book covers/for-whom-the-bell-tolls.jpg"; sourceTree = "<group>"; };
 		E72617091748D082005B4B46 /* endersgame.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = endersgame.jpg; path = "booklvrs book covers/endersgame.jpg"; sourceTree = "<group>"; };
 		E726170B1748D289005B4B46 /* booklvrs_book_icon_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = booklvrs_book_icon_blue.png; sourceTree = "<group>"; };
-		E72617121748E72C005B4B46 /* BKChatView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKChatView.h; sourceTree = "<group>"; };
-		E72617131748E72C005B4B46 /* BKChatView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKChatView.m; sourceTree = "<group>"; };
+		E72617151748E791005B4B46 /* BKChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKChatViewController.h; sourceTree = "<group>"; };
+		E72617161748E791005B4B46 /* BKChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKChatViewController.m; sourceTree = "<group>"; };
 		E78008C3174807C000DFC429 /* Booklvrs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Booklvrs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E78008C6174807C000DFC429 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E78008C8174807C000DFC429 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -219,12 +219,12 @@
 				AC7462831748AF56002ADED3 /* BKNearbyUsersMapController.m */,
 				E780092E1748951900DFC429 /* BKProfileViewController.h */,
 				E780092F1748951900DFC429 /* BKProfileViewController.m */,
-				E72617121748E72C005B4B46 /* BKChatView.h */,
-				E72617131748E72C005B4B46 /* BKChatView.m */,
 				E780091917481C5B00DFC429 /* BKUserInfoViewController.h */,
 				E780091A17481C5B00DFC429 /* BKUserInfoViewController.m */,
 				E780090417480F9F00DFC429 /* BKLogInViewController.h */,
 				E780090517480F9F00DFC429 /* BKLogInViewController.m */,
+				E72617151748E791005B4B46 /* BKChatViewController.h */,
+				E72617161748E791005B4B46 /* BKChatViewController.m */,
 				E780091F1748839F00DFC429 /* XMLDictionary.h */,
 				E78009201748839F00DFC429 /* XMLDictionary.m */,
 				E78008CD174807C000DFC429 /* Supporting Files */,
@@ -364,7 +364,7 @@
 				E780092A1748909000DFC429 /* BKNearbyUsersTableViewController.m in Sources */,
 				E78009301748951900DFC429 /* BKProfileViewController.m in Sources */,
 				AC7462841748AF56002ADED3 /* BKNearbyUsersMapController.m in Sources */,
-				E72617141748E72C005B4B46 /* BKChatView.m in Sources */,
+				E72617171748E791005B4B46 /* BKChatViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

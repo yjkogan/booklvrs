@@ -1,5 +1,5 @@
 //
-//  BKChatView.h
+//  UIChatViewController.h
 //  Booklvrs
 //
 //  Created by Romotive on 5/19/13.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BKChatView : UIView
+@interface UIChatViewController : UIViewController
 
 @end
