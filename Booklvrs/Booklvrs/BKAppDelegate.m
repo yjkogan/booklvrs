@@ -21,6 +21,8 @@
     [PFFacebookUtils initializeFacebook];
     self.goodReadsKey = @"BmtaX8OIKKEqF1JaBkUj1Q";
     
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     BKMainViewController *mainVC = [[BKMainViewController alloc] initWithNibName:nil bundle:nil];
     self.navController = [[BKNavViewController alloc] initWithRootViewController:mainVC];

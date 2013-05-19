@@ -38,7 +38,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    self.navigationItem.hidesBackButton = YES;
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
     self.navigationItem.title = @"Nearby Users";
 
     // Uncomment the following line to preserve selection between presentations.
@@ -47,12 +48,6 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.navigationItem.rightBarButtonItem = self.mapsButtonItem;
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source

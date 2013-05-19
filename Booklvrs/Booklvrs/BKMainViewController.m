@@ -31,12 +31,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"booklvrs_bkground.jpg"]];
-    UIBarButtonItem *logOutButton = [[UIBarButtonItem alloc] initWithTitle:@"Log Out" style:UIBarButtonItemStylePlain target:self action:@selector(logOutCurrentUser:)];
-    self.navigationItem.rightBarButtonItem = logOutButton;
+    UIImageView *backgroundImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    
+    backgroundImage.image = [UIImage imageNamed:@"iphone_splash_nobuttons.png"];
+    [self.view addSubview:backgroundImage];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
     
     if (![PFUser currentUser]) {
         BKLogInViewController * logInVC = [[BKLogInViewController alloc] init];
@@ -55,12 +58,6 @@
             [self.navigationController pushViewController:nearbyUserListVC animated:YES];
         }];
     }
-}
-
-- (void)logOutCurrentUser:(id)sender {
-    [PFUser logOut];
-    UIAlertView *loggedOut = [[UIAlertView alloc] initWithTitle:@"Logged Out!" message:nil delegate:self cancelButtonTitle:@"Yay!" otherButtonTitles: nil];
-    [loggedOut show];
 }
 
 #pragma mark -- LogInView Delegate Methods --

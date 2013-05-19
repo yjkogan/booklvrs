@@ -53,6 +53,7 @@ CGFloat kCellViewHeight = 44.0f;
     
     UILabel *userName = [[UILabel alloc] initWithFrame:CGRectMake(self.view.center.x - 100, kViewPadding, 200.0, 40.0)];
     userName.text = [self.user objectForKey:@"name"];
+    userName.font = [UIFont fontWithName:@"Courier-Bold" size:24.0];
     userName.textAlignment = NSTextAlignmentCenter;
     userName.backgroundColor = [UIColor clearColor];
     [containerView addSubview:userName];
@@ -103,8 +104,10 @@ CGFloat kCellViewHeight = 44.0f;
     
     [containerView addSubview:goodReadsTableView];
     
+    CGFloat contentHeight = goodReadsTableView.contentSize.height + goodReadsTableView.frame.origin.y + 44.0;
+    
     containerView.contentSize = CGSizeMake(self.view.frame.size.width,
-                                           700);
+                                           contentHeight);
     
     [self.view addSubview:containerView];
 }

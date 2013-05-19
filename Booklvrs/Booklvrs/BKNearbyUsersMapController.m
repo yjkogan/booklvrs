@@ -25,6 +25,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
 //    
 //    NSString *key = ((BKAppDelegate *)[[UIApplication sharedApplication] delegate]).goodReadsKey;
 //    NSString *username = [self.user objectForKey:@"GoodReadsUsername"];
