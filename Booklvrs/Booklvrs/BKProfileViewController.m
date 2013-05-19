@@ -38,7 +38,7 @@ CGFloat kCellViewHeight = 44.0f;
 {
     [super viewDidLoad];
     
-    UIBarButtonItem *chatBtn = [[UIBarButtonItem alloc] initWithTitle:@"Chat" style:UIBarButtonItemStylePlain target:self action:@selector(chatSelectUser:)];
+    UIBarButtonItem *chatBtn = [[UIBarButtonItem alloc] initWithTitle:@"Message" style:UIBarButtonItemStylePlain target:self action:@selector(chatSelectUser:)];
     self.navigationItem.rightBarButtonItem = chatBtn;
 
     NSString *key = ((BKAppDelegate *)[[UIApplication sharedApplication] delegate]).goodReadsKey;

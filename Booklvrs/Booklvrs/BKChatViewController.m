@@ -35,14 +35,17 @@
     NSDictionary *message = [[NSDictionary alloc] initWithObjects:messageInfo forKeys:messageKeys];
     self.messages = [[NSMutableArray alloc] initWithObjects:message, nil];
     self.navigationItem.title = [NSString stringWithFormat:@"%@", [self.user objectForKey:@"name"]];
-    self.view.backgroundColor = [UIColor whiteColor];
+
+    UIImageView *background = [[UIImageView alloc] initWithFrame:self.view.frame];
+    background.image = [UIImage imageNamed:@"iphone_splash_nobuttons.png"];
+    [self.view addSubview:background];
+    
     UITextField *messageBox = [[UITextField alloc] initWithFrame:CGRectMake(5.0,
                                                                          self.view.frame.size.height - 75.0,
                                                                          self.view.frame.size.width - 10.0,
                                                                           30.0)];
     [messageBox setBorderStyle:UITextBorderStyleRoundedRect];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"booklvrs_bkground.jpg"]];
-    
+
     messageBox.returnKeyType = UIReturnKeySend;
     messageBox.delegate = self;
     [self.view addSubview:messageBox];
@@ -111,6 +114,7 @@
     NSDictionary *message = [self.messages objectAtIndex:indexPath.row];
     
     cell.textLabel.text = [message objectForKey:@"text"];
+    cell.textLabel.font = [UIFont fontWithName:@"Courier" size:18];
     cell.textLabel.adjustsFontSizeToFitWidth = YES;
     if  ([[message objectForKey:@"sender"] isEqualToString:@"notYou"]) {
         cell.textLabel.textAlignment = NSTextAlignmentLeft;
