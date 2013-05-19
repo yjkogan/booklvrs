@@ -11,5 +11,6 @@
 @interface BKNearbyUsersTableViewController : UITableViewController
 
 @property (strong,nonatomic) NSArray *nearbyUsers;
+@property (strong) UIBarButtonItem *mapsButtonItem;
 
 @end
