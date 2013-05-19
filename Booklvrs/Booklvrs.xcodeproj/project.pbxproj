@@ -13,6 +13,12 @@
 		E72616F917489E59005B4B46 /* fb_button.png in Resources */ = {isa = PBXBuildFile; fileRef = E72616F817489E59005B4B46 /* fb_button.png */; };
 		E72616FB1748AB0C005B4B46 /* booklvrs_arrow_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = E72616FA1748AB0C005B4B46 /* booklvrs_arrow_blue.png */; };
 		E72616FD1748B3A0005B4B46 /* booklvrs_cellview_bkground_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = E72616FC1748B3A0005B4B46 /* booklvrs_cellview_bkground_blue.png */; };
+		E72617031748CE7F005B4B46 /* cover_casual_vacancy.png in Resources */ = {isa = PBXBuildFile; fileRef = E72617011748CE7F005B4B46 /* cover_casual_vacancy.png */; };
+		E72617041748CE7F005B4B46 /* cover_clockwork_orange.png in Resources */ = {isa = PBXBuildFile; fileRef = E72617021748CE7F005B4B46 /* cover_clockwork_orange.png */; };
+		E72617061748CE9D005B4B46 /* cover_lean_in.png in Resources */ = {isa = PBXBuildFile; fileRef = E72617051748CE9D005B4B46 /* cover_lean_in.png */; };
+		E72617081748D00B005B4B46 /* for-whom-the-bell-tolls.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E72617071748D00B005B4B46 /* for-whom-the-bell-tolls.jpg */; };
+		E726170A1748D082005B4B46 /* endersgame.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E72617091748D082005B4B46 /* endersgame.jpg */; };
+		E726170C1748D28A005B4B46 /* booklvrs_book_icon_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = E726170B1748D289005B4B46 /* booklvrs_book_icon_blue.png */; };
 		E78008C7174807C000DFC429 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78008C6174807C000DFC429 /* UIKit.framework */; };
 		E78008C9174807C000DFC429 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78008C8174807C000DFC429 /* Foundation.framework */; };
 		E78008CB174807C000DFC429 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78008CA174807C000DFC429 /* CoreGraphics.framework */; };
@@ -62,6 +68,12 @@
 		E72616F817489E59005B4B46 /* fb_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fb_button.png; sourceTree = "<group>"; };
 		E72616FA1748AB0C005B4B46 /* booklvrs_arrow_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = booklvrs_arrow_blue.png; sourceTree = "<group>"; };
 		E72616FC1748B3A0005B4B46 /* booklvrs_cellview_bkground_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = booklvrs_cellview_bkground_blue.png; sourceTree = "<group>"; };
+		E72617011748CE7F005B4B46 /* cover_casual_vacancy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cover_casual_vacancy.png; path = "booklvrs book covers/cover_casual_vacancy.png"; sourceTree = "<group>"; };
+		E72617021748CE7F005B4B46 /* cover_clockwork_orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cover_clockwork_orange.png; path = "booklvrs book covers/cover_clockwork_orange.png"; sourceTree = "<group>"; };
+		E72617051748CE9D005B4B46 /* cover_lean_in.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cover_lean_in.png; path = "booklvrs book covers/cover_lean_in.png"; sourceTree = "<group>"; };
+		E72617071748D00B005B4B46 /* for-whom-the-bell-tolls.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "for-whom-the-bell-tolls.jpg"; path = "booklvrs book covers/for-whom-the-bell-tolls.jpg"; sourceTree = "<group>"; };
+		E72617091748D082005B4B46 /* endersgame.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = endersgame.jpg; path = "booklvrs book covers/endersgame.jpg"; sourceTree = "<group>"; };
+		E726170B1748D289005B4B46 /* booklvrs_book_icon_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = booklvrs_book_icon_blue.png; sourceTree = "<group>"; };
 		E78008C3174807C000DFC429 /* Booklvrs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Booklvrs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E78008C6174807C000DFC429 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E78008C8174807C000DFC429 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -232,6 +244,12 @@
 		E780090117480D2F00DFC429 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				E726170B1748D289005B4B46 /* booklvrs_book_icon_blue.png */,
+				E72617051748CE9D005B4B46 /* cover_lean_in.png */,
+				E72617071748D00B005B4B46 /* for-whom-the-bell-tolls.jpg */,
+				E72617091748D082005B4B46 /* endersgame.jpg */,
+				E72617011748CE7F005B4B46 /* cover_casual_vacancy.png */,
+				E72617021748CE7F005B4B46 /* cover_clockwork_orange.png */,
 				E72616FC1748B3A0005B4B46 /* booklvrs_cellview_bkground_blue.png */,
 				E72616FA1748AB0C005B4B46 /* booklvrs_arrow_blue.png */,
 				E72616F817489E59005B4B46 /* fb_button.png */,
@@ -315,6 +333,12 @@
 				E72616F917489E59005B4B46 /* fb_button.png in Resources */,
 				E72616FB1748AB0C005B4B46 /* booklvrs_arrow_blue.png in Resources */,
 				E72616FD1748B3A0005B4B46 /* booklvrs_cellview_bkground_blue.png in Resources */,
+				E72617031748CE7F005B4B46 /* cover_casual_vacancy.png in Resources */,
+				E72617041748CE7F005B4B46 /* cover_clockwork_orange.png in Resources */,
+				E72617061748CE9D005B4B46 /* cover_lean_in.png in Resources */,
+				E72617081748D00B005B4B46 /* for-whom-the-bell-tolls.jpg in Resources */,
+				E726170A1748D082005B4B46 /* endersgame.jpg in Resources */,
+				E726170C1748D28A005B4B46 /* booklvrs_book_icon_blue.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

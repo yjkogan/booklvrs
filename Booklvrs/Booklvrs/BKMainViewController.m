@@ -53,6 +53,7 @@
         BKNearbyUsersTableViewController *nearbyUserListVC = [[BKNearbyUsersTableViewController alloc] initWithStyle:UITableViewStylePlain];
         
         PFQuery *nearbyUsersQuery = [PFUser query];
+        [nearbyUsersQuery whereKey:@"facebookId" notEqualTo:[[PFUser currentUser] objectForKey:@"facebookId"]];
         [nearbyUsersQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             nearbyUserListVC.nearbyUsers = objects;
             [self.navigationController pushViewController:nearbyUserListVC animated:YES];
@@ -66,7 +67,7 @@
         [user setObject:[result objectForKey:@"id"] forKey:@"facebookId"];
         [user setObject:[result objectForKey:@"name"] forKey:@"name"];
         [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                [self dismissViewControllerAnimated:YES completion:nil];
+                [self dismissViewControllerAnimated:NO completion:nil];
         }];
     }];
 }

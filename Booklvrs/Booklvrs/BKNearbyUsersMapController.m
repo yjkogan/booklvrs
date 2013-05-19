@@ -47,8 +47,23 @@
 //    userName.textAlignment = NSTextAlignmentCenter;
 //    [containerView addSubview:userName];
     
-    mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width,self.view.frame.size.height)];
-    [mapView setUserTrackingMode:MKUserTrackingModeFollow animated:NO];
+    self.mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width,self.view.frame.size.height)];
+    [self.mapView setUserTrackingMode:MKUserTrackingModeFollow animated:NO];
+    if(![self.mapView userLocation].location) {
+        [self.mapView setUserTrackingMode:MKUserTrackingModeNone animated:NO];
+        MKCoordinateSpan span = MKCoordinateSpanMake(0.01f, 0.01f);
+        CLLocationCoordinate2D coordinate = {40.753083,-73.989281};
+        MKCoordinateRegion region = {coordinate, span};
+        
+        
+        MKCoordinateRegion regionThatFits = [self.mapView regionThatFits:region];
+        
+        MKAnnotationView *nycLocation = [MKAnnotationView alloc] initWithAnnotation:<#(id<MKAnnotation>)#> reuseIdentifier:<#(NSString *)#>
+        
+        [self.mapView setRegion:regionThatFits animated:YES];
+//        CLLocationCoordinate2D NYC = {40.753083,-73.989281};
+//        mapView.centerCoordinate = NYC;
+    }
     
     [self.view addSubview:mapView];
 }

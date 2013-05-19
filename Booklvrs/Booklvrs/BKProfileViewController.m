@@ -51,7 +51,7 @@ CGFloat kCellViewHeight = 44.0f;
     containerView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"booklvrs_bkground.jpg"]];
     containerView.scrollEnabled = YES;
     
-    UILabel *userName = [[UILabel alloc] initWithFrame:CGRectMake(self.view.center.x - 100, kViewPadding, 200.0, 40.0)];
+    UILabel *userName = [[UILabel alloc] initWithFrame:CGRectMake(self.view.center.x - 100, kViewPadding, 200.0, 30.0)];
     userName.text = [self.user objectForKey:@"name"];
     userName.font = [UIFont fontWithName:@"Courier-Bold" size:24.0];
     userName.textAlignment = NSTextAlignmentCenter;
@@ -71,6 +71,16 @@ CGFloat kCellViewHeight = 44.0f;
     profileImage.image = image;
     
     [containerView addSubview:profileImage];
+   
+    UILabel *lookingFor = [[UILabel alloc] initWithFrame:CGRectMake(kViewPadding,
+                                                                   profileImage.frame.origin.y + profileImage.frame.size.height + kViewPadding,
+                                                                   self.view.frame.size.width - 2*kViewPadding,
+                                                                    30.0)];
+    lookingFor.text = [NSString stringWithFormat:@"Looking for: %@", [self.user objectForKey:@"LookingFor"]];
+    lookingFor.backgroundColor = [UIColor clearColor];
+    lookingFor.textAlignment = NSTextAlignmentCenter;
+    lookingFor.font = [UIFont fontWithName:@"Courier-Bold" size:18.0];
+    [containerView addSubview:lookingFor];
     
     self.favoriteAuthors = [[NSMutableArray alloc] init];
     
@@ -95,6 +105,7 @@ CGFloat kCellViewHeight = 44.0f;
     goodReadsTableView.dataSource = self;
     goodReadsTableView.backgroundView = nil;
     goodReadsTableView.backgroundColor = [UIColor clearColor];
+    goodReadsTableView.userInteractionEnabled = NO;
     
     [goodReadsTableView layoutIfNeeded];
     goodReadsTableView.frame = CGRectMake(goodReadsTableView.frame.origin.x,
@@ -163,6 +174,22 @@ CGFloat kCellViewHeight = 44.0f;
         cell.textLabel.text = [self.favoriteAuthors objectAtIndex:indexPath.row];
     } else if (indexPath.section == 1) {
         cell.textLabel.text = [self.reviewedBooks objectAtIndex:indexPath.row];
+        if([cell.textLabel.text isEqualToString:@"Lean In: Women, Work, and the Will to Lead"]) {
+            UIImage *image = [UIImage imageNamed:@"cover_lean_in.png"];
+            cell.imageView.image = image;
+        } else if([cell.textLabel.text isEqualToString:@"The Casual Vacancy"]) {
+            UIImage *image = [UIImage imageNamed:@"cover_casual_vacancy.png"];
+            cell.imageView.image = image;
+        } else if ([cell.textLabel.text isEqualToString:@"A Clockwork Orange"]) {
+            UIImage *image = [UIImage imageNamed:@"cover_clockwork_orange.png"];
+            cell.imageView.image = image;
+        } else if ([cell.textLabel.text isEqualToString:@"For Whom the Bell Tolls"]) {
+            UIImage *image = [UIImage imageNamed:@"for-whom-the-bell-tolls.jpg"];
+            cell.imageView.image = image;
+        } else if ([cell.textLabel.text isEqualToString:@"Ender's Game (Ender's Saga, #1)"]) {
+            UIImage *image = [UIImage imageNamed:@"endersgame.jpg"];
+            cell.imageView.image = image;
+        }
     }
     
     return cell;
