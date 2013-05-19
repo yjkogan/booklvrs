@@ -10,4 +10,6 @@
 
 @interface BKNearbyUsersTableViewController : UITableViewController
 
+@property (strong,nonatomic) NSArray *nearbyUsers;
+
 @end

@@ -11,6 +11,7 @@
 #import "BKUserInfoViewController.h"
 #import "BKAppDelegate.h"
 #import "XMLDictionary.h"
+#import "BKNearbyUsersTableViewController.h"
 #import <Parse/Parse.h>
 
 @interface BKMainViewController ()
@@ -47,15 +48,17 @@
         [self.navigationController pushViewController:userInfoVC animated:YES];
     } else {
 
+        BKNearbyUsersTableViewController *nearbyUserListVC = [[BKNearbyUsersTableViewController alloc] initWithStyle:UITableViewStylePlain];
+        nearbyUserListVC.nearbyUsers = [NSArray arrayWithObjects:@"Jenny 8 Lee", nil];
+        [self.navigationController pushViewController:nearbyUserListVC animated:YES];
         
-        
-        NSString *key = ((BKAppDelegate *)[[UIApplication sharedApplication] delegate]).goodReadsKey;
-        NSString *url = [NSString stringWithFormat:@"http://www.goodreads.com/user/show/?key=%@&username=%@", key, [[PFUser currentUser] objectForKey:@"GoodReadsUsername"]];
-        NSString *response = [self getDataFrom:url];
-        NSDictionary *responseDict = [NSDictionary dictionaryWithXMLString:response];
-        for (NSDictionary *author in [responseDict valueForKeyPath:@"user.favorite_authors.author"]) {
-            NSLog(@"%@",[author valueForKeyPath:@"name"]);
-        }
+//        NSString *key = ((BKAppDelegate *)[[UIApplication sharedApplication] delegate]).goodReadsKey;
+//        NSString *url = [NSString stringWithFormat:@"http://www.goodreads.com/user/show/?key=%@&username=%@", key, [[PFUser currentUser] objectForKey:@"GoodReadsUsername"]];
+//        NSString *response = [self getDataFrom:url];
+//        NSDictionary *responseDict = [NSDictionary dictionaryWithXMLString:response];
+//        for (NSDictionary *author in [responseDict valueForKeyPath:@"user.favorite_authors.author"]) {
+//            NSLog(@"%@",[author valueForKeyPath:@"name"]);
+//        }
 
     }
 }
