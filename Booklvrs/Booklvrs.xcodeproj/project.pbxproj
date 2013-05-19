@@ -13,13 +13,10 @@
 		E72616F917489E59005B4B46 /* fb_button.png in Resources */ = {isa = PBXBuildFile; fileRef = E72616F817489E59005B4B46 /* fb_button.png */; };
 		E72616FB1748AB0C005B4B46 /* booklvrs_arrow_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = E72616FA1748AB0C005B4B46 /* booklvrs_arrow_blue.png */; };
 		E72616FD1748B3A0005B4B46 /* booklvrs_cellview_bkground_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = E72616FC1748B3A0005B4B46 /* booklvrs_cellview_bkground_blue.png */; };
-		E72617031748CE7F005B4B46 /* cover_casual_vacancy.png in Resources */ = {isa = PBXBuildFile; fileRef = E72617011748CE7F005B4B46 /* cover_casual_vacancy.png */; };
-		E72617041748CE7F005B4B46 /* cover_clockwork_orange.png in Resources */ = {isa = PBXBuildFile; fileRef = E72617021748CE7F005B4B46 /* cover_clockwork_orange.png */; };
-		E72617061748CE9D005B4B46 /* cover_lean_in.png in Resources */ = {isa = PBXBuildFile; fileRef = E72617051748CE9D005B4B46 /* cover_lean_in.png */; };
-		E72617081748D00B005B4B46 /* for-whom-the-bell-tolls.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E72617071748D00B005B4B46 /* for-whom-the-bell-tolls.jpg */; };
-		E726170A1748D082005B4B46 /* endersgame.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E72617091748D082005B4B46 /* endersgame.jpg */; };
 		E726170C1748D28A005B4B46 /* booklvrs_book_icon_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = E726170B1748D289005B4B46 /* booklvrs_book_icon_blue.png */; };
 		E72617171748E791005B4B46 /* BKChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E72617161748E791005B4B46 /* BKChatViewController.m */; };
+		E726171C174925A2005B4B46 /* BKNearbyBooksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E726171B174925A2005B4B46 /* BKNearbyBooksViewController.m */; };
+		E726171E17492809005B4B46 /* booklvrs book covers in Resources */ = {isa = PBXBuildFile; fileRef = E726171D17492809005B4B46 /* booklvrs book covers */; };
 		E78008C7174807C000DFC429 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78008C6174807C000DFC429 /* UIKit.framework */; };
 		E78008C9174807C000DFC429 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78008C8174807C000DFC429 /* Foundation.framework */; };
 		E78008CB174807C000DFC429 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78008CA174807C000DFC429 /* CoreGraphics.framework */; };
@@ -69,14 +66,12 @@
 		E72616F817489E59005B4B46 /* fb_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fb_button.png; sourceTree = "<group>"; };
 		E72616FA1748AB0C005B4B46 /* booklvrs_arrow_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = booklvrs_arrow_blue.png; sourceTree = "<group>"; };
 		E72616FC1748B3A0005B4B46 /* booklvrs_cellview_bkground_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = booklvrs_cellview_bkground_blue.png; sourceTree = "<group>"; };
-		E72617011748CE7F005B4B46 /* cover_casual_vacancy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cover_casual_vacancy.png; path = "booklvrs book covers/cover_casual_vacancy.png"; sourceTree = "<group>"; };
-		E72617021748CE7F005B4B46 /* cover_clockwork_orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cover_clockwork_orange.png; path = "booklvrs book covers/cover_clockwork_orange.png"; sourceTree = "<group>"; };
-		E72617051748CE9D005B4B46 /* cover_lean_in.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cover_lean_in.png; path = "booklvrs book covers/cover_lean_in.png"; sourceTree = "<group>"; };
-		E72617071748D00B005B4B46 /* for-whom-the-bell-tolls.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "for-whom-the-bell-tolls.jpg"; path = "booklvrs book covers/for-whom-the-bell-tolls.jpg"; sourceTree = "<group>"; };
-		E72617091748D082005B4B46 /* endersgame.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = endersgame.jpg; path = "booklvrs book covers/endersgame.jpg"; sourceTree = "<group>"; };
 		E726170B1748D289005B4B46 /* booklvrs_book_icon_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = booklvrs_book_icon_blue.png; sourceTree = "<group>"; };
 		E72617151748E791005B4B46 /* BKChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKChatViewController.h; sourceTree = "<group>"; };
 		E72617161748E791005B4B46 /* BKChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKChatViewController.m; sourceTree = "<group>"; };
+		E726171A174925A1005B4B46 /* BKNearbyBooksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKNearbyBooksViewController.h; sourceTree = "<group>"; };
+		E726171B174925A2005B4B46 /* BKNearbyBooksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKNearbyBooksViewController.m; sourceTree = "<group>"; };
+		E726171D17492809005B4B46 /* booklvrs book covers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "booklvrs book covers"; sourceTree = "<group>"; };
 		E78008C3174807C000DFC429 /* Booklvrs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Booklvrs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E78008C6174807C000DFC429 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E78008C8174807C000DFC429 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -217,6 +212,8 @@
 				E78009291748909000DFC429 /* BKNearbyUsersTableViewController.m */,
 				AC7462821748AF56002ADED3 /* BKNearbyUsersMapController.h */,
 				AC7462831748AF56002ADED3 /* BKNearbyUsersMapController.m */,
+				E726171A174925A1005B4B46 /* BKNearbyBooksViewController.h */,
+				E726171B174925A2005B4B46 /* BKNearbyBooksViewController.m */,
 				E780092E1748951900DFC429 /* BKProfileViewController.h */,
 				E780092F1748951900DFC429 /* BKProfileViewController.m */,
 				E780091917481C5B00DFC429 /* BKUserInfoViewController.h */,
@@ -249,12 +246,8 @@
 		E780090117480D2F00DFC429 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				E726171D17492809005B4B46 /* booklvrs book covers */,
 				E726170B1748D289005B4B46 /* booklvrs_book_icon_blue.png */,
-				E72617051748CE9D005B4B46 /* cover_lean_in.png */,
-				E72617071748D00B005B4B46 /* for-whom-the-bell-tolls.jpg */,
-				E72617091748D082005B4B46 /* endersgame.jpg */,
-				E72617011748CE7F005B4B46 /* cover_casual_vacancy.png */,
-				E72617021748CE7F005B4B46 /* cover_clockwork_orange.png */,
 				E72616FC1748B3A0005B4B46 /* booklvrs_cellview_bkground_blue.png */,
 				E72616FA1748AB0C005B4B46 /* booklvrs_arrow_blue.png */,
 				E72616F817489E59005B4B46 /* fb_button.png */,
@@ -338,12 +331,8 @@
 				E72616F917489E59005B4B46 /* fb_button.png in Resources */,
 				E72616FB1748AB0C005B4B46 /* booklvrs_arrow_blue.png in Resources */,
 				E72616FD1748B3A0005B4B46 /* booklvrs_cellview_bkground_blue.png in Resources */,
-				E72617031748CE7F005B4B46 /* cover_casual_vacancy.png in Resources */,
-				E72617041748CE7F005B4B46 /* cover_clockwork_orange.png in Resources */,
-				E72617061748CE9D005B4B46 /* cover_lean_in.png in Resources */,
-				E72617081748D00B005B4B46 /* for-whom-the-bell-tolls.jpg in Resources */,
-				E726170A1748D082005B4B46 /* endersgame.jpg in Resources */,
 				E726170C1748D28A005B4B46 /* booklvrs_book_icon_blue.png in Resources */,
+				E726171E17492809005B4B46 /* booklvrs book covers in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,6 +354,7 @@
 				E78009301748951900DFC429 /* BKProfileViewController.m in Sources */,
 				AC7462841748AF56002ADED3 /* BKNearbyUsersMapController.m in Sources */,
 				E72617171748E791005B4B46 /* BKChatViewController.m in Sources */,
+				E726171C174925A2005B4B46 /* BKNearbyBooksViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -30,12 +30,17 @@ CGFloat nycLon = -73.989281;
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"List" style:UIBarButtonItemStylePlain target:self action:@selector(toggleMaps:)];
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Books" style:UIBarButtonItemStylePlain target:self action:@selector(toggleBooks:)];
     }
     return self;
 }
 
 - (void) toggleMaps: (id) sender {
     [self.delegate changeToListViewFrom:self];
+}
+
+- (void) toggleBooks: (id) sender {
+    [self.delegate changeToBooksViewFrom:self];
 }
 
 - (void)viewDidLoad

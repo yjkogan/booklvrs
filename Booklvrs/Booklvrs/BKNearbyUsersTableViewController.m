@@ -24,12 +24,17 @@
     if (self) {
         // Custom initialization
         self.mapsButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Map" style:UIBarButtonItemStylePlain target:self action:@selector(toggleMaps:)];
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Books" style:UIBarButtonItemStylePlain target:self action:@selector(toggleBooks:)];
     }
     return self;
 }
 
 - (void) toggleMaps: (id) sender {
     [self.delegate changeToMapViewFrom:self];
+}
+
+- (void) toggleBooks: (id) sender {
+    [self.delegate changeToBooksViewFrom:self];
 }
 
 - (void)viewDidLoad

@@ -12,7 +12,8 @@
 
 @protocol BKNearbyUsersTableViewControllerDelegate <NSObject>
 
-- (void)changeToMapViewFrom:(BKNearbyUsersTableViewController *)controller;
+- (void)changeToMapViewFrom:(UIViewController *)controller;
+- (void)changeToBooksViewFrom:(UIViewController *)controller;
 
 @end
 

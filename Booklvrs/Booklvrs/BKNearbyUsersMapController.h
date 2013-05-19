@@ -13,7 +13,8 @@
 
 @protocol BKNearbyUsersMapControllerDelegate <NSObject>
 
-- (void)changeToListViewFrom:(BKNearbyUsersMapController *)controller;
+- (void)changeToListViewFrom:(UIViewController *)controller;
+- (void)changeToBooksViewFrom:(UIViewController *)controller;
 
 @end
 

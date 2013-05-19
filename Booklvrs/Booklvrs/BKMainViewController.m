@@ -13,11 +13,12 @@
 #import "XMLDictionary.h"
 #import "BKNearbyUsersTableViewController.h"
 #import "BKNearbyUsersMapController.h"
+#import "BKNearbyBooksViewController.h"
 #import <Parse/Parse.h>
 
 @interface BKMainViewController ()
 
-@property (nonatomic) BOOL showList;
+@property (nonatomic) BKNearbyViewState viewState;
 @property (nonatomic) BOOL animateTransition;
 @property (strong, nonatomic) NSArray *nearbyUsers;
 
@@ -36,19 +37,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.showList = YES;
+    self.viewState = BKNearbyBooksView;
     self.animateTransition = YES;
     UIImageView *backgroundImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     
     backgroundImage.image = [UIImage imageNamed:@"iphone_splash_nobuttons.png"];
     [self.view addSubview:backgroundImage];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    
-    if (self.animateTransition) {
-        [self.navigationController setNavigationBarHidden:YES animated:NO];
-    }
     
     if (![PFUser currentUser]) {
         BKLogInViewController * logInVC = [[BKLogInViewController alloc] init];
@@ -65,30 +63,41 @@
             self.nearbyUsers = [nearbyUsersQuery findObjects];
         }
         
-        if (self.showList) {
+        if (self.viewState == BKNearbyListView) {
             BKNearbyUsersTableViewController *nearbyUserListVC = [[BKNearbyUsersTableViewController alloc] initWithStyle:UITableViewStylePlain];
             nearbyUserListVC.delegate = self;
             
             nearbyUserListVC.nearbyUsers = self.nearbyUsers;
             [self.navigationController pushViewController:nearbyUserListVC animated:self.animateTransition];
-        } else {
+        } else if (self.viewState == BKNearbyMapsView) {
             BKNearbyUsersMapController *nearbyUsersMapVC = [[BKNearbyUsersMapController alloc] initWithNibName:nil bundle:nil];
             nearbyUsersMapVC.delegate = self;
 
             nearbyUsersMapVC.nearbyUsers = self.nearbyUsers;
             [self.navigationController pushViewController:nearbyUsersMapVC animated:self.animateTransition];
+        } else if (self.viewState == BKNearbyBooksView) {
+            BKNearbyBooksViewController *nearbyBookVC = [[BKNearbyBooksViewController alloc] initWithNibName:nil bundle:nil];
+            nearbyBookVC.delegate = self;
+            nearbyBookVC.nearbyUsers = self.nearbyUsers;
+            [self.navigationController pushViewController:nearbyBookVC animated:self.animateTransition];
         }
     }
 }
 
-- (void)changeToMapViewFrom:(BKNearbyUsersTableViewController *)controller {
-    self.showList = NO;
+- (void)changeToMapViewFrom:(UIViewController *)controller {
+    self.viewState = BKNearbyMapsView;
     self.animateTransition = NO;
     [self.navigationController popViewControllerAnimated:NO];
 }
 
-- (void)changeToListViewFrom:(BKNearbyUsersMapController *)controller {
-    self.showList = YES;
+- (void)changeToListViewFrom:(UIViewController *)controller {
+    self.viewState = BKNearbyListView;
+    self.animateTransition = NO;
+    [self.navigationController popViewControllerAnimated:NO];
+}
+
+- (void)changeToBooksViewFrom:(UIViewController *)controller {
+    self.viewState = BKNearbyBooksView;
     self.animateTransition = NO;
     [self.navigationController popViewControllerAnimated:NO];
 }

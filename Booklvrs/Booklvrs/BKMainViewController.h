@@ -11,7 +11,14 @@
 #import "BKLogInViewController.h"
 #import "BKNearbyUsersMapController.h"
 #import "BKNearbyUsersTableViewController.h"
+#import "BKNearbyBooksViewController.h"
 
-@interface BKMainViewController : UIViewController <BKLogInViewDelegate,BKNearbyUsersMapControllerDelegate, BKNearbyUsersTableViewControllerDelegate>
+typedef enum BKNearbyViewState {
+    BKNearbyMapsView,
+    BKNearbyListView,
+    BKNearbyBooksView
+} BKNearbyViewState;
+
+@interface BKMainViewController : UIViewController <BKLogInViewDelegate,BKNearbyUsersMapControllerDelegate, BKNearbyUsersTableViewControllerDelegate, BKNearbyBooksViewControllerDelegate>
 
 @end
