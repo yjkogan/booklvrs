@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E72616F717489CC4005B4B46 /* iphone_splash_nobuttons.png in Resources */ = {isa = PBXBuildFile; fileRef = E72616F617489CC4005B4B46 /* iphone_splash_nobuttons.png */; };
+		E72616F917489E59005B4B46 /* fb_button.png in Resources */ = {isa = PBXBuildFile; fileRef = E72616F817489E59005B4B46 /* fb_button.png */; };
 		E78008C7174807C000DFC429 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78008C6174807C000DFC429 /* UIKit.framework */; };
 		E78008C9174807C000DFC429 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78008C8174807C000DFC429 /* Foundation.framework */; };
 		E78008CB174807C000DFC429 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78008CA174807C000DFC429 /* CoreGraphics.framework */; };
@@ -45,9 +47,12 @@
 		E7800925174887FE00DFC429 /* booklvrs_read_discover_meet_subhead_blues.png in Resources */ = {isa = PBXBuildFile; fileRef = E7800924174887FE00DFC429 /* booklvrs_read_discover_meet_subhead_blues.png */; };
 		E780092717488A3E00DFC429 /* goodreads.png in Resources */ = {isa = PBXBuildFile; fileRef = E780092617488A3E00DFC429 /* goodreads.png */; };
 		E780092A1748909000DFC429 /* BKNearbyUsersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E78009291748909000DFC429 /* BKNearbyUsersTableViewController.m */; };
+		E78009301748951900DFC429 /* BKProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E780092F1748951900DFC429 /* BKProfileViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E72616F617489CC4005B4B46 /* iphone_splash_nobuttons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone_splash_nobuttons.png; sourceTree = "<group>"; };
+		E72616F817489E59005B4B46 /* fb_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fb_button.png; sourceTree = "<group>"; };
 		E78008C3174807C000DFC429 /* Booklvrs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Booklvrs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E78008C6174807C000DFC429 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E78008C8174807C000DFC429 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -96,6 +101,8 @@
 		E780092617488A3E00DFC429 /* goodreads.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goodreads.png; sourceTree = "<group>"; };
 		E78009281748909000DFC429 /* BKNearbyUsersTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKNearbyUsersTableViewController.h; sourceTree = "<group>"; };
 		E78009291748909000DFC429 /* BKNearbyUsersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKNearbyUsersTableViewController.m; sourceTree = "<group>"; };
+		E780092E1748951900DFC429 /* BKProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKProfileViewController.h; sourceTree = "<group>"; };
+		E780092F1748951900DFC429 /* BKProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKProfileViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +189,8 @@
 				E78008E9174808E400DFC429 /* BKMainViewController.m */,
 				E78009281748909000DFC429 /* BKNearbyUsersTableViewController.h */,
 				E78009291748909000DFC429 /* BKNearbyUsersTableViewController.m */,
+				E780092E1748951900DFC429 /* BKProfileViewController.h */,
+				E780092F1748951900DFC429 /* BKProfileViewController.m */,
 				E780091917481C5B00DFC429 /* BKUserInfoViewController.h */,
 				E780091A17481C5B00DFC429 /* BKUserInfoViewController.m */,
 				E780090417480F9F00DFC429 /* BKLogInViewController.h */,
@@ -210,6 +219,8 @@
 		E780090117480D2F00DFC429 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				E72616F817489E59005B4B46 /* fb_button.png */,
+				E72616F617489CC4005B4B46 /* iphone_splash_nobuttons.png */,
 				E780092617488A3E00DFC429 /* goodreads.png */,
 				E7800924174887FE00DFC429 /* booklvrs_read_discover_meet_subhead_blues.png */,
 				E78009221748878100DFC429 /* booklvr.png */,
@@ -285,6 +296,8 @@
 				E78009231748878100DFC429 /* booklvr.png in Resources */,
 				E7800925174887FE00DFC429 /* booklvrs_read_discover_meet_subhead_blues.png in Resources */,
 				E780092717488A3E00DFC429 /* goodreads.png in Resources */,
+				E72616F717489CC4005B4B46 /* iphone_splash_nobuttons.png in Resources */,
+				E72616F917489E59005B4B46 /* fb_button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +316,7 @@
 				E780091B17481C5B00DFC429 /* BKUserInfoViewController.m in Sources */,
 				E78009211748839F00DFC429 /* XMLDictionary.m in Sources */,
 				E780092A1748909000DFC429 /* BKNearbyUsersTableViewController.m in Sources */,
+				E78009301748951900DFC429 /* BKProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +445,7 @@
 				E78008E2174807C000DFC429 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

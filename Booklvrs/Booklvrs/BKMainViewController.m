@@ -40,7 +40,6 @@
     
     if (![PFUser currentUser]) {
         BKLogInViewController * logInVC = [[BKLogInViewController alloc] init];
-        logInVC.fields = PFLogInFieldsFacebook | PFLogInFieldsDismissButton;
         logInVC.delegate = self;
         [self presentViewController:logInVC animated:NO completion:nil];
     } else if (![[PFUser currentUser] objectForKey:@"GoodReadsUsername"]){
@@ -49,17 +48,12 @@
     } else {
 
         BKNearbyUsersTableViewController *nearbyUserListVC = [[BKNearbyUsersTableViewController alloc] initWithStyle:UITableViewStylePlain];
-        nearbyUserListVC.nearbyUsers = [NSArray arrayWithObjects:@"Jenny 8 Lee", nil];
-        [self.navigationController pushViewController:nearbyUserListVC animated:YES];
         
-//        NSString *key = ((BKAppDelegate *)[[UIApplication sharedApplication] delegate]).goodReadsKey;
-//        NSString *url = [NSString stringWithFormat:@"http://www.goodreads.com/user/show/?key=%@&username=%@", key, [[PFUser currentUser] objectForKey:@"GoodReadsUsername"]];
-//        NSString *response = [self getDataFrom:url];
-//        NSDictionary *responseDict = [NSDictionary dictionaryWithXMLString:response];
-//        for (NSDictionary *author in [responseDict valueForKeyPath:@"user.favorite_authors.author"]) {
-//            NSLog(@"%@",[author valueForKeyPath:@"name"]);
-//        }
-
+        PFQuery *nearbyUsersQuery = [PFUser query];
+        [nearbyUsersQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            nearbyUserListVC.nearbyUsers = objects;
+            [self.navigationController pushViewController:nearbyUserListVC animated:YES];
+        }];
     }
 }
 
@@ -69,35 +63,14 @@
     [loggedOut show];
 }
 
-- (NSString *)getDataFrom:(NSString *)url {
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    [request setHTTPMethod:@"GET"];
-    
-    [request setURL:[NSURL URLWithString:url]];
-    
-    NSError *error = [[NSError alloc] init];
-    NSHTTPURLResponse *responseCode = nil;
-    
-    NSData *oResponseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&responseCode error:&error];
-    
-    if([responseCode statusCode] != 200){
-        NSLog(@"Error getting %@, HTTP status code %i", url, [responseCode statusCode]);
-        return nil;
-    }
-    
-    return [[NSString alloc] initWithData:oResponseData encoding:NSUTF8StringEncoding];
-}
-
 #pragma mark -- LogInView Delegate Methods --
-- (void)logInViewController:(PFLogInViewController *)controller
-               didLogInUser:(PFUser *)user {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)logInViewControllerDidCancelLogIn:(PFLogInViewController *)logInController {
-    [self dismissViewControllerAnimated:YES completion:^{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Didn't log in" message:@"I'm sorry but without loggin in you can't use this app..." delegate:self cancelButtonTitle:@"Okay..." otherButtonTitles: nil];
-        [alert show];
+- (void)logInViewController:(BKLogInViewController *)controller didLogInUser:(PFUser *)user {
+    [FBRequestConnection startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+        [user setObject:[result objectForKey:@"id"] forKey:@"facebookId"];
+        [user setObject:[result objectForKey:@"name"] forKey:@"name"];
+        [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                [self dismissViewControllerAnimated:YES completion:nil];
+        }];
     }];
 }
 

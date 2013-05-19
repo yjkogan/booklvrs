@@ -8,6 +8,16 @@
 
 #import <Parse/Parse.h>
 
-@interface BKLogInViewController : PFLogInViewController
+@class BKLogInViewController;
+
+@protocol BKLogInViewDelegate <NSObject>
+
+- (void)logInViewController:(BKLogInViewController *)controller didLogInUser:(PFUser *)user;
+
+@end
+
+@interface BKLogInViewController : UIViewController
+
+@property (weak,nonatomic) id<BKLogInViewDelegate> delegate;
 
 @end

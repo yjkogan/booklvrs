@@ -7,6 +7,7 @@
 //
 
 #import "BKNearbyUsersTableViewController.h"
+#import "BKProfileViewController.h"
 
 @interface BKNearbyUsersTableViewController ()
 
@@ -61,7 +62,19 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    cell.textLabel.text = [self.nearbyUsers objectAtIndex:indexPath.row];
+    PFUser *user = [self.nearbyUsers objectAtIndex:indexPath.row];
+    
+    NSString *profilePicPath = [NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?type=small", [user objectForKey:@"facebookId"]];
+    
+    [FBRequestConnection startWithGraphPath:profilePicPath completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+        
+        if (error) {
+            NSLog(@"%@", error);
+        }
+        NSLog(@"%@",result);
+    }];
+    
+    cell.textLabel.text = [user objectForKey:@"name"];
     
     return cell;
 }
@@ -109,13 +122,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    BKProfileViewController *profileVC = [[BKProfileViewController alloc] initWithNibName:nil bundle:nil];
+    profileVC.user = [self.nearbyUsers objectAtIndex:indexPath.row];
+    [self.navigationController pushViewController:profileVC animated:YES];
 }
 
 @end

@@ -1,5 +1,5 @@
 //
-//  BKMainViewController.h
+//  BKProfileViewController.h
 //  Booklvrs
 //
 //  Created by Romotive on 5/18/13.
@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
-#import "BKLogInViewController.h"
 
-@interface BKMainViewController : UIViewController <BKLogInViewDelegate>
+@interface BKProfileViewController : UIViewController
+
+@property (strong, nonatomic) PFUser *user;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "BKLogInViewController.h"
+#import <Parse/Parse.h>
 #import <QuartzCore/QuartzCore.h>
 
 @interface BKLogInViewController ()
@@ -28,27 +29,30 @@
 {
     [super viewDidLoad];
 
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"booklvrs_bkground_blue.jpg"]];
+    UIImageView *backgroundImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     
-    UIView *logo = [[UIView alloc] initWithFrame:CGRectMake(0,0,250,250)];
+    backgroundImage.image = [UIImage imageNamed:@"iphone_splash_nobuttons.png"];
     
-    UIImageView *logoLabel = [[UIImageView alloc] initWithFrame:CGRectMake(0,100,250,60)];
-    logoLabel.image = [UIImage imageNamed:@"booklvr.png"];
-    logoLabel.contentMode = UIViewContentModeScaleAspectFit;
+    UIImageView *facebookBtn = [[UIImageView alloc] initWithFrame:CGRectMake(50,380,self.view.frame.size.width - 100,40)];
+    facebookBtn.image = [UIImage imageNamed:@"fb_button.png"];
+    facebookBtn.userInteractionEnabled = YES;
     
-    UIImageView *subHeader = [[UIImageView alloc] initWithFrame:CGRectMake(0,130,250,120)];
-    subHeader.image = [UIImage imageNamed:@"booklvrs_read_discover_meet_subhead_blues.png"];
-    subHeader.contentMode = UIViewContentModeScaleAspectFit;
+    UITapGestureRecognizer *loginTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(logInBtnTapped:)];
+    [facebookBtn addGestureRecognizer:loginTap];
     
-    UIImageView *goodReads = [[UIImageView alloc] initWithFrame:CGRectMake(0,220,250,40)];
-    goodReads.image = [UIImage imageNamed:@"goodreads.png"];
-    goodReads.contentMode = UIViewContentModeScaleAspectFit;
-    
-    [logo addSubview:logoLabel];
-    [logo addSubview:subHeader];
-    [logo addSubview:goodReads];
-    
-    self.logInView.logo = logo;
+    [self.view addSubview:backgroundImage];
+    [self.view addSubview:facebookBtn];
+}
+
+- (void)logInBtnTapped:(id)sender {
+    NSArray *permissions = [NSArray arrayWithObjects: nil];
+    [PFFacebookUtils logInWithPermissions:permissions block:^(PFUser *user, NSError *error) {
+        if (error) {
+            NSLog(@"%@", error);
+        } else {
+            [self.delegate logInViewController:self didLogInUser:user];
+        }
+    }];
 }
 
 @end
