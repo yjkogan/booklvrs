@@ -39,7 +39,7 @@ CGFloat kBookPadding = 12.5f;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationItem.title = @"Nearby Users";
+    self.navigationItem.title = @"Recommended";
     self.navigationItem.hidesBackButton = YES;
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     UIScrollView *containerView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width,self.view.frame.size.height)];
