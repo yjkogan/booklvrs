@@ -78,7 +78,7 @@ CGFloat kCellViewHeight = 44.0f;
                                                                    profileImage.frame.origin.y + profileImage.frame.size.height + kViewPadding,
                                                                    self.view.frame.size.width - 2*kViewPadding,
                                                                     30.0)];
-    lookingFor.text = [NSString stringWithFormat:@"Looking for: %@", [self.user objectForKey:@"LookingFor"]];
+    lookingFor.text = [NSString stringWithFormat:@"Relationship Status: %@", [self.user objectForKey:@"LookingFor"]];
     lookingFor.backgroundColor = [UIColor clearColor];
     lookingFor.textAlignment = NSTextAlignmentCenter;
     lookingFor.font = [UIFont fontWithName:@"Courier-Bold" size:18.0];
