@@ -116,7 +116,7 @@
 		E726173417492C24005B4B46 /* cover_white_teeth.png */ = {isa = PBXFileReference; lastKnownFileType = file; name = cover_white_teeth.png; path = "booklvrs book covers/cover_white_teeth.png"; sourceTree = "<group>"; };
 		E726173517492C24005B4B46 /* endersgame.jpg */ = {isa = PBXFileReference; lastKnownFileType = file; name = endersgame.jpg; path = "booklvrs book covers/endersgame.jpg"; sourceTree = "<group>"; };
 		E726173617492C24005B4B46 /* for-whom-the-bell-tolls.jpg */ = {isa = PBXFileReference; lastKnownFileType = file; name = "for-whom-the-bell-tolls.jpg"; path = "booklvrs book covers/for-whom-the-bell-tolls.jpg"; sourceTree = "<group>"; };
-		E726174D17493C02005B4B46 /* chat_background.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = chat_background.JPG; path = ../../../../../Desktop/chat_background.JPG; sourceTree = "<group>"; };
+		E726174D17493C02005B4B46 /* chat_background.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chat_background.JPG; sourceTree = "<group>"; };
 		E726174F17493C7A005B4B46 /* iphone_4_splash.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = iphone_4_splash.jpg; sourceTree = "<group>"; };
 		E78008C3174807C000DFC429 /* Booklvrs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Booklvrs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E78008C6174807C000DFC429 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
