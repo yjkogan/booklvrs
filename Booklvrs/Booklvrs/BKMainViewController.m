@@ -41,7 +41,7 @@
     self.animateTransition = YES;
     UIImageView *backgroundImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     
-    backgroundImage.image = [UIImage imageNamed:@"iphone_splash_nobuttons.png"];
+    backgroundImage.image = [UIImage imageNamed:@"iphone_4_splash.jpg"];
     [self.view addSubview:backgroundImage];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
 }

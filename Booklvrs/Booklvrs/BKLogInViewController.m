@@ -31,7 +31,7 @@
 
     UIImageView *backgroundImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     
-    backgroundImage.image = [UIImage imageNamed:@"iphone_splash_nobuttons.png"];
+    backgroundImage.image = [UIImage imageNamed:@"iphone_4_splash.jpg"];
     
     UIImageView *facebookBtn = [[UIImageView alloc] initWithFrame:CGRectMake(50,380,self.view.frame.size.width - 100,40)];
     facebookBtn.image = [UIImage imageNamed:@"fb_button.png"];

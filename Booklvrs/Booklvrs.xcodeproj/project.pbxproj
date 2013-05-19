@@ -38,6 +38,8 @@
 		E726174A17492C24005B4B46 /* cover_white_teeth.png in Resources */ = {isa = PBXBuildFile; fileRef = E726173417492C24005B4B46 /* cover_white_teeth.png */; };
 		E726174B17492C24005B4B46 /* endersgame.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E726173517492C24005B4B46 /* endersgame.jpg */; };
 		E726174C17492C24005B4B46 /* for-whom-the-bell-tolls.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E726173617492C24005B4B46 /* for-whom-the-bell-tolls.jpg */; };
+		E726174E17493C03005B4B46 /* chat_background.JPG in Resources */ = {isa = PBXBuildFile; fileRef = E726174D17493C02005B4B46 /* chat_background.JPG */; };
+		E726175017493C7A005B4B46 /* iphone_4_splash.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E726174F17493C7A005B4B46 /* iphone_4_splash.jpg */; };
 		E78008C7174807C000DFC429 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78008C6174807C000DFC429 /* UIKit.framework */; };
 		E78008C9174807C000DFC429 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78008C8174807C000DFC429 /* Foundation.framework */; };
 		E78008CB174807C000DFC429 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78008CA174807C000DFC429 /* CoreGraphics.framework */; };
@@ -114,6 +116,8 @@
 		E726173417492C24005B4B46 /* cover_white_teeth.png */ = {isa = PBXFileReference; lastKnownFileType = file; name = cover_white_teeth.png; path = "booklvrs book covers/cover_white_teeth.png"; sourceTree = "<group>"; };
 		E726173517492C24005B4B46 /* endersgame.jpg */ = {isa = PBXFileReference; lastKnownFileType = file; name = endersgame.jpg; path = "booklvrs book covers/endersgame.jpg"; sourceTree = "<group>"; };
 		E726173617492C24005B4B46 /* for-whom-the-bell-tolls.jpg */ = {isa = PBXFileReference; lastKnownFileType = file; name = "for-whom-the-bell-tolls.jpg"; path = "booklvrs book covers/for-whom-the-bell-tolls.jpg"; sourceTree = "<group>"; };
+		E726174D17493C02005B4B46 /* chat_background.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = chat_background.JPG; path = ../../../../../Desktop/chat_background.JPG; sourceTree = "<group>"; };
+		E726174F17493C7A005B4B46 /* iphone_4_splash.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = iphone_4_splash.jpg; sourceTree = "<group>"; };
 		E78008C3174807C000DFC429 /* Booklvrs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Booklvrs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E78008C6174807C000DFC429 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E78008C8174807C000DFC429 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -288,6 +292,7 @@
 		E780090117480D2F00DFC429 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				E726174F17493C7A005B4B46 /* iphone_4_splash.jpg */,
 				E726172117492C24005B4B46 /* cover_1984.png */,
 				E726172217492C24005B4B46 /* cover_casual_vacancy.png */,
 				E726172317492C24005B4B46 /* cover_catcher_in_the_rye.png */,
@@ -308,6 +313,7 @@
 				E726173217492C24005B4B46 /* cover_rise_of_creative_class.png */,
 				E726173317492C24005B4B46 /* cover_stumbling_upon_happiness.png */,
 				E726173417492C24005B4B46 /* cover_white_teeth.png */,
+				E726174D17493C02005B4B46 /* chat_background.JPG */,
 				E726173517492C24005B4B46 /* endersgame.jpg */,
 				E726173617492C24005B4B46 /* for-whom-the-bell-tolls.jpg */,
 				E726170B1748D289005B4B46 /* booklvrs_book_icon_blue.png */,
@@ -417,6 +423,8 @@
 				E726174A17492C24005B4B46 /* cover_white_teeth.png in Resources */,
 				E726174B17492C24005B4B46 /* endersgame.jpg in Resources */,
 				E726174C17492C24005B4B46 /* for-whom-the-bell-tolls.jpg in Resources */,
+				E726174E17493C03005B4B46 /* chat_background.JPG in Resources */,
+				E726175017493C7A005B4B46 /* iphone_4_splash.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

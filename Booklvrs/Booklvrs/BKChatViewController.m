@@ -37,7 +37,7 @@
     self.navigationItem.title = [NSString stringWithFormat:@"%@", [self.user objectForKey:@"name"]];
 
     UIImageView *background = [[UIImageView alloc] initWithFrame:self.view.frame];
-    background.image = [UIImage imageNamed:@"iphone_splash_nobuttons.png"];
+    background.image = [UIImage imageNamed:@"chat_background.JPG"];
     [self.view addSubview:background];
     
     UITextField *messageBox = [[UITextField alloc] initWithFrame:CGRectMake(5.0,
