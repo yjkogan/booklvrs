@@ -104,7 +104,7 @@ CGFloat kPaddingFromEdge = 10.0f;
     NSString *lookingFor = self.lookingFor.text;
 
     if (goodReadsUsername.length < 1 || lookingFor.length < 1) {
-        UIAlertView *emptyField = [[UIAlertView alloc] initWithTitle:@"Missing Info" message:@"Please fill out all text fields" delegate:self cancelButtonTitle:@"Fine then" otherButtonTitles: nil];
+        UIAlertView *emptyField = [[UIAlertView alloc] initWithTitle:@"Missing Info" message:@"Please fill out all text fields. If you don't yet have a GoodReads username, you can add one on your account settings page" delegate:self cancelButtonTitle:@"Fine then" otherButtonTitles: nil];
         [emptyField show];
     } else {
         PFUser *currentUser = [PFUser currentUser];

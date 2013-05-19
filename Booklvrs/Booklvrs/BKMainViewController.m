@@ -10,6 +10,7 @@
 #import "BKLogInViewController.h"
 #import "BKUserInfoViewController.h"
 #import "BKAppDelegate.h"
+#import "XMLDictionary.h"
 #import <Parse/Parse.h>
 
 @interface BKMainViewController ()
@@ -45,12 +46,17 @@
         BKUserInfoViewController *userInfoVC = [[BKUserInfoViewController alloc] initWithNibName:nil bundle:nil];
         [self.navigationController pushViewController:userInfoVC animated:YES];
     } else {
-        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-        [request setHTTPMethod:@"GET"];
-        NSString *key = ((BKAppDelegate *)[[UIApplication sharedApplication] delegate]).goodReadsKey;
+
         
+        
+        NSString *key = ((BKAppDelegate *)[[UIApplication sharedApplication] delegate]).goodReadsKey;
         NSString *url = [NSString stringWithFormat:@"http://www.goodreads.com/user/show/?key=%@&username=%@", key, [[PFUser currentUser] objectForKey:@"GoodReadsUsername"]];
-        [request setURL:[NSURL URLWithString:url]];
+        NSString *response = [self getDataFrom:url];
+        NSDictionary *responseDict = [NSDictionary dictionaryWithXMLString:response];
+        for (NSDictionary *author in [responseDict valueForKeyPath:@"user.favorite_authors.author"]) {
+            NSLog(@"%@",[author valueForKeyPath:@"name"]);
+        }
+
     }
 }
 
@@ -58,6 +64,25 @@
     [PFUser logOut];
     UIAlertView *loggedOut = [[UIAlertView alloc] initWithTitle:@"Logged Out!" message:nil delegate:self cancelButtonTitle:@"Yay!" otherButtonTitles: nil];
     [loggedOut show];
+}
+
+- (NSString *)getDataFrom:(NSString *)url {
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setHTTPMethod:@"GET"];
+    
+    [request setURL:[NSURL URLWithString:url]];
+    
+    NSError *error = [[NSError alloc] init];
+    NSHTTPURLResponse *responseCode = nil;
+    
+    NSData *oResponseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&responseCode error:&error];
+    
+    if([responseCode statusCode] != 200){
+        NSLog(@"Error getting %@, HTTP status code %i", url, [responseCode statusCode]);
+        return nil;
+    }
+    
+    return [[NSString alloc] initWithData:oResponseData encoding:NSUTF8StringEncoding];
 }
 
 #pragma mark -- LogInView Delegate Methods --
