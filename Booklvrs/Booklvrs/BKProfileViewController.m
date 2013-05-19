@@ -9,7 +9,7 @@
 #import "BKProfileViewController.h"
 #import "BKAppDelegate.h"
 #import "XMLDictionary.h"
-#import "UIChatViewController.h"
+#import "BKChatViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
 CGFloat kViewPadding = 5.0f;
@@ -146,7 +146,10 @@ CGFloat kCellViewHeight = 44.0f;
 #pragma mark - chat btn tapped
 
 - (void)chatSelectUser:(id)sender {
-
+    
+    BKChatViewController *chatVC = [[BKChatViewController alloc] initWithNibName:nil bundle:nil];
+    chatVC.user = self.user;
+    [self.navigationController pushViewController:chatVC animated:YES];
 }
 
 #pragma mark - Table view data source
