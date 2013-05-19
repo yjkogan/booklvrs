@@ -19,6 +19,7 @@
 
 @property (nonatomic) BOOL showList;
 @property (nonatomic) BOOL animateTransition;
+@property (strong, nonatomic) NSArray *nearbyUsers;
 
 @end
 
@@ -45,7 +46,9 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    if (self.animateTransition) {
+        [self.navigationController setNavigationBarHidden:YES animated:NO];
+    }
     
     if (![PFUser currentUser]) {
         BKLogInViewController * logInVC = [[BKLogInViewController alloc] init];
@@ -55,26 +58,25 @@
         BKUserInfoViewController *userInfoVC = [[BKUserInfoViewController alloc] initWithNibName:nil bundle:nil];
         [self.navigationController pushViewController:userInfoVC animated:YES];
     } else {
-
+        
+        if (!self.nearbyUsers) {
+            PFQuery *nearbyUsersQuery = [PFUser query];
+            [nearbyUsersQuery whereKey:@"facebookId" notEqualTo:[[PFUser currentUser] objectForKey:@"facebookId"]];
+            self.nearbyUsers = [nearbyUsersQuery findObjects];
+        }
+        
         if (self.showList) {
             BKNearbyUsersTableViewController *nearbyUserListVC = [[BKNearbyUsersTableViewController alloc] initWithStyle:UITableViewStylePlain];
             nearbyUserListVC.delegate = self;
             
-            PFQuery *nearbyUsersQuery = [PFUser query];
-            [nearbyUsersQuery whereKey:@"facebookId" notEqualTo:[[PFUser currentUser] objectForKey:@"facebookId"]];
-            [nearbyUsersQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-                nearbyUserListVC.nearbyUsers = objects;
-                [self.navigationController pushViewController:nearbyUserListVC animated:self.animateTransition];
-            }];
+            nearbyUserListVC.nearbyUsers = self.nearbyUsers;
+            [self.navigationController pushViewController:nearbyUserListVC animated:self.animateTransition];
         } else {
             BKNearbyUsersMapController *nearbyUsersMapVC = [[BKNearbyUsersMapController alloc] initWithNibName:nil bundle:nil];
             nearbyUsersMapVC.delegate = self;
-            PFQuery *nearbyUsersQuery = [PFUser query];
-            [nearbyUsersQuery whereKey:@"facebookId" notEqualTo:[[PFUser currentUser] objectForKey:@"facebookId"]];
-            [nearbyUsersQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-                nearbyUsersMapVC.nearbyUsers = objects;
-                [self.navigationController pushViewController:nearbyUsersMapVC animated:self.animateTransition];
-            }];
+
+            nearbyUsersMapVC.nearbyUsers = self.nearbyUsers;
+            [self.navigationController pushViewController:nearbyUsersMapVC animated:self.animateTransition];
         }
     }
 }

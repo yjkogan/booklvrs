@@ -30,7 +30,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSArray *messageInfo = [[NSArray alloc] initWithObjects:@"notYou",@"Hi there!", nil];
+    NSArray *messageInfo = [[NSArray alloc] initWithObjects:@"notYou",@"I love Ender's game too!", nil];
     NSArray *messageKeys = [[NSArray alloc] initWithObjects:@"sender",@"text", nil];
     NSDictionary *message = [[NSDictionary alloc] initWithObjects:messageInfo forKeys:messageKeys];
     self.messages = [[NSMutableArray alloc] initWithObjects:message, nil];
