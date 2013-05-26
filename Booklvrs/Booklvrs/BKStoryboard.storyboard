@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="uly-sL-ki7">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="pFu-cm-DIe">
+            <objects>
+                <customObject id="Zf3-4e-gdv" customClass="BKLogInViewController">
+                    <connections>
+                        <outlet property="delegate" destination="D6Z-Yn-54U" id="oj5-6i-Nrs"/>
+                    </connections>
+                </customObject>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2YW-Wu-Xr4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="D6Z-Yn-54U" customClass="BKMainViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5fk-56-l1Q">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="rWP-Hh-Dcc"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="456" y="176"/>
+        </scene>
+        <!--Nearby Users Table View Controller - List-->
+        <scene sceneID="CUu-eA-jnc">
+            <objects>
+                <tableViewController id="54x-2N-fry" customClass="BKNearbyUsersTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="QVd-Mh-KCm">
+                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Xru-gq-KWD">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="54x-2N-fry" id="ggQ-L6-mvr"/>
+                            <outlet property="delegate" destination="54x-2N-fry" id="Yll-WR-IZm"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="List" id="zsR-Uy-62h"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SLD-FM-M6i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1324" y="840"/>
+        </scene>
+        <!--Nearby Users Map Controller - Map-->
+        <scene sceneID="6Lc-g7-tSg">
+            <objects>
+                <viewController id="5O8-Kw-izy" customClass="BKNearbyUsersMapController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LrZ-ED-Oub">
+                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Map" id="9nG-k6-lOw"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o0C-Je-WoG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1320" y="1503"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="f4I-Nw-Wy6">
+            <objects>
+                <tabBarController storyboardIdentifier="tabBarController" definesPresentationContext="YES" id="pxB-yV-294" customClass="BKTabBarController" sceneMemberID="viewController">
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Ajm-Pu-8jQ">
+                        <rect key="frame" x="129" y="330" width="163" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="tdD-9W-6VR" kind="relationship" relationship="viewControllers" id="iyN-Fh-2az"/>
+                        <segue destination="54x-2N-fry" kind="relationship" relationship="viewControllers" id="9sA-UM-Rnt"/>
+                        <segue destination="5O8-Kw-izy" kind="relationship" relationship="viewControllers" id="9Iu-gp-Mya"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a0X-i5-0Uf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="825" y="181"/>
+        </scene>
+        <!--Nearby Books View Controller - Recommended-->
+        <scene sceneID="KY7-8r-Rwa">
+            <objects>
+                <collectionViewController storyboardIdentifier="bookController" autoresizesArchivedViewToFullSize="NO" title="Recommended" id="tdD-9W-6VR" customClass="BKNearbyBooksViewController" sceneMemberID="viewController">
+                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="oaq-i1-ZNp">
+                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.69863180683045678" green="0.44870857979496831" blue="0.81568627450980391" alpha="1" colorSpace="calibratedRGB"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="V8F-Am-aik">
+                            <size key="itemSize" width="96" height="131"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="book" id="OBZ-cN-kbD" customClass="BKBookCoverCell">
+                                <rect key="frame" x="0.0" y="0.0" width="96" height="131"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="96" height="131"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="cover_casual_vacancy.png" translatesAutoresizingMaskIntoConstraints="NO" id="4vj-Mr-8aP"/>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="4vj-Mr-8aP" firstAttribute="top" secondItem="OBZ-cN-kbD" secondAttribute="top" type="default" id="2XF-6f-VME"/>
+                                    <constraint firstItem="4vj-Mr-8aP" firstAttribute="bottom" secondItem="OBZ-cN-kbD" secondAttribute="bottom" type="default" id="DyG-2e-Aw2"/>
+                                    <constraint firstItem="4vj-Mr-8aP" firstAttribute="trailing" secondItem="OBZ-cN-kbD" secondAttribute="trailing" type="default" id="Sut-5j-2Fm"/>
+                                    <constraint firstItem="4vj-Mr-8aP" firstAttribute="leading" secondItem="OBZ-cN-kbD" secondAttribute="leading" type="default" id="pVT-8f-Dm0"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="4vj-Mr-8aP" id="ftD-cB-WEE"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="tdD-9W-6VR" id="12f-Gz-0jR"/>
+                            <outlet property="delegate" destination="tdD-9W-6VR" id="AbF-le-VBJ"/>
+                        </connections>
+                    </collectionView>
+                    <tabBarItem key="tabBarItem" title="Books" id="VO5-xR-RpL"/>
+                    <navigationItem key="navigationItem" title="Recommended" id="r53-ZJ-Ft4"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nAo-EA-WUG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1320" y="170"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Ws6-Ff-VOv">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="uly-sL-ki7" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VJW-fy-zXW">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="D6Z-Yn-54U" kind="relationship" relationship="rootViewController" id="lAk-b7-A7e"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qNT-z5-JP0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="55" y="176"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="cover_casual_vacancy.png" width="150" height="232"/>
+    </resources>
+    <classes>
+        <class className="BKBookCoverCell" superclassName="UICollectionViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKBookCoverCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="BKLogInViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKLogInViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="delegate"/>
+            </relationships>
+        </class>
+        <class className="BKMainViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKMainViewController.h"/>
+        </class>
+        <class className="BKNearbyBooksViewController" superclassName="UICollectionViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKNearbyBooksViewController.h"/>
+        </class>
+        <class className="BKNearbyUsersMapController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKNearbyUsersMapController.h"/>
+        </class>
+        <class className="BKNearbyUsersTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKNearbyUsersTableViewController.h"/>
+        </class>
+        <class className="BKTabBarController" superclassName="UITabBarController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKTabBarController.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="UICollectionReusableView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
+        </class>
+        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
+        </class>
+        <class className="UICollectionViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewController.h"/>
+        </class>
+        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

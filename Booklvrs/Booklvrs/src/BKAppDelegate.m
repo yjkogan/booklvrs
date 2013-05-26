@@ -23,11 +23,14 @@
     
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
     
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    BKMainViewController *mainVC = [[BKMainViewController alloc] initWithNibName:nil bundle:nil];
-    self.navController = [[BKNavViewController alloc] initWithRootViewController:mainVC];
-    self.window.rootViewController = self.navController;
-    [self.window makeKeyAndVisible];
+//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    BKMainViewController *mainVC = [[BKMainViewController alloc] initWithNibName:nil bundle:nil];
+    BKMainViewController *mainVC = (BKMainViewController *) self.window.rootViewController;
+    NSLog(@"mainVC = %@", mainVC);
+//    self.navController = [[BKNavViewController alloc] initWithRootViewController:mainVC];
+//    self.window.rootViewController = self.navController;
+//    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

@@ -8,6 +8,7 @@
 
 #import "BKNearbyBooksViewController.h"
 #import "BKProfileViewController.h"
+#import "BKBookCoverCell.h"
 #import <Parse/Parse.h>
 
 CGFloat kBookPadding = 12.5f;
@@ -36,17 +37,34 @@ CGFloat kBookPadding = 12.5f;
     [self.delegate changeToListViewFrom:self];
 }
 
+- (void) loadBooks {
+    self.books = [@[] mutableCopy];
+    NSString *imageDirectoryPath = [[NSBundle mainBundle] resourcePath];
+    NSLog(@"dir path is %@", imageDirectoryPath);
+    NSArray *imageFiles = [NSBundle pathsForResourcesOfType:@".png" inDirectory:imageDirectoryPath];
+    for ( NSString* imageFile in imageFiles) {
+        if ([imageFile rangeOfString:@"/cover_"].location != NSNotFound) {
+            [self.books addObject:[UIImage imageWithContentsOfFile:imageFile]];
+        }
+//        NSLog(@"%@",imageFile);
+    }
+    NSLog(@"books: %@", self.books);
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self loadBooks];
+//    [self.collectionView registerClass:[BKBookCoverCell class] forCellWithReuseIdentifier:@"book"];
+//    [self.collectionView setBackgroundColor:[UIColor colorWithPatternImage:self.books[1]]];
     self.navigationItem.title = @"Recommended";
     self.navigationItem.hidesBackButton = YES;
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
-    UIScrollView *containerView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width,self.view.frame.size.height)];
-    containerView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"booklvrs_bkground.jpg"]];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+//    UIScrollView *containerView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width,self.view.frame.size.height)];
+//    containerView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"booklvrs_bkground.jpg"]];
 
-    [self addBookCovers:containerView];
-    [self.view addSubview:containerView];
+//    [self addBookCovers:containerView];
+//    [self.view addSubview:containerView];
 }
 
 - (void)addBookCovers:(UIScrollView *)containerView {
@@ -107,5 +125,34 @@ CGFloat kBookPadding = 12.5f;
         }
     }
 }
+
+#pragma mark - UICollectionView Datasource
+// 1
+- (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
+    return self.books.count;
+//    NSString *searchTerm = self.searches[section];
+//    return [self.searchResults[searchTerm] count];
+}
+// 2
+- (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView {
+    return 1;
+//    return [self.searches count];
+}
+// 3
+- (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    BKBookCoverCell *cell = [cv dequeueReusableCellWithReuseIdentifier:@"book" forIndexPath:indexPath];
+//    cell.backgroundColor = [UIColor colorWithPatternImage:self.books[indexPath.row]];
+    cell.backgroundColor = [UIColor clearColor];
+//    NSLog(@"indexpath section:");
+//    NSLog(@"self.books[indexPath.row] = %@", self.books[indexPath.row]);
+    cell.imageView.image = self.books[indexPath.row];
+    return cell;
+}
+// 4
+/*- (UICollectionReusableView *)collectionView:
+ (UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+ {
+ return [[UICollectionReusableView alloc] init];
+ }*/
 
 @end
