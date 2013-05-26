@@ -9,9 +9,12 @@
 #import "BKLogInViewController.h"
 #import <Parse/Parse.h>
 #import <QuartzCore/QuartzCore.h>
+#import "OAuth1Controller.h"
 
 @interface BKLogInViewController ()
-
+@property (nonatomic, strong) OAuth1Controller *oauth1Controller;
+@property (nonatomic, strong) NSString *oauthToken;
+@property (nonatomic, strong) NSString *oauthTokenSecret;
 @end
 
 @implementation BKLogInViewController
@@ -25,10 +28,18 @@
     return self;
 }
 
+- (OAuth1Controller *)oauth1Controller
+{
+    if (_oauth1Controller == nil) {
+        _oauth1Controller = [[OAuth1Controller alloc] init];
+    }
+    return _oauth1Controller;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     UIImageView *backgroundImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     
     backgroundImage.image = [UIImage imageNamed:@"iphone_4_splash.jpg"];
@@ -45,13 +56,29 @@
 }
 
 - (void)logInBtnTapped:(id)sender {
-    NSArray *permissions = [NSArray arrayWithObjects: nil];
-    [PFFacebookUtils logInWithPermissions:permissions block:^(PFUser *user, NSError *error) {
-        if (error) {
-            NSLog(@"%@", error);
-        } else {
-            [self.delegate logInViewController:self didLogInUser:user];
+    
+    [[UIApplication sharedApplication] setStatusBarHidden:NO animated:NO];
+    UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
+    webView.scalesPageToFit = YES;
+    [self.view addSubview:webView];
+    
+    
+    [self.oauth1Controller loginWithWebView:webView completion:^(NSDictionary *oauthTokens, NSError *error) {
+        if (!error) {
+            // Store your tokens for authenticating your later requests, consider storing the tokens in the Keychain
+            self.oauthToken = oauthTokens[@"oauth_token"];
+            self.oauthTokenSecret = oauthTokens[@"oauth_token_secret"];
+            
+//            self.accessTokenLabel.text = self.oauthToken;
+//            self.accessTokenSecretLabel.text = self.oauthTokenSecret;
         }
+        else
+        {
+            NSLog(@"Error authenticating: %@", error.localizedDescription);
+        }
+        [self dismissViewControllerAnimated:YES completion: ^{
+            self.oauth1Controller = nil;
+        }];
     }];
 }
 
