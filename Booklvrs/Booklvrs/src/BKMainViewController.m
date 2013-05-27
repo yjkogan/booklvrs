@@ -10,7 +10,6 @@
 #import "BKLogInViewController.h"
 #import "BKUserInfoViewController.h"
 #import "BKAppDelegate.h"
-#import "XMLDictionary.h"
 #import "BKNearbyUsersTableViewController.h"
 #import "BKNearbyUsersMapController.h"
 #import "BKNearbyBooksViewController.h"

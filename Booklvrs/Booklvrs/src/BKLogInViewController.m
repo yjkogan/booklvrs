@@ -9,10 +9,9 @@
 #import "BKLogInViewController.h"
 #import <Parse/Parse.h>
 #import <QuartzCore/QuartzCore.h>
-#import "OAuth1Controller.h"
+#import "GROAuth.h"
 
 @interface BKLogInViewController ()
-@property (nonatomic, strong) OAuth1Controller *oauth1Controller;
 @property (nonatomic, strong) NSString *oauthToken;
 @property (nonatomic, strong) NSString *oauthTokenSecret;
 @end
@@ -26,14 +25,6 @@
         // Custom initialization
     }
     return self;
-}
-
-- (OAuth1Controller *)oauth1Controller
-{
-    if (_oauth1Controller == nil) {
-        _oauth1Controller = [[OAuth1Controller alloc] init];
-    }
-    return _oauth1Controller;
 }
 
 - (void)viewDidLoad
@@ -58,31 +49,11 @@
 - (void)logInBtnTapped:(id)sender {
     
     [[UIApplication sharedApplication] setStatusBarHidden:NO animated:NO];
-    UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
-    webView.scalesPageToFit = YES;
-    [self.view addSubview:webView];
-    
-    
-    [self.oauth1Controller loginWithWebView:webView completion:^(NSDictionary *oauthTokens, NSError *error) {
-        if (!error) {
-            // Store your tokens for authenticating your later requests, consider storing the tokens in the Keychain
-            self.oauthToken = oauthTokens[@"oauth_token"];
-            self.oauthTokenSecret = oauthTokens[@"oauth_token_secret"];
-            
-            
-            NSLog(@"token %@, secret %@",self.oauthToken, self.oauthTokenSecret);
-        }
-        else
-        {
-            NSLog(@"Error authenticating: %@", error.localizedDescription);
-        }
-     [webView removeFromSuperview];
-        NSURLRequest *username = [OAuth1Controller preparedRequestForPath:@"auth_user" parameters:nil HTTPmethod:@"GET" oauthToken:self.oauthToken oauthSecret:self.oauthTokenSecret];
-        NSHTTPURLResponse* urlResponse = nil;
-        NSError *urlError = [[NSError alloc] init];
-        NSData *responseData = [NSURLConnection sendSynchronousRequest:username returningResponse:&urlResponse error:&urlError];
-        NSString *result = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+
+    [GROAuth loginWithGoodreadsWithCompletion:^(NSDictionary *authParams, NSError *error) {
+        NSString *result = [GROAuth XMLResponseForOAuthPath:@"api/auth_user" parameters:nil HTTPmethod:@"GET"];
         NSLog(@"result: %@", result);
+        
     }];
 }
 

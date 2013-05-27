@@ -40,6 +40,13 @@
 		E726174C17492C24005B4B46 /* for-whom-the-bell-tolls.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E726173617492C24005B4B46 /* for-whom-the-bell-tolls.jpg */; };
 		E726174E17493C03005B4B46 /* chat_background.JPG in Resources */ = {isa = PBXBuildFile; fileRef = E726174D17493C02005B4B46 /* chat_background.JPG */; };
 		E726175017493C7A005B4B46 /* iphone_4_splash@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E726174F17493C7A005B4B46 /* iphone_4_splash@2x.jpg */; };
+		E72E671A1754118A0075F1EB /* Base64Transcoder.c in Sources */ = {isa = PBXBuildFile; fileRef = E72E670C1754118A0075F1EB /* Base64Transcoder.c */; };
+		E72E671B1754118A0075F1EB /* hmac.c in Sources */ = {isa = PBXBuildFile; fileRef = E72E670E1754118A0075F1EB /* hmac.c */; };
+		E72E671C1754118A0075F1EB /* sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = E72E67101754118A0075F1EB /* sha1.c */; };
+		E72E671D1754118A0075F1EB /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = E72E67131754118A0075F1EB /* NSString+URLEncoding.m */; };
+		E72E671E1754118A0075F1EB /* OAuth1Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = E72E67151754118A0075F1EB /* OAuth1Controller.m */; };
+		E72E671F1754118A0075F1EB /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = E72E67171754118A0075F1EB /* XMLDictionary.m */; };
+		E72E67201754118A0075F1EB /* GROAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = E72E67191754118A0075F1EB /* GROAuth.m */; };
 		E78008C7174807C000DFC429 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78008C6174807C000DFC429 /* UIKit.framework */; };
 		E78008C9174807C000DFC429 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78008C8174807C000DFC429 /* Foundation.framework */; };
 		E78008CB174807C000DFC429 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78008CA174807C000DFC429 /* CoreGraphics.framework */; };
@@ -81,12 +88,6 @@
 		E7C6CC9517528F5C00180C07 /* BKNearbyUsersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C6CC8917528F5C00180C07 /* BKNearbyUsersTableViewController.m */; };
 		E7C6CC9617528F5C00180C07 /* BKProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C6CC8B17528F5C00180C07 /* BKProfileViewController.m */; };
 		E7C6CC9717528F5C00180C07 /* BKUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C6CC8D17528F5C00180C07 /* BKUserInfoViewController.m */; };
-		E7C6CC9B17528F7600180C07 /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C6CC9A17528F7600180C07 /* XMLDictionary.m */; };
-		E7FF75261752CD1300BF9CBB /* Base64Transcoder.c in Sources */ = {isa = PBXBuildFile; fileRef = E7FF751C1752CD1300BF9CBB /* Base64Transcoder.c */; };
-		E7FF75271752CD1300BF9CBB /* hmac.c in Sources */ = {isa = PBXBuildFile; fileRef = E7FF751E1752CD1300BF9CBB /* hmac.c */; };
-		E7FF75281752CD1300BF9CBB /* sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = E7FF75201752CD1300BF9CBB /* sha1.c */; };
-		E7FF75291752CD1300BF9CBB /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = E7FF75231752CD1300BF9CBB /* NSString+URLEncoding.m */; };
-		E7FF752A1752CD1300BF9CBB /* OAuth1Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = E7FF75251752CD1300BF9CBB /* OAuth1Controller.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -125,6 +126,20 @@
 		E726173617492C24005B4B46 /* for-whom-the-bell-tolls.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "for-whom-the-bell-tolls.jpg"; path = "booklvrs book covers/for-whom-the-bell-tolls.jpg"; sourceTree = "<group>"; };
 		E726174D17493C02005B4B46 /* chat_background.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chat_background.JPG; sourceTree = "<group>"; };
 		E726174F17493C7A005B4B46 /* iphone_4_splash@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "iphone_4_splash@2x.jpg"; sourceTree = "<group>"; };
+		E72E670C1754118A0075F1EB /* Base64Transcoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Base64Transcoder.c; sourceTree = "<group>"; };
+		E72E670D1754118A0075F1EB /* Base64Transcoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Transcoder.h; sourceTree = "<group>"; };
+		E72E670E1754118A0075F1EB /* hmac.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hmac.c; sourceTree = "<group>"; };
+		E72E670F1754118A0075F1EB /* hmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hmac.h; sourceTree = "<group>"; };
+		E72E67101754118A0075F1EB /* sha1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sha1.c; sourceTree = "<group>"; };
+		E72E67111754118A0075F1EB /* sha1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha1.h; sourceTree = "<group>"; };
+		E72E67121754118A0075F1EB /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
+		E72E67131754118A0075F1EB /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoding.m"; sourceTree = "<group>"; };
+		E72E67141754118A0075F1EB /* OAuth1Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuth1Controller.h; sourceTree = "<group>"; };
+		E72E67151754118A0075F1EB /* OAuth1Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuth1Controller.m; sourceTree = "<group>"; };
+		E72E67161754118A0075F1EB /* XMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLDictionary.h; sourceTree = "<group>"; };
+		E72E67171754118A0075F1EB /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDictionary.m; sourceTree = "<group>"; };
+		E72E67181754118A0075F1EB /* GROAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GROAuth.h; path = lib/GROAuth/GROAuth.h; sourceTree = "<group>"; };
+		E72E67191754118A0075F1EB /* GROAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GROAuth.m; path = lib/GROAuth/GROAuth.m; sourceTree = "<group>"; };
 		E78008C3174807C000DFC429 /* Booklvrs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Booklvrs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E78008C6174807C000DFC429 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E78008C8174807C000DFC429 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -179,18 +194,6 @@
 		E7C6CC8B17528F5C00180C07 /* BKProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BKProfileViewController.m; path = src/BKProfileViewController.m; sourceTree = "<group>"; };
 		E7C6CC8C17528F5C00180C07 /* BKUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BKUserInfoViewController.h; path = src/BKUserInfoViewController.h; sourceTree = "<group>"; };
 		E7C6CC8D17528F5C00180C07 /* BKUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BKUserInfoViewController.m; path = src/BKUserInfoViewController.m; sourceTree = "<group>"; };
-		E7C6CC9917528F7600180C07 /* XMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLDictionary.h; path = lib/XMLDictionary.h; sourceTree = "<group>"; };
-		E7C6CC9A17528F7600180C07 /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMLDictionary.m; path = lib/XMLDictionary.m; sourceTree = "<group>"; };
-		E7FF751C1752CD1300BF9CBB /* Base64Transcoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Base64Transcoder.c; sourceTree = "<group>"; };
-		E7FF751D1752CD1300BF9CBB /* Base64Transcoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Transcoder.h; sourceTree = "<group>"; };
-		E7FF751E1752CD1300BF9CBB /* hmac.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hmac.c; sourceTree = "<group>"; };
-		E7FF751F1752CD1300BF9CBB /* hmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hmac.h; sourceTree = "<group>"; };
-		E7FF75201752CD1300BF9CBB /* sha1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sha1.c; sourceTree = "<group>"; };
-		E7FF75211752CD1300BF9CBB /* sha1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha1.h; sourceTree = "<group>"; };
-		E7FF75221752CD1300BF9CBB /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
-		E7FF75231752CD1300BF9CBB /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoding.m"; sourceTree = "<group>"; };
-		E7FF75241752CD1300BF9CBB /* OAuth1Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuth1Controller.h; sourceTree = "<group>"; };
-		E7FF75251752CD1300BF9CBB /* OAuth1Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuth1Controller.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +226,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E72E670A1754118A0075F1EB /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				E72E670B1754118A0075F1EB /* Crypto */,
+				E72E67121754118A0075F1EB /* NSString+URLEncoding.h */,
+				E72E67131754118A0075F1EB /* NSString+URLEncoding.m */,
+				E72E67141754118A0075F1EB /* OAuth1Controller.h */,
+				E72E67151754118A0075F1EB /* OAuth1Controller.m */,
+				E72E67161754118A0075F1EB /* XMLDictionary.h */,
+				E72E67171754118A0075F1EB /* XMLDictionary.m */,
+			);
+			name = Dependencies;
+			path = lib/GROAuth/Dependencies;
+			sourceTree = "<group>";
+		};
+		E72E670B1754118A0075F1EB /* Crypto */ = {
+			isa = PBXGroup;
+			children = (
+				E72E670C1754118A0075F1EB /* Base64Transcoder.c */,
+				E72E670D1754118A0075F1EB /* Base64Transcoder.h */,
+				E72E670E1754118A0075F1EB /* hmac.c */,
+				E72E670F1754118A0075F1EB /* hmac.h */,
+				E72E67101754118A0075F1EB /* sha1.c */,
+				E72E67111754118A0075F1EB /* sha1.h */,
+			);
+			path = Crypto;
+			sourceTree = "<group>";
+		};
 		E78008BA174807C000DFC429 = {
 			isa = PBXGroup;
 			children = (
@@ -370,37 +401,11 @@
 		E7C6CC9C17528F7900180C07 /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				E7C6CC9917528F7600180C07 /* XMLDictionary.h */,
-				E7C6CC9A17528F7600180C07 /* XMLDictionary.m */,
-				E7FF751A1752CD1300BF9CBB /* OAuth1 */,
+				E72E670A1754118A0075F1EB /* Dependencies */,
+				E72E67181754118A0075F1EB /* GROAuth.h */,
+				E72E67191754118A0075F1EB /* GROAuth.m */,
 			);
 			name = lib;
-			sourceTree = "<group>";
-		};
-		E7FF751A1752CD1300BF9CBB /* OAuth1 */ = {
-			isa = PBXGroup;
-			children = (
-				E7FF751B1752CD1300BF9CBB /* Crypto */,
-				E7FF75221752CD1300BF9CBB /* NSString+URLEncoding.h */,
-				E7FF75231752CD1300BF9CBB /* NSString+URLEncoding.m */,
-				E7FF75241752CD1300BF9CBB /* OAuth1Controller.h */,
-				E7FF75251752CD1300BF9CBB /* OAuth1Controller.m */,
-			);
-			name = OAuth1;
-			path = lib/OAuth1;
-			sourceTree = "<group>";
-		};
-		E7FF751B1752CD1300BF9CBB /* Crypto */ = {
-			isa = PBXGroup;
-			children = (
-				E7FF751C1752CD1300BF9CBB /* Base64Transcoder.c */,
-				E7FF751D1752CD1300BF9CBB /* Base64Transcoder.h */,
-				E7FF751E1752CD1300BF9CBB /* hmac.c */,
-				E7FF751F1752CD1300BF9CBB /* hmac.h */,
-				E7FF75201752CD1300BF9CBB /* sha1.c */,
-				E7FF75211752CD1300BF9CBB /* sha1.h */,
-			);
-			path = Crypto;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -518,14 +523,15 @@
 				E7C6CC9517528F5C00180C07 /* BKNearbyUsersTableViewController.m in Sources */,
 				E7C6CC9617528F5C00180C07 /* BKProfileViewController.m in Sources */,
 				E7C6CC9717528F5C00180C07 /* BKUserInfoViewController.m in Sources */,
-				E7C6CC9B17528F7600180C07 /* XMLDictionary.m in Sources */,
 				ACAF553F1752A93D00AEF17B /* BKBookCoverCell.m in Sources */,
 				ACAF55421752BB7700AEF17B /* BKTabBarController.m in Sources */,
-				E7FF75261752CD1300BF9CBB /* Base64Transcoder.c in Sources */,
-				E7FF75271752CD1300BF9CBB /* hmac.c in Sources */,
-				E7FF75281752CD1300BF9CBB /* sha1.c in Sources */,
-				E7FF75291752CD1300BF9CBB /* NSString+URLEncoding.m in Sources */,
-				E7FF752A1752CD1300BF9CBB /* OAuth1Controller.m in Sources */,
+				E72E671A1754118A0075F1EB /* Base64Transcoder.c in Sources */,
+				E72E671B1754118A0075F1EB /* hmac.c in Sources */,
+				E72E671C1754118A0075F1EB /* sha1.c in Sources */,
+				E72E671D1754118A0075F1EB /* NSString+URLEncoding.m in Sources */,
+				E72E671E1754118A0075F1EB /* OAuth1Controller.m in Sources */,
+				E72E671F1754118A0075F1EB /* XMLDictionary.m in Sources */,
+				E72E67201754118A0075F1EB /* GROAuth.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
