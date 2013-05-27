@@ -37,14 +37,14 @@ typedef void (^WebWiewDelegateHandler)(NSDictionary *oauthParams);
 //#define API_URL              @"http://api.linkedin.com/v1/"
 //#define OAUTH_SCOPE_PARAM    @"r_fullprofile r_emailaddress rw_nus r_network w_messages"
 
-#define OAUTH_CALLBACK       @"Booklvrs" //Sometimes this has to be the same as the registered app callback url
+#define OAUTH_CALLBACK       @"http://booklvrs.com" //Sometimes this has to be the same as the registered app callback url
 // #define CONSUMER_KEY         @"WRXqU6cCaApGQMXVZZtfrw" //yjkogan's
 #define CONSUMER_KEY         @"BmtaX8OIKKEqF1JaBkUj1Q" //jenny8's
 //#define CONSUMER_SECRET      @"29u9ztldefAWW6mFVZaP1CYO7gYiaK2XoBlY6ic49I" //yjkogan's
 #define CONSUMER_SECRET      @"UJ9fwCqNo8u5gEl0SPrLXfBzA65Z7qNlCD9ybBXFkk" //jenny8's
 #define AUTH_URL             @"https://www.goodreads.com/oauth/"
 #define REQUEST_TOKEN_URL    @"request_token"
-#define AUTHENTICATE_URL     @"authorize?mobile=1"
+#define AUTHENTICATE_URL     @"authorize"
 #define ACCESS_TOKEN_URL     @"access_token"
 #define API_URL              @"http://www.goodreads.com/api/"
 #define OAUTH_SCOPE_PARAM    @""
@@ -269,14 +269,14 @@ static inline NSDictionary *CHParametersFromQueryString(NSString *queryString)
 {
     NSString *oauth_callback = OAUTH_CALLBACK;
     NSString *authenticate_url = [AUTH_URL stringByAppendingString:AUTHENTICATE_URL];
-    authenticate_url = [authenticate_url stringByAppendingFormat:@"&oauth_token=%@", oauthToken];
+    authenticate_url = [authenticate_url stringByAppendingFormat:@"?oauth_token=%@", oauthToken];
     authenticate_url = [authenticate_url stringByAppendingFormat:@"&oauth_callback=%@", oauth_callback.utf8AndURLEncode];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:authenticate_url]];
     [request setValue:[NSString stringWithFormat:@"%@/%@ (%@; iOS %@; Scale/%0.2f)", [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleExecutableKey] ?: [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleIdentifierKey], (__bridge id)CFBundleGetValueForInfoDictionaryKey(CFBundleGetMainBundle(), kCFBundleVersionKey) ?: [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey], [[UIDevice currentDevice] model], [[UIDevice currentDevice] systemVersion], ([[UIScreen mainScreen] respondsToSelector:@selector(scale)] ? [[UIScreen mainScreen] scale] : 1.0f)] forHTTPHeaderField:@"User-Agent"];
     
     _delegateHandler = ^(NSDictionary *oauthParams) {
-        if (oauthParams[@"oauth_verifier"] == nil) {
+        if (oauthParams[@"oauth_token"] == nil) {
             NSError *authenticateError = [NSError errorWithDomain:@"com.ideaflasher.oauth.authenticate" code:0 userInfo:@{@"userInfo" : @"oauth_verifier not received and/or user denied access"}];
             completion(authenticateError, oauthParams);
         } else {
@@ -410,6 +410,7 @@ static inline NSDictionary *CHParametersFromQueryString(NSString *queryString)
     
     NSString *request_url = API_URL;
     if (path) request_url = [request_url stringByAppendingString:path];
+    NSLog(@"request_url %@",request_url);
     NSString *oauth_consumer_secret = CONSUMER_SECRET;
     NSString *baseString = [HTTPmethod stringByAppendingFormat:@"&%@&%@", request_url.utf8AndURLEncode, parametersString.utf8AndURLEncode];
     NSString *secretString = [oauth_consumer_secret.utf8AndURLEncode stringByAppendingFormat:@"&%@", oauth_token_secret.utf8AndURLEncode];

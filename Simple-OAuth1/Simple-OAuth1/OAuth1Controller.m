@@ -268,7 +268,7 @@ static inline NSDictionary *CHParametersFromQueryString(NSString *queryString)
 {
     NSString *oauth_callback = OAUTH_CALLBACK;
     NSString *authenticate_url = [AUTH_URL stringByAppendingString:AUTHENTICATE_URL];
-    authenticate_url = [authenticate_url stringByAppendingFormat:@"&oauth_token=%@", oauthToken];
+    authenticate_url = [authenticate_url stringByAppendingFormat:@"?oauth_token=%@", oauthToken];
     authenticate_url = [authenticate_url stringByAppendingFormat:@"&oauth_callback=%@", oauth_callback.utf8AndURLEncode];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:authenticate_url]];

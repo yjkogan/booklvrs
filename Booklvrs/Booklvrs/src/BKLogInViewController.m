@@ -69,16 +69,20 @@
             self.oauthToken = oauthTokens[@"oauth_token"];
             self.oauthTokenSecret = oauthTokens[@"oauth_token_secret"];
             
-//            self.accessTokenLabel.text = self.oauthToken;
-//            self.accessTokenSecretLabel.text = self.oauthTokenSecret;
+            
+            NSLog(@"token %@, secret %@",self.oauthToken, self.oauthTokenSecret);
         }
         else
         {
             NSLog(@"Error authenticating: %@", error.localizedDescription);
         }
-        [self dismissViewControllerAnimated:YES completion: ^{
-            self.oauth1Controller = nil;
-        }];
+     [webView removeFromSuperview];
+        NSURLRequest *username = [OAuth1Controller preparedRequestForPath:@"auth_user" parameters:nil HTTPmethod:@"GET" oauthToken:self.oauthToken oauthSecret:self.oauthTokenSecret];
+        NSHTTPURLResponse* urlResponse = nil;
+        NSError *urlError = [[NSError alloc] init];
+        NSData *responseData = [NSURLConnection sendSynchronousRequest:username returningResponse:&urlResponse error:&urlError];
+        NSString *result = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+        NSLog(@"result: %@", result);
     }];
 }
 
