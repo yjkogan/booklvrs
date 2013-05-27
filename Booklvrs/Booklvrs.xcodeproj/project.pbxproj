@@ -11,6 +11,7 @@
 		ACAF550A1752986600AEF17B /* BKStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACAF55091752986600AEF17B /* BKStoryboard.storyboard */; };
 		ACAF553F1752A93D00AEF17B /* BKBookCoverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACAF553E1752A93C00AEF17B /* BKBookCoverCell.m */; };
 		ACAF55421752BB7700AEF17B /* BKTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACAF55411752BB7700AEF17B /* BKTabBarController.m */; };
+		E707D1A01754254B00E3433C /* apiKeys.h in Resources */ = {isa = PBXBuildFile; fileRef = E707D19F1754254B00E3433C /* apiKeys.h */; };
 		E72616F717489CC4005B4B46 /* iphone_splash_nobuttons.png in Resources */ = {isa = PBXBuildFile; fileRef = E72616F617489CC4005B4B46 /* iphone_splash_nobuttons.png */; };
 		E72616F917489E59005B4B46 /* fb_button.png in Resources */ = {isa = PBXBuildFile; fileRef = E72616F817489E59005B4B46 /* fb_button.png */; };
 		E72616FB1748AB0C005B4B46 /* booklvrs_arrow_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = E72616FA1748AB0C005B4B46 /* booklvrs_arrow_blue.png */; };
@@ -97,6 +98,7 @@
 		ACAF553E1752A93C00AEF17B /* BKBookCoverCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BKBookCoverCell.m; path = src/BKBookCoverCell.m; sourceTree = "<group>"; };
 		ACAF55401752BB7600AEF17B /* BKTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BKTabBarController.h; path = src/BKTabBarController.h; sourceTree = "<group>"; };
 		ACAF55411752BB7700AEF17B /* BKTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BKTabBarController.m; path = src/BKTabBarController.m; sourceTree = "<group>"; };
+		E707D19F1754254B00E3433C /* apiKeys.h */ = {isa = PBXFileReference; lastKnownFileType = file; path = apiKeys.h; sourceTree = "<group>"; };
 		E72616F617489CC4005B4B46 /* iphone_splash_nobuttons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone_splash_nobuttons.png; sourceTree = "<group>"; };
 		E72616F817489E59005B4B46 /* fb_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fb_button.png; sourceTree = "<group>"; };
 		E72616FA1748AB0C005B4B46 /* booklvrs_arrow_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = booklvrs_arrow_blue.png; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 		E78008CD174807C000DFC429 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E707D19F1754254B00E3433C /* apiKeys.h */,
 				E78008CE174807C000DFC429 /* Booklvrs-Info.plist */,
 				E78008CF174807C000DFC429 /* InfoPlist.strings */,
 				E78008D2174807C000DFC429 /* main.m */,
@@ -502,6 +505,7 @@
 				E726174E17493C03005B4B46 /* chat_background.JPG in Resources */,
 				E726175017493C7A005B4B46 /* iphone_4_splash@2x.jpg in Resources */,
 				ACAF550A1752986600AEF17B /* BKStoryboard.storyboard in Resources */,
+				E707D1A01754254B00E3433C /* apiKeys.h in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

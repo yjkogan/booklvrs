@@ -10,6 +10,7 @@
 #import "BKNavViewController.h"
 #import "BKMainViewController.h"
 #import "GROAuth.h"
+#import "apiKeys.h"
 
 #import <Parse/Parse.h>
 
@@ -17,10 +18,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [Parse setApplicationId:@"xmzp0RZewTe4mnrNEtSj9ASnu1C4826iCAQIwIsT"
-                  clientKey:@"x1igbTLWGQyW5fsyAmruCa8uDYPIL4ABUrppHi59"];
+    [Parse setApplicationId:PARSE_APP_ID
+                  clientKey:PARSE_CLIENT_KEY];
     [PFFacebookUtils initializeFacebook];
-    [GROAuth setGoodreadsOAuthWithConsumerKey:@"WRXqU6cCaApGQMXVZZtfrw" secret:@"29u9ztldefAWW6mFVZaP1CYO7gYiaK2XoBlY6ic49I"];
+    [GROAuth setGoodreadsOAuthWithConsumerKey:GOODREADS_CONSUMER_KEY secret:GOODREADS_CONSUMER_SECRET];
     
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
     
