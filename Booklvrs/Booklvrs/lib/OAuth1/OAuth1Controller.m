@@ -410,7 +410,6 @@ static inline NSDictionary *CHParametersFromQueryString(NSString *queryString)
     
     NSString *request_url = API_URL;
     if (path) request_url = [request_url stringByAppendingString:path];
-    NSLog(@"request_url %@",request_url);
     NSString *oauth_consumer_secret = CONSUMER_SECRET;
     NSString *baseString = [HTTPmethod stringByAppendingFormat:@"&%@&%@", request_url.utf8AndURLEncode, parametersString.utf8AndURLEncode];
     NSString *secretString = [oauth_consumer_secret.utf8AndURLEncode stringByAppendingFormat:@"&%@", oauth_token_secret.utf8AndURLEncode];
