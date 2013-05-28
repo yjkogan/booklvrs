@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5996CC73234F408A96F73C56 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 72AB6A288DBC4C75A3045E21 /* libPods.a */; };
 		AC7462811748AED4002ADED3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC7462801748AED4002ADED3 /* MapKit.framework */; };
 		ACAF550A1752986600AEF17B /* BKStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACAF55091752986600AEF17B /* BKStoryboard.storyboard */; };
 		ACAF553F1752A93D00AEF17B /* BKBookCoverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACAF553E1752A93C00AEF17B /* BKBookCoverCell.m */; };
@@ -41,13 +42,6 @@
 		E726174C17492C24005B4B46 /* for-whom-the-bell-tolls.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E726173617492C24005B4B46 /* for-whom-the-bell-tolls.jpg */; };
 		E726174E17493C03005B4B46 /* chat_background.JPG in Resources */ = {isa = PBXBuildFile; fileRef = E726174D17493C02005B4B46 /* chat_background.JPG */; };
 		E726175017493C7A005B4B46 /* iphone_4_splash@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E726174F17493C7A005B4B46 /* iphone_4_splash@2x.jpg */; };
-		E72E671A1754118A0075F1EB /* Base64Transcoder.c in Sources */ = {isa = PBXBuildFile; fileRef = E72E670C1754118A0075F1EB /* Base64Transcoder.c */; };
-		E72E671B1754118A0075F1EB /* hmac.c in Sources */ = {isa = PBXBuildFile; fileRef = E72E670E1754118A0075F1EB /* hmac.c */; };
-		E72E671C1754118A0075F1EB /* sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = E72E67101754118A0075F1EB /* sha1.c */; };
-		E72E671D1754118A0075F1EB /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = E72E67131754118A0075F1EB /* NSString+URLEncoding.m */; };
-		E72E671E1754118A0075F1EB /* OAuth1Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = E72E67151754118A0075F1EB /* OAuth1Controller.m */; };
-		E72E671F1754118A0075F1EB /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = E72E67171754118A0075F1EB /* XMLDictionary.m */; };
-		E72E67201754118A0075F1EB /* GROAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = E72E67191754118A0075F1EB /* GROAuth.m */; };
 		E78008C7174807C000DFC429 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78008C6174807C000DFC429 /* UIKit.framework */; };
 		E78008C9174807C000DFC429 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78008C8174807C000DFC429 /* Foundation.framework */; };
 		E78008CB174807C000DFC429 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78008CA174807C000DFC429 /* CoreGraphics.framework */; };
@@ -92,13 +86,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		72AB6A288DBC4C75A3045E21 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C7B367367804AF280BB852F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		AC7462801748AED4002ADED3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		ACAF55091752986600AEF17B /* BKStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BKStoryboard.storyboard; sourceTree = "<group>"; };
 		ACAF553D1752A93C00AEF17B /* BKBookCoverCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BKBookCoverCell.h; path = src/BKBookCoverCell.h; sourceTree = "<group>"; };
 		ACAF553E1752A93C00AEF17B /* BKBookCoverCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BKBookCoverCell.m; path = src/BKBookCoverCell.m; sourceTree = "<group>"; };
 		ACAF55401752BB7600AEF17B /* BKTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BKTabBarController.h; path = src/BKTabBarController.h; sourceTree = "<group>"; };
 		ACAF55411752BB7700AEF17B /* BKTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BKTabBarController.m; path = src/BKTabBarController.m; sourceTree = "<group>"; };
-		E707D19F1754254B00E3433C /* apiKeys.h */ = {isa = PBXFileReference; lastKnownFileType = file; path = apiKeys.h; sourceTree = "<group>"; };
+		E707D19F1754254B00E3433C /* apiKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = apiKeys.h; sourceTree = "<group>"; };
 		E72616F617489CC4005B4B46 /* iphone_splash_nobuttons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone_splash_nobuttons.png; sourceTree = "<group>"; };
 		E72616F817489E59005B4B46 /* fb_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fb_button.png; sourceTree = "<group>"; };
 		E72616FA1748AB0C005B4B46 /* booklvrs_arrow_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = booklvrs_arrow_blue.png; sourceTree = "<group>"; };
@@ -128,20 +124,6 @@
 		E726173617492C24005B4B46 /* for-whom-the-bell-tolls.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "for-whom-the-bell-tolls.jpg"; path = "booklvrs book covers/for-whom-the-bell-tolls.jpg"; sourceTree = "<group>"; };
 		E726174D17493C02005B4B46 /* chat_background.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chat_background.JPG; sourceTree = "<group>"; };
 		E726174F17493C7A005B4B46 /* iphone_4_splash@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "iphone_4_splash@2x.jpg"; sourceTree = "<group>"; };
-		E72E670C1754118A0075F1EB /* Base64Transcoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Base64Transcoder.c; sourceTree = "<group>"; };
-		E72E670D1754118A0075F1EB /* Base64Transcoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Transcoder.h; sourceTree = "<group>"; };
-		E72E670E1754118A0075F1EB /* hmac.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hmac.c; sourceTree = "<group>"; };
-		E72E670F1754118A0075F1EB /* hmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hmac.h; sourceTree = "<group>"; };
-		E72E67101754118A0075F1EB /* sha1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sha1.c; sourceTree = "<group>"; };
-		E72E67111754118A0075F1EB /* sha1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha1.h; sourceTree = "<group>"; };
-		E72E67121754118A0075F1EB /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
-		E72E67131754118A0075F1EB /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoding.m"; sourceTree = "<group>"; };
-		E72E67141754118A0075F1EB /* OAuth1Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuth1Controller.h; sourceTree = "<group>"; };
-		E72E67151754118A0075F1EB /* OAuth1Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuth1Controller.m; sourceTree = "<group>"; };
-		E72E67161754118A0075F1EB /* XMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLDictionary.h; sourceTree = "<group>"; };
-		E72E67171754118A0075F1EB /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDictionary.m; sourceTree = "<group>"; };
-		E72E67181754118A0075F1EB /* GROAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GROAuth.h; path = lib/GROAuth/GROAuth.h; sourceTree = "<group>"; };
-		E72E67191754118A0075F1EB /* GROAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GROAuth.m; path = lib/GROAuth/GROAuth.m; sourceTree = "<group>"; };
 		E78008C3174807C000DFC429 /* Booklvrs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Booklvrs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E78008C6174807C000DFC429 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E78008C8174807C000DFC429 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -222,40 +204,13 @@
 				E78008C9174807C000DFC429 /* Foundation.framework in Frameworks */,
 				E780090017480BFE00DFC429 /* Parse.framework in Frameworks */,
 				E780090A1748125200DFC429 /* FacebookSDK.framework in Frameworks */,
+				5996CC73234F408A96F73C56 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E72E670A1754118A0075F1EB /* Dependencies */ = {
-			isa = PBXGroup;
-			children = (
-				E72E670B1754118A0075F1EB /* Crypto */,
-				E72E67121754118A0075F1EB /* NSString+URLEncoding.h */,
-				E72E67131754118A0075F1EB /* NSString+URLEncoding.m */,
-				E72E67141754118A0075F1EB /* OAuth1Controller.h */,
-				E72E67151754118A0075F1EB /* OAuth1Controller.m */,
-				E72E67161754118A0075F1EB /* XMLDictionary.h */,
-				E72E67171754118A0075F1EB /* XMLDictionary.m */,
-			);
-			name = Dependencies;
-			path = lib/GROAuth/Dependencies;
-			sourceTree = "<group>";
-		};
-		E72E670B1754118A0075F1EB /* Crypto */ = {
-			isa = PBXGroup;
-			children = (
-				E72E670C1754118A0075F1EB /* Base64Transcoder.c */,
-				E72E670D1754118A0075F1EB /* Base64Transcoder.h */,
-				E72E670E1754118A0075F1EB /* hmac.c */,
-				E72E670F1754118A0075F1EB /* hmac.h */,
-				E72E67101754118A0075F1EB /* sha1.c */,
-				E72E67111754118A0075F1EB /* sha1.h */,
-			);
-			path = Crypto;
-			sourceTree = "<group>";
-		};
 		E78008BA174807C000DFC429 = {
 			isa = PBXGroup;
 			children = (
@@ -263,6 +218,7 @@
 				E780090117480D2F00DFC429 /* assets */,
 				E78008C5174807C000DFC429 /* Frameworks */,
 				E78008C4174807C000DFC429 /* Products */,
+				7C7B367367804AF280BB852F /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -297,6 +253,7 @@
 				E78008C6174807C000DFC429 /* UIKit.framework */,
 				E78008C8174807C000DFC429 /* Foundation.framework */,
 				E78008CA174807C000DFC429 /* CoreGraphics.framework */,
+				72AB6A288DBC4C75A3045E21 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -404,9 +361,6 @@
 		E7C6CC9C17528F7900180C07 /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				E72E670A1754118A0075F1EB /* Dependencies */,
-				E72E67181754118A0075F1EB /* GROAuth.h */,
-				E72E67191754118A0075F1EB /* GROAuth.m */,
 			);
 			name = lib;
 			sourceTree = "<group>";
@@ -418,9 +372,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E78008E0174807C000DFC429 /* Build configuration list for PBXNativeTarget "Booklvrs" */;
 			buildPhases = (
+				9685C82DDD9D423A9D7A667C /* Check Pods Manifest.lock */,
 				E78008BF174807C000DFC429 /* Sources */,
 				E78008C0174807C000DFC429 /* Frameworks */,
 				E78008C1174807C000DFC429 /* Resources */,
+				E76E137F8C7143DA89CE96D1 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -511,6 +467,37 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9685C82DDD9D423A9D7A667C /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+		};
+		E76E137F8C7143DA89CE96D1 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E78008BF174807C000DFC429 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -529,13 +516,6 @@
 				E7C6CC9717528F5C00180C07 /* BKUserInfoViewController.m in Sources */,
 				ACAF553F1752A93D00AEF17B /* BKBookCoverCell.m in Sources */,
 				ACAF55421752BB7700AEF17B /* BKTabBarController.m in Sources */,
-				E72E671A1754118A0075F1EB /* Base64Transcoder.c in Sources */,
-				E72E671B1754118A0075F1EB /* hmac.c in Sources */,
-				E72E671C1754118A0075F1EB /* sha1.c in Sources */,
-				E72E671D1754118A0075F1EB /* NSString+URLEncoding.m in Sources */,
-				E72E671E1754118A0075F1EB /* OAuth1Controller.m in Sources */,
-				E72E671F1754118A0075F1EB /* XMLDictionary.m in Sources */,
-				E72E67201754118A0075F1EB /* GROAuth.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -613,6 +593,7 @@
 		};
 		E78008E1174807C000DFC429 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C7B367367804AF280BB852F /* Pods.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -622,6 +603,10 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Booklvrs/Booklvrs-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_HEADERS_SEARCH_PATHS}",
+				);
 				INFOPLIST_FILE = "Booklvrs/Booklvrs-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -630,6 +615,7 @@
 		};
 		E78008E2174807C000DFC429 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C7B367367804AF280BB852F /* Pods.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -639,6 +625,10 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Booklvrs/Booklvrs-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_HEADERS_SEARCH_PATHS}",
+				);
 				INFOPLIST_FILE = "Booklvrs/Booklvrs-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
