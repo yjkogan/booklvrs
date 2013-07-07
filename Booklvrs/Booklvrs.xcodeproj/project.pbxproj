@@ -73,6 +73,8 @@
 		E78009231748878100DFC429 /* booklvr.png in Resources */ = {isa = PBXBuildFile; fileRef = E78009221748878100DFC429 /* booklvr.png */; };
 		E7800925174887FE00DFC429 /* booklvrs_read_discover_meet_subhead_blues.png in Resources */ = {isa = PBXBuildFile; fileRef = E7800924174887FE00DFC429 /* booklvrs_read_discover_meet_subhead_blues.png */; };
 		E780092717488A3E00DFC429 /* goodreads.png in Resources */ = {isa = PBXBuildFile; fileRef = E780092617488A3E00DFC429 /* goodreads.png */; };
+		E780A1A0178A1D87006B02BF /* BKUser.h in Resources */ = {isa = PBXBuildFile; fileRef = E780A19E178A1D87006B02BF /* BKUser.h */; };
+		E780A1A1178A1D87006B02BF /* BKUser.m in Resources */ = {isa = PBXBuildFile; fileRef = E780A19F178A1D87006B02BF /* BKUser.m */; };
 		E7C6CC8E17528F5C00180C07 /* BKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C6CC7B17528F5C00180C07 /* BKAppDelegate.m */; };
 		E7C6CC8F17528F5C00180C07 /* BKChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C6CC7D17528F5C00180C07 /* BKChatViewController.m */; };
 		E7C6CC9017528F5C00180C07 /* BKLogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C6CC7F17528F5C00180C07 /* BKLogInViewController.m */; };
@@ -157,6 +159,8 @@
 		E78009221748878100DFC429 /* booklvr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = booklvr.png; sourceTree = "<group>"; };
 		E7800924174887FE00DFC429 /* booklvrs_read_discover_meet_subhead_blues.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = booklvrs_read_discover_meet_subhead_blues.png; sourceTree = "<group>"; };
 		E780092617488A3E00DFC429 /* goodreads.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goodreads.png; sourceTree = "<group>"; };
+		E780A19E178A1D87006B02BF /* BKUser.h */ = {isa = PBXFileReference; lastKnownFileType = file; name = BKUser.h; path = src/BKUser.h; sourceTree = "<group>"; };
+		E780A19F178A1D87006B02BF /* BKUser.m */ = {isa = PBXFileReference; lastKnownFileType = file; name = BKUser.m; path = src/BKUser.m; sourceTree = "<group>"; };
 		E7C6CC7A17528F5C00180C07 /* BKAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BKAppDelegate.h; path = src/BKAppDelegate.h; sourceTree = "<group>"; };
 		E7C6CC7B17528F5C00180C07 /* BKAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BKAppDelegate.m; path = src/BKAppDelegate.m; sourceTree = "<group>"; };
 		E7C6CC7C17528F5C00180C07 /* BKChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BKChatViewController.h; path = src/BKChatViewController.h; sourceTree = "<group>"; };
@@ -357,6 +361,8 @@
 				E7C6CC8117528F5C00180C07 /* BKMainViewController.m */,
 				E7C6CC8217528F5C00180C07 /* BKNavViewController.h */,
 				E7C6CC8317528F5C00180C07 /* BKNavViewController.m */,
+				E780A19E178A1D87006B02BF /* BKUser.h */,
+				E780A19F178A1D87006B02BF /* BKUser.m */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -424,6 +430,7 @@
 			files = (
 				E78008D1174807C000DFC429 /* InfoPlist.strings in Resources */,
 				E78008D9174807C000DFC429 /* Default.png in Resources */,
+				E780A1A0178A1D87006B02BF /* BKUser.h in Resources */,
 				E78008DB174807C000DFC429 /* Default@2x.png in Resources */,
 				E78008DD174807C000DFC429 /* Default-568h@2x.png in Resources */,
 				E780090317480D2F00DFC429 /* booklvrs_bkground.jpg in Resources */,
@@ -455,6 +462,7 @@
 				E726174417492C24005B4B46 /* cover_lean_in.png in Resources */,
 				E726174517492C24005B4B46 /* cover_lean_startup.png in Resources */,
 				E726174617492C24005B4B46 /* cover_made_to_stick.png in Resources */,
+				E780A1A1178A1D87006B02BF /* BKUser.m in Resources */,
 				E726174717492C24005B4B46 /* cover_predictably_irrational.png in Resources */,
 				E726174817492C24005B4B46 /* cover_rise_of_creative_class.png in Resources */,
 				E726174917492C24005B4B46 /* cover_stumbling_upon_happiness.png in Resources */,
