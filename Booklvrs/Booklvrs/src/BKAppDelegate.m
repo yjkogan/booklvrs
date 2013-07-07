@@ -9,6 +9,8 @@
 #import "BKAppDelegate.h"
 #import "BKNavViewController.h"
 #import "BKMainViewController.h"
+#import "GROAuth.h"
+#import "apiKeys.h"
 
 #import <Parse/Parse.h>
 
@@ -16,18 +18,21 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [Parse setApplicationId:@"xmzp0RZewTe4mnrNEtSj9ASnu1C4826iCAQIwIsT"
-                  clientKey:@"x1igbTLWGQyW5fsyAmruCa8uDYPIL4ABUrppHi59"];
+    [Parse setApplicationId:PARSE_APP_ID
+                  clientKey:PARSE_CLIENT_KEY];
     [PFFacebookUtils initializeFacebook];
-    self.goodReadsKey = @"BmtaX8OIKKEqF1JaBkUj1Q";
+    [GROAuth setGoodreadsOAuthWithConsumerKey:GOODREADS_CONSUMER_KEY secret:GOODREADS_CONSUMER_SECRET];
     
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
     
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    BKMainViewController *mainVC = [[BKMainViewController alloc] initWithNibName:nil bundle:nil];
-    self.navController = [[BKNavViewController alloc] initWithRootViewController:mainVC];
-    self.window.rootViewController = self.navController;
-    [self.window makeKeyAndVisible];
+//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    BKMainViewController *mainVC = [[BKMainViewController alloc] initWithNibName:nil bundle:nil];
+    BKMainViewController *mainVC = (BKMainViewController *) self.window.rootViewController;
+    NSLog(@"mainVC = %@", mainVC);
+//    self.navController = [[BKNavViewController alloc] initWithRootViewController:mainVC];
+//    self.window.rootViewController = self.navController;
+//    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

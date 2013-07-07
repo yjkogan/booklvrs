@@ -8,7 +8,7 @@
 
 #import "BKProfileViewController.h"
 #import "BKAppDelegate.h"
-#import "XMLDictionary.h"
+#import "GROAuth.h"
 #import "BKChatViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
@@ -41,12 +41,11 @@ CGFloat kCellViewHeight = 44.0f;
     UIBarButtonItem *chatBtn = [[UIBarButtonItem alloc] initWithTitle:@"Message" style:UIBarButtonItemStylePlain target:self action:@selector(chatSelectUser:)];
     self.navigationItem.rightBarButtonItem = chatBtn;
 
-    NSString *key = ((BKAppDelegate *)[[UIApplication sharedApplication] delegate]).goodReadsKey;
     NSString *username = [self.user objectForKey:@"GoodReadsUsername"];
-    NSString *url = [NSString stringWithFormat:@"http://www.goodreads.com/user/show/?key=%@&username=%@", key, username];
-    NSString *response = [self getDataFrom:url];
     
-    self.goodReadsUserInfo = [NSDictionary dictionaryWithXMLString:response];
+    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:username,@"username",[GROAuth consumerKey],@"key", nil];
+    
+    self.goodReadsUserInfo = [GROAuth dictionaryResponseForNonOAuthPath:@"user/show" parameters:parameters];
     
     UIScrollView *containerView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width,self.view.frame.size.height)];
     

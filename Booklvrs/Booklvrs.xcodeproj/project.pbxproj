@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5996CC73234F408A96F73C56 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 72AB6A288DBC4C75A3045E21 /* libPods.a */; };
 		AC7462811748AED4002ADED3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC7462801748AED4002ADED3 /* MapKit.framework */; };
+		ACAF550A1752986600AEF17B /* BKStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACAF55091752986600AEF17B /* BKStoryboard.storyboard */; };
+		ACAF553F1752A93D00AEF17B /* BKBookCoverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACAF553E1752A93C00AEF17B /* BKBookCoverCell.m */; };
+		ACAF55421752BB7700AEF17B /* BKTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACAF55411752BB7700AEF17B /* BKTabBarController.m */; };
+		E707D1A01754254B00E3433C /* apiKeys.h in Resources */ = {isa = PBXBuildFile; fileRef = E707D19F1754254B00E3433C /* apiKeys.h */; };
 		E72616F717489CC4005B4B46 /* iphone_splash_nobuttons.png in Resources */ = {isa = PBXBuildFile; fileRef = E72616F617489CC4005B4B46 /* iphone_splash_nobuttons.png */; };
 		E72616F917489E59005B4B46 /* fb_button.png in Resources */ = {isa = PBXBuildFile; fileRef = E72616F817489E59005B4B46 /* fb_button.png */; };
 		E72616FB1748AB0C005B4B46 /* booklvrs_arrow_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = E72616FA1748AB0C005B4B46 /* booklvrs_arrow_blue.png */; };
@@ -36,7 +41,7 @@
 		E726174B17492C24005B4B46 /* endersgame.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E726173517492C24005B4B46 /* endersgame.jpg */; };
 		E726174C17492C24005B4B46 /* for-whom-the-bell-tolls.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E726173617492C24005B4B46 /* for-whom-the-bell-tolls.jpg */; };
 		E726174E17493C03005B4B46 /* chat_background.JPG in Resources */ = {isa = PBXBuildFile; fileRef = E726174D17493C02005B4B46 /* chat_background.JPG */; };
-		E726175017493C7A005B4B46 /* iphone_4_splash.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E726174F17493C7A005B4B46 /* iphone_4_splash.jpg */; };
+		E726175017493C7A005B4B46 /* iphone_4_splash@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E726174F17493C7A005B4B46 /* iphone_4_splash@2x.jpg */; };
 		E78008C7174807C000DFC429 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78008C6174807C000DFC429 /* UIKit.framework */; };
 		E78008C9174807C000DFC429 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78008C8174807C000DFC429 /* Foundation.framework */; };
 		E78008CB174807C000DFC429 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78008CA174807C000DFC429 /* CoreGraphics.framework */; };
@@ -78,11 +83,18 @@
 		E7C6CC9517528F5C00180C07 /* BKNearbyUsersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C6CC8917528F5C00180C07 /* BKNearbyUsersTableViewController.m */; };
 		E7C6CC9617528F5C00180C07 /* BKProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C6CC8B17528F5C00180C07 /* BKProfileViewController.m */; };
 		E7C6CC9717528F5C00180C07 /* BKUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C6CC8D17528F5C00180C07 /* BKUserInfoViewController.m */; };
-		E7C6CC9B17528F7600180C07 /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C6CC9A17528F7600180C07 /* XMLDictionary.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		72AB6A288DBC4C75A3045E21 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C7B367367804AF280BB852F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		AC7462801748AED4002ADED3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		ACAF55091752986600AEF17B /* BKStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BKStoryboard.storyboard; sourceTree = "<group>"; };
+		ACAF553D1752A93C00AEF17B /* BKBookCoverCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BKBookCoverCell.h; path = src/BKBookCoverCell.h; sourceTree = "<group>"; };
+		ACAF553E1752A93C00AEF17B /* BKBookCoverCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BKBookCoverCell.m; path = src/BKBookCoverCell.m; sourceTree = "<group>"; };
+		ACAF55401752BB7600AEF17B /* BKTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BKTabBarController.h; path = src/BKTabBarController.h; sourceTree = "<group>"; };
+		ACAF55411752BB7700AEF17B /* BKTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BKTabBarController.m; path = src/BKTabBarController.m; sourceTree = "<group>"; };
+		E707D19F1754254B00E3433C /* apiKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = apiKeys.h; sourceTree = "<group>"; };
 		E72616F617489CC4005B4B46 /* iphone_splash_nobuttons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone_splash_nobuttons.png; sourceTree = "<group>"; };
 		E72616F817489E59005B4B46 /* fb_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fb_button.png; sourceTree = "<group>"; };
 		E72616FA1748AB0C005B4B46 /* booklvrs_arrow_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = booklvrs_arrow_blue.png; sourceTree = "<group>"; };
@@ -111,7 +123,7 @@
 		E726173517492C24005B4B46 /* endersgame.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = endersgame.jpg; path = "booklvrs book covers/endersgame.jpg"; sourceTree = "<group>"; };
 		E726173617492C24005B4B46 /* for-whom-the-bell-tolls.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "for-whom-the-bell-tolls.jpg"; path = "booklvrs book covers/for-whom-the-bell-tolls.jpg"; sourceTree = "<group>"; };
 		E726174D17493C02005B4B46 /* chat_background.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chat_background.JPG; sourceTree = "<group>"; };
-		E726174F17493C7A005B4B46 /* iphone_4_splash.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = iphone_4_splash.jpg; sourceTree = "<group>"; };
+		E726174F17493C7A005B4B46 /* iphone_4_splash@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "iphone_4_splash@2x.jpg"; sourceTree = "<group>"; };
 		E78008C3174807C000DFC429 /* Booklvrs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Booklvrs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E78008C6174807C000DFC429 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E78008C8174807C000DFC429 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -166,8 +178,6 @@
 		E7C6CC8B17528F5C00180C07 /* BKProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BKProfileViewController.m; path = src/BKProfileViewController.m; sourceTree = "<group>"; };
 		E7C6CC8C17528F5C00180C07 /* BKUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BKUserInfoViewController.h; path = src/BKUserInfoViewController.h; sourceTree = "<group>"; };
 		E7C6CC8D17528F5C00180C07 /* BKUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BKUserInfoViewController.m; path = src/BKUserInfoViewController.m; sourceTree = "<group>"; };
-		E7C6CC9917528F7600180C07 /* XMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLDictionary.h; path = lib/XMLDictionary.h; sourceTree = "<group>"; };
-		E7C6CC9A17528F7600180C07 /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMLDictionary.m; path = lib/XMLDictionary.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +204,7 @@
 				E78008C9174807C000DFC429 /* Foundation.framework in Frameworks */,
 				E780090017480BFE00DFC429 /* Parse.framework in Frameworks */,
 				E780090A1748125200DFC429 /* FacebookSDK.framework in Frameworks */,
+				5996CC73234F408A96F73C56 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,6 +218,7 @@
 				E780090117480D2F00DFC429 /* assets */,
 				E78008C5174807C000DFC429 /* Frameworks */,
 				E78008C4174807C000DFC429 /* Products */,
+				7C7B367367804AF280BB852F /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -241,6 +253,7 @@
 				E78008C6174807C000DFC429 /* UIKit.framework */,
 				E78008C8174807C000DFC429 /* Foundation.framework */,
 				E78008CA174807C000DFC429 /* CoreGraphics.framework */,
+				72AB6A288DBC4C75A3045E21 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -260,6 +273,7 @@
 		E78008CD174807C000DFC429 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E707D19F1754254B00E3433C /* apiKeys.h */,
 				E78008CE174807C000DFC429 /* Booklvrs-Info.plist */,
 				E78008CF174807C000DFC429 /* InfoPlist.strings */,
 				E78008D2174807C000DFC429 /* main.m */,
@@ -274,7 +288,7 @@
 		E780090117480D2F00DFC429 /* assets */ = {
 			isa = PBXGroup;
 			children = (
-				E726174F17493C7A005B4B46 /* iphone_4_splash.jpg */,
+				E726174F17493C7A005B4B46 /* iphone_4_splash@2x.jpg */,
 				E726172117492C24005B4B46 /* cover_1984.png */,
 				E726172217492C24005B4B46 /* cover_casual_vacancy.png */,
 				E726172317492C24005B4B46 /* cover_catcher_in_the_rye.png */,
@@ -317,6 +331,7 @@
 		E7C6CC9817528F6300180C07 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				ACAF55091752986600AEF17B /* BKStoryboard.storyboard */,
 				E7C6CC7C17528F5C00180C07 /* BKChatViewController.h */,
 				E7C6CC7D17528F5C00180C07 /* BKChatViewController.m */,
 				E7C6CC7E17528F5C00180C07 /* BKLogInViewController.h */,
@@ -327,6 +342,8 @@
 				E7C6CC8317528F5C00180C07 /* BKNavViewController.m */,
 				E7C6CC8417528F5C00180C07 /* BKNearbyBooksViewController.h */,
 				E7C6CC8517528F5C00180C07 /* BKNearbyBooksViewController.m */,
+				ACAF553D1752A93C00AEF17B /* BKBookCoverCell.h */,
+				ACAF553E1752A93C00AEF17B /* BKBookCoverCell.m */,
 				E7C6CC8617528F5C00180C07 /* BKNearbyUsersMapController.h */,
 				E7C6CC8717528F5C00180C07 /* BKNearbyUsersMapController.m */,
 				E7C6CC8817528F5C00180C07 /* BKNearbyUsersTableViewController.h */,
@@ -335,6 +352,8 @@
 				E7C6CC8B17528F5C00180C07 /* BKProfileViewController.m */,
 				E7C6CC8C17528F5C00180C07 /* BKUserInfoViewController.h */,
 				E7C6CC8D17528F5C00180C07 /* BKUserInfoViewController.m */,
+				ACAF55401752BB7600AEF17B /* BKTabBarController.h */,
+				ACAF55411752BB7700AEF17B /* BKTabBarController.m */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -342,8 +361,6 @@
 		E7C6CC9C17528F7900180C07 /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				E7C6CC9917528F7600180C07 /* XMLDictionary.h */,
-				E7C6CC9A17528F7600180C07 /* XMLDictionary.m */,
 			);
 			name = lib;
 			sourceTree = "<group>";
@@ -355,9 +372,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E78008E0174807C000DFC429 /* Build configuration list for PBXNativeTarget "Booklvrs" */;
 			buildPhases = (
+				9685C82DDD9D423A9D7A667C /* Check Pods Manifest.lock */,
 				E78008BF174807C000DFC429 /* Sources */,
 				E78008C0174807C000DFC429 /* Frameworks */,
 				E78008C1174807C000DFC429 /* Resources */,
+				E76E137F8C7143DA89CE96D1 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -440,11 +459,44 @@
 				E726174B17492C24005B4B46 /* endersgame.jpg in Resources */,
 				E726174C17492C24005B4B46 /* for-whom-the-bell-tolls.jpg in Resources */,
 				E726174E17493C03005B4B46 /* chat_background.JPG in Resources */,
-				E726175017493C7A005B4B46 /* iphone_4_splash.jpg in Resources */,
+				E726175017493C7A005B4B46 /* iphone_4_splash@2x.jpg in Resources */,
+				ACAF550A1752986600AEF17B /* BKStoryboard.storyboard in Resources */,
+				E707D1A01754254B00E3433C /* apiKeys.h in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9685C82DDD9D423A9D7A667C /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+		};
+		E76E137F8C7143DA89CE96D1 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E78008BF174807C000DFC429 /* Sources */ = {
@@ -462,7 +514,8 @@
 				E7C6CC9517528F5C00180C07 /* BKNearbyUsersTableViewController.m in Sources */,
 				E7C6CC9617528F5C00180C07 /* BKProfileViewController.m in Sources */,
 				E7C6CC9717528F5C00180C07 /* BKUserInfoViewController.m in Sources */,
-				E7C6CC9B17528F7600180C07 /* XMLDictionary.m in Sources */,
+				ACAF553F1752A93D00AEF17B /* BKBookCoverCell.m in Sources */,
+				ACAF55421752BB7700AEF17B /* BKTabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -540,6 +593,7 @@
 		};
 		E78008E1174807C000DFC429 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C7B367367804AF280BB852F /* Pods.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -549,6 +603,10 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Booklvrs/Booklvrs-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_HEADERS_SEARCH_PATHS}",
+				);
 				INFOPLIST_FILE = "Booklvrs/Booklvrs-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -557,6 +615,7 @@
 		};
 		E78008E2174807C000DFC429 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C7B367367804AF280BB852F /* Pods.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -566,6 +625,10 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Booklvrs/Booklvrs-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_HEADERS_SEARCH_PATHS}",
+				);
 				INFOPLIST_FILE = "Booklvrs/Booklvrs-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
