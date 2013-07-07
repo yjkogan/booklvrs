@@ -66,7 +66,7 @@
         [self presentViewController:self.logInViewController animated:NO completion:nil];
     } else {
         
-        if (!self.nearbyUsers) { // make sure nearby users is populated
+        if (self.nearbyUsers.count == 0) { // make sure nearby users is populated
             PFQuery *nearbyUsersQuery = [PFQuery queryWithClassName:@"GoodreadsUser"];
             
             [nearbyUsersQuery whereKey:@"GoodreadsID"
