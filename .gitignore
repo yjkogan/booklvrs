@@ -16,3 +16,13 @@ profile
 *.moved-aside
 DerivedData
 .idea/
+
+# Keynote
+Iconr
+
+# apiKeys
+apiKeys.h
+
+# CocoaPods
+Booklvrs/Pods
+Podfile.lock

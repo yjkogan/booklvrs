@@ -49,7 +49,7 @@ CGFloat nycLon = -73.989281;
     
     self.navigationItem.title = @"Nearby Users";
     self.navigationItem.hidesBackButton = YES;
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
     
     self.mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width,self.view.frame.size.height)];
     [self.mapView setUserTrackingMode:MKUserTrackingModeFollow animated:NO];

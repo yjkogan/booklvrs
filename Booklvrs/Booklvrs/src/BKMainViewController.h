@@ -21,4 +21,5 @@ typedef enum BKNearbyViewState {
 
 @interface BKMainViewController : UIViewController <BKLogInViewDelegate,BKNearbyUsersMapControllerDelegate, BKNearbyUsersTableViewControllerDelegate, BKNearbyBooksViewControllerDelegate>
 
+
 @end

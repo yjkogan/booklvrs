@@ -9,9 +9,11 @@
 #import "BKLogInViewController.h"
 #import <Parse/Parse.h>
 #import <QuartzCore/QuartzCore.h>
+#import "GROAuth.h"
 
 @interface BKLogInViewController ()
-
+@property (nonatomic, strong) NSString *oauthToken;
+@property (nonatomic, strong) NSString *oauthTokenSecret;
 @end
 
 @implementation BKLogInViewController
@@ -28,7 +30,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     UIImageView *backgroundImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     
     backgroundImage.image = [UIImage imageNamed:@"iphone_4_splash.jpg"];
@@ -45,13 +47,13 @@
 }
 
 - (void)logInBtnTapped:(id)sender {
-    NSArray *permissions = [NSArray arrayWithObjects: nil];
-    [PFFacebookUtils logInWithPermissions:permissions block:^(PFUser *user, NSError *error) {
-        if (error) {
-            NSLog(@"%@", error);
-        } else {
-            [self.delegate logInViewController:self didLogInUser:user];
-        }
+    
+    [[UIApplication sharedApplication] setStatusBarHidden:NO animated:NO];
+
+    [GROAuth loginWithGoodreadsWithCompletion:^(NSDictionary *authParams, NSError *error) {
+        NSString *result = [GROAuth XMLResponseForOAuthPath:@"api/auth_user" parameters:nil HTTPmethod:@"GET"];
+        NSLog(@"result: %@", result);
+        
     }];
 }
 

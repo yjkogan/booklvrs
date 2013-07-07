@@ -18,6 +18,6 @@
 
 @interface BKLogInViewController : UIViewController
 
-@property (weak,nonatomic) id<BKLogInViewDelegate> delegate;
+@property (weak,nonatomic) IBOutlet id<BKLogInViewDelegate> delegate;
 
 @end

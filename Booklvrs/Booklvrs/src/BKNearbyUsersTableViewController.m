@@ -41,7 +41,7 @@
 {
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
     self.navigationItem.title = @"Nearby Users";
 
     // Uncomment the following line to preserve selection between presentations.
