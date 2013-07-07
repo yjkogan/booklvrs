@@ -37,119 +37,44 @@ CGFloat kCellViewHeight = 44.0f;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    UIBarButtonItem *chatBtn = [[UIBarButtonItem alloc] initWithTitle:@"Message" style:UIBarButtonItemStylePlain target:self action:@selector(chatSelectUser:)];
-    self.navigationItem.rightBarButtonItem = chatBtn;
+}
 
-    NSString *username = [self.user objectForKey:@"GoodReadsUsername"];
+-(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     
-    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:username,@"username",[GROAuth consumerKey],@"key", nil];
+    [[self navigationController] setNavigationBarHidden:NO animated:YES];
     
-    self.goodReadsUserInfo = [GROAuth dictionaryResponseForNonOAuthPath:@"user/show" parameters:parameters];
+    NSString *goodreadsID = [self.user objectForKey:@"goodreadsID"];
+    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:goodreadsID, @"id", [GROAuth consumerKey], @"key", nil];
+    NSDictionary *goodreadsUserInfo = [GROAuth dictionaryResponseForNonOAuthPath:@"user/show" parameters:parameters];
     
-    UIScrollView *containerView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width,self.view.frame.size.height)];
-    
-    containerView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"booklvrs_bkground.jpg"]];
-    containerView.scrollEnabled = YES;
-    
-    UILabel *userName = [[UILabel alloc] initWithFrame:CGRectMake(self.view.center.x - 100, kViewPadding, 200.0, 30.0)];
-    userName.text = [self.user objectForKey:@"name"];
-    userName.font = [UIFont fontWithName:@"Courier-Bold" size:24.0];
-    userName.textAlignment = NSTextAlignmentCenter;
-    userName.backgroundColor = [UIColor clearColor];
-    [containerView addSubview:userName];
-    
-    NSString *profilePicPath = [NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?width=180&height=180", [self.user objectForKey:@"facebookId"]];
-    
-    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:profilePicPath]]];
-    
-    UIImageView *profileImage = [[UIImageView alloc] initWithFrame:CGRectMake(self.view.center.x-90,
-                                                                             userName.frame.origin.y + userName.frame.size.height + kViewPadding,
-                                                                             180.0,
-                                                                              180.0)];
-    profileImage.layer.masksToBounds = YES;
-    profileImage.layer.cornerRadius = 45.0f;
-    profileImage.image = image;
-    
-    [containerView addSubview:profileImage];
-   
-    UILabel *lookingFor = [[UILabel alloc] initWithFrame:CGRectMake(kViewPadding,
-                                                                   profileImage.frame.origin.y + profileImage.frame.size.height + kViewPadding,
-                                                                   self.view.frame.size.width - 2*kViewPadding,
-                                                                    30.0)];
-    lookingFor.text = [NSString stringWithFormat:@"Relationship Status: %@", [self.user objectForKey:@"LookingFor"]];
-    lookingFor.backgroundColor = [UIColor clearColor];
-    lookingFor.textAlignment = NSTextAlignmentCenter;
-    lookingFor.font = [UIFont fontWithName:@"Courier-Bold" size:18.0];
-    [containerView addSubview:lookingFor];
+    NSString *profilePicPath = [goodreadsUserInfo valueForKeyPath:@"user.image_url"];
+    self.profilePictureImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:profilePicPath]]];
+    self.profilePictureImageView.layer.cornerRadius = self.profilePictureImageView.frame.size.height/4;
     
     self.favoriteAuthors = [[NSMutableArray alloc] init];
+    self.reviewedBooks = [[NSMutableArray alloc] init];
     
-    for (NSDictionary *author in [self.goodReadsUserInfo valueForKeyPath:@"user.favorite_authors.author"]) {
-        // There is a bug here if the user has less than two favorite authors
-        [self.favoriteAuthors addObject:[author valueForKeyPath:@"name"]];
+    for (NSDictionary *author in [goodreadsUserInfo valueForKeyPath:@"user.favorite_authors.author"]) {
+        // less than two favorite authors = bug???
+        [self.favoriteAuthors addObject: [author valueForKeyPath:@"name"]];
     }
     
-    self.reviewedBooks = [[NSMutableArray alloc] init];
-    for(NSDictionary *review in [self.goodReadsUserInfo valueForKeyPath:@"user.updates.update"]) {
+    for (NSDictionary *review in [goodreadsUserInfo valueForKeyPath:@"user.updates.update"]) {
+        // less than two favorite authors = bug???
         if ([[review valueForKeyPath:@"_type"] isEqualToString:@"review"]) {
-            [self.reviewedBooks addObject:[review valueForKeyPath:@"object.book.title"]];
+            [self.reviewedBooks addObject: [review valueForKeyPath:@"object.book.title"]];
         }
     }
     
-    UITableView *goodReadsTableView = [[UITableView alloc] initWithFrame:CGRectMake(kViewPadding,
-                                                                                    profileImage.frame.origin.y + profileImage.frame.size.height + 4*kViewPadding,
-                                                                                    self.view.frame.size.width - 2*kViewPadding,
-                                                                                    0) style:UITableViewStyleGrouped];
+    self.navigationItem.title = [self.user objectForKey:@"name"];
     
-    goodReadsTableView.delegate = self;
-    goodReadsTableView.dataSource = self;
-    goodReadsTableView.backgroundView = nil;
-    goodReadsTableView.backgroundColor = [UIColor clearColor];
-    goodReadsTableView.userInteractionEnabled = NO;
     
-    [goodReadsTableView layoutIfNeeded];
-    goodReadsTableView.frame = CGRectMake(goodReadsTableView.frame.origin.x,
-                                          goodReadsTableView.frame.origin.y,
-                                          goodReadsTableView.frame.size.width,
-                                          goodReadsTableView.contentSize.height);
-    
-    [containerView addSubview:goodReadsTableView];
-    
-    CGFloat contentHeight = goodReadsTableView.contentSize.height + goodReadsTableView.frame.origin.y + 44.0;
-    
-    containerView.contentSize = CGSizeMake(self.view.frame.size.width,
-                                           contentHeight);
-    
-    [self.view addSubview:containerView];
 }
 
-- (NSString *)getDataFrom:(NSString *)url {
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    [request setHTTPMethod:@"GET"];
-    
-    [request setURL:[NSURL URLWithString:url]];
-    
-    NSError *error = [[NSError alloc] init];
-    NSHTTPURLResponse *responseCode = nil;
-    
-    NSData *oResponseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&responseCode error:&error];
-    
-    if([responseCode statusCode] != 200){
-        NSLog(@"Error getting %@, HTTP status code %i", url, [responseCode statusCode]);
-        return nil;
-    }
-    
-    return [[NSString alloc] initWithData:oResponseData encoding:NSUTF8StringEncoding];
-}
-
-#pragma mark - chat btn tapped
-
-- (void)chatSelectUser:(id)sender {
-    
-    BKChatViewController *chatVC = [[BKChatViewController alloc] initWithNibName:nil bundle:nil];
-    chatVC.user = self.user;
-    [self.navigationController pushViewController:chatVC animated:YES];
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[self navigationController] setNavigationBarHidden:YES animated:NO];
 }
 
 #pragma mark - Table view data source
@@ -203,12 +128,7 @@ CGFloat kCellViewHeight = 44.0f;
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    if (section==0) {
-        return @"Favorite Authors";
-    } else if (section==1) {
-        return @"Favorite Books";
-    }
-    return @"";
+    return @[@"Favorite Authors", @"Favorite Books"][section];
 }
 
 /*

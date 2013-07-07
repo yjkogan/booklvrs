@@ -11,6 +11,7 @@
 
 @interface BKProfileViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property (strong, nonatomic) PFUser *user;
+@property (strong, nonatomic) PFObject *user;
+@property (strong, nonatomic) IBOutlet UIImageView *profilePictureImageView;
 
 @end

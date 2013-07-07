@@ -8,7 +8,6 @@
 
 #import "BKUser.h"
 #import "GROAuth.h"
-#import "apiKeys.h"
 
 @implementation BKUser
 
@@ -40,7 +39,7 @@
     if (object) {
         return object;
     } else {
-        NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:goodreadsID,@"id",GOODREADS_CONSUMER_KEY,@"key",nil];
+        NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:goodreadsID,@"id",[GROAuth consumerKey],@"key",nil];
         NSDictionary *result = [GROAuth dictionaryResponseForNonOAuthPath:@"user/show" parameters:parameters];
         NSDictionary *user = [result objectForKey:@"user"];
         

@@ -114,7 +114,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    BKProfileViewController *profileVC = [[BKProfileViewController alloc] initWithNibName:nil bundle:nil];
+    BKProfileViewController *profileVC = [[self storyboard] instantiateViewControllerWithIdentifier:@"profile"];
+//    [[BKProfileViewController alloc] initWithNibName:nil bundle:nil];
     profileVC.user = [[BKUser currentUser].nearbyUsers objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:profileVC animated:YES];
 }
