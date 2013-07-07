@@ -7,6 +7,8 @@
 //
 
 #import "BKUser.h"
+#import "GROAuth.h"
+#import "apiKeys.h"
 
 @implementation BKUser
 
@@ -25,10 +27,34 @@
 - init {
   
     if (self = [super init]) {
-        
+        self.nearbyUsers = [NSArray array];
     }
     
     return self;
+}
+
++ (PFObject *)parseUserWithGoodreadsID:(NSString *)goodreadsID {
+    PFQuery *userQuery = [PFQuery queryWithClassName:@"GoodreadsUser"];
+    [userQuery whereKey:@"goodreadsID" equalTo:goodreadsID];
+    PFObject *object = [userQuery getFirstObject];
+    if (object) {
+        return object;
+    } else {
+        NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:goodreadsID,@"id",GOODREADS_CONSUMER_KEY,@"key",nil];
+        NSDictionary *result = [GROAuth dictionaryResponseForNonOAuthPath:@"user/show" parameters:parameters];
+        NSDictionary *user = [result objectForKey:@"user"];
+        
+          PFObject *goodreadsUser = [PFObject objectWithClassName:@"GoodreadsUser"];
+            [goodreadsUser setObject:[user objectForKey:@"name"] forKey:@"name"];
+            [goodreadsUser setObject:goodreadsID forKey:@"goodreadsID"];
+        
+            if ([goodreadsUser save]) {
+                return goodreadsUser;
+            } else {
+                return nil;
+            }
+    }
+    return nil;
 }
 
 @end

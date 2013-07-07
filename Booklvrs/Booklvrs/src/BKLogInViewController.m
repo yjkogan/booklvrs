@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import <QuartzCore/QuartzCore.h>
 #import "GROAuth.h"
+#import "BKUser.h"
 
 @interface BKLogInViewController ()
 @property (nonatomic, strong) NSString *oauthToken;
@@ -53,23 +54,8 @@
         NSDictionary *user = [result objectForKey:@"user"];
         
         // See if this user already exists
-        PFQuery *userQuery = [PFQuery queryWithClassName:@"GoodreadsUser"];
         NSString *goodreadsID = [user objectForKey:@"_id"];
-        [userQuery whereKey:@"goodreadsID" equalTo:goodreadsID];
-        [userQuery getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-            if (object) {
-               [self.delegate logInViewController:self didLogInUser:object];
-            } else {
-                PFObject *goodreadsUser = [PFObject objectWithClassName:@"GoodreadsUser"];
-                [goodreadsUser setObject:[user objectForKey:@"name"] forKey:@"name"];
-                [goodreadsUser setObject:goodreadsID forKey:@"goodreadsID"];
-                if ([goodreadsUser save]) {
-                    [self.delegate logInViewController:self didLogInUser:goodreadsUser];
-                } else {
-                    [self.delegate logInViewController:self didLogInUser:nil];
-                }
-            }
-        }];
+        [self.delegate logInViewController:self didLogInUser: [BKUser parseUserWithGoodreadsID:goodreadsID]];
     }];
 }
 

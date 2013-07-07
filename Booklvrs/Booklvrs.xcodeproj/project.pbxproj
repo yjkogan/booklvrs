@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5996CC73234F408A96F73C56 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 72AB6A288DBC4C75A3045E21 /* libPods.a */; };
+		AC1B5377178A25CB00F580A5 /* BKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = E780A19F178A1D87006B02BF /* BKUser.m */; };
 		AC7462811748AED4002ADED3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC7462801748AED4002ADED3 /* MapKit.framework */; };
 		ACAF550A1752986600AEF17B /* BKStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACAF55091752986600AEF17B /* BKStoryboard.storyboard */; };
 		ACAF553F1752A93D00AEF17B /* BKBookCoverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACAF553E1752A93C00AEF17B /* BKBookCoverCell.m */; };
@@ -89,6 +90,7 @@
 /* Begin PBXFileReference section */
 		72AB6A288DBC4C75A3045E21 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C7B367367804AF280BB852F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		AC1B5376178A213600F580A5 /* apiKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = apiKeys.h; sourceTree = "<group>"; };
 		AC7462801748AED4002ADED3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		ACAF55091752986600AEF17B /* BKStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BKStoryboard.storyboard; sourceTree = "<group>"; };
 		ACAF553D1752A93C00AEF17B /* BKBookCoverCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BKBookCoverCell.h; path = src/BKBookCoverCell.h; sourceTree = "<group>"; };
@@ -159,8 +161,8 @@
 		E78009221748878100DFC429 /* booklvr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = booklvr.png; sourceTree = "<group>"; };
 		E7800924174887FE00DFC429 /* booklvrs_read_discover_meet_subhead_blues.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = booklvrs_read_discover_meet_subhead_blues.png; sourceTree = "<group>"; };
 		E780092617488A3E00DFC429 /* goodreads.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goodreads.png; sourceTree = "<group>"; };
-		E780A19E178A1D87006B02BF /* BKUser.h */ = {isa = PBXFileReference; lastKnownFileType = file; name = BKUser.h; path = src/BKUser.h; sourceTree = "<group>"; };
-		E780A19F178A1D87006B02BF /* BKUser.m */ = {isa = PBXFileReference; lastKnownFileType = file; name = BKUser.m; path = src/BKUser.m; sourceTree = "<group>"; };
+		E780A19E178A1D87006B02BF /* BKUser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BKUser.h; path = src/BKUser.h; sourceTree = "<group>"; };
+		E780A19F178A1D87006B02BF /* BKUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BKUser.m; path = src/BKUser.m; sourceTree = "<group>"; };
 		E7C6CC7A17528F5C00180C07 /* BKAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BKAppDelegate.h; path = src/BKAppDelegate.h; sourceTree = "<group>"; };
 		E7C6CC7B17528F5C00180C07 /* BKAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BKAppDelegate.m; path = src/BKAppDelegate.m; sourceTree = "<group>"; };
 		E7C6CC7C17528F5C00180C07 /* BKChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BKChatViewController.h; path = src/BKChatViewController.h; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 		E78008CC174807C000DFC429 /* Booklvrs */ = {
 			isa = PBXGroup;
 			children = (
+				AC1B5376178A213600F580A5 /* apiKeys.h */,
 				E7C6CC7A17528F5C00180C07 /* BKAppDelegate.h */,
 				E7C6CC7B17528F5C00180C07 /* BKAppDelegate.m */,
 				E7C6CC9C17528F7900180C07 /* lib */,
@@ -526,6 +529,7 @@
 				E7C6CC9617528F5C00180C07 /* BKProfileViewController.m in Sources */,
 				ACAF553F1752A93D00AEF17B /* BKBookCoverCell.m in Sources */,
 				ACAF55421752BB7700AEF17B /* BKTabBarController.m in Sources */,
+				AC1B5377178A25CB00F580A5 /* BKUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

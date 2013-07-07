@@ -9,33 +9,13 @@
 #import "BKNearbyUsersTableViewController.h"
 #import "BKNearbyUsersMapController.h"
 #import "BKProfileViewController.h"
+#import "BKUser.h"
 
 @interface BKNearbyUsersTableViewController ()
 
 @end
 
 @implementation BKNearbyUsersTableViewController
-
-@synthesize mapsButtonItem;
-
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-        self.mapsButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Map" style:UIBarButtonItemStylePlain target:self action:@selector(toggleMaps:)];
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Books" style:UIBarButtonItemStylePlain target:self action:@selector(toggleBooks:)];
-    }
-    return self;
-}
-
-- (void) toggleMaps: (id) sender {
-    [self.delegate changeToMapViewFrom:self];
-}
-
-- (void) toggleBooks: (id) sender {
-    [self.delegate changeToBooksViewFrom:self];
-}
 
 - (void)viewDidLoad
 {
@@ -51,7 +31,7 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"booklvrs_bkground.jpg"]];
     [self.tableView setSeparatorColor:[UIColor blackColor]];
-    self.navigationItem.rightBarButtonItem = self.mapsButtonItem;
+//    self.navigationItem.rightBarButtonItem = self.mapsButtonItem;
 }
 
 #pragma mark - Table view data source
@@ -64,7 +44,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return self.nearbyUsers.count;
+    return [BKUser currentUser].nearbyUsers.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -75,7 +55,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    PFUser *user = [self.nearbyUsers objectAtIndex:indexPath.row];
+    PFUser *user = [[BKUser currentUser].nearbyUsers objectAtIndex:indexPath.row];
     
     NSString *profilePicPath = [NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?type=square", [user objectForKey:@"facebookId"]];
     
@@ -135,7 +115,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     BKProfileViewController *profileVC = [[BKProfileViewController alloc] initWithNibName:nil bundle:nil];
-    profileVC.user = [self.nearbyUsers objectAtIndex:indexPath.row];
+    profileVC.user = [[BKUser currentUser].nearbyUsers objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:profileVC animated:YES];
 }
 
