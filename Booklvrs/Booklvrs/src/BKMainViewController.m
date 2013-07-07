@@ -36,8 +36,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.viewState = BKNearbyBooksView;
-    self.animateTransition = YES;
+    
+    self.nearbyUsers = [[NSArray alloc] init];
+    
     UIImageView *backgroundImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     
     backgroundImage.image = [UIImage imageNamed:@"iphone_4_splash.jpg"];
@@ -46,6 +47,19 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    
+    if (!self.currentUser) {
+        NSDictionary *booklvrsDict = [[NSUserDefaults standardUserDefaults] objectForKey:@"booklvrs"];
+        NSString *goodreadsID = [booklvrsDict objectForKey:@"currentUser"];
+        if (goodreadsID) {
+            PFQuery *userQuery = [PFQuery queryWithClassName:@"GoodreadsUser"];
+            [userQuery whereKey:@"goodreadsID" equalTo:goodreadsID];
+            PFObject *object = [userQuery getFirstObject];
+            if (object) {
+                self.currentUser = object;
+            }
+        }
+    }
     
     if (!self.currentUser) { // not logged in
         self.logInViewController.delegate = self;
@@ -63,7 +77,7 @@
         // now we have nearby users
         
         UITabBarController *tabController = [self.navigationController.storyboard instantiateViewControllerWithIdentifier:@"tabBarController"];
-        [self.navigationController pushViewController:tabController animated:self.animateTransition];
+        [self.navigationController pushViewController:tabController animated:YES];
     }
 }
 
@@ -71,7 +85,9 @@
 - (void)logInViewController:(BKLogInViewController *)controller didLogInUser:(PFObject *)user {
     if (user) {
         self.currentUser = user;
-        ((BKAppDelegate *)[[UIApplication sharedApplication] delegate]).currentUser = user;
+        NSDictionary *booklvrsDict = [NSDictionary dictionaryWithObjectsAndKeys:[user objectForKey:@"goodreadsID"],@"currentUser", nil];
+        [[NSUserDefaults standardUserDefaults] setObject:booklvrsDict forKey:@"booklvrs"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
         [self dismissViewControllerAnimated:NO completion:nil];
     } else {
         //        UIAlertView // alert about how failed to create a user

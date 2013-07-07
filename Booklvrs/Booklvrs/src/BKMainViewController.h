@@ -20,7 +20,7 @@ typedef enum BKNearbyViewState {
     BKNearbyBooksView
 } BKNearbyViewState;
 
-@interface BKMainViewController : UIViewController <BKLogInViewDelegate,BKNearbyUsersMapControllerDelegate, BKNearbyUsersTableViewControllerDelegate, BKNearbyBooksViewControllerDelegate>
+@interface BKMainViewController : UIViewController <BKLogInViewDelegate>
 
 @property (weak, nonatomic) IBOutlet BKLogInViewController *logInViewController;
 
