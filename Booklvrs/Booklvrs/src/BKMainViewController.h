@@ -12,6 +12,7 @@
 #import "BKNearbyUsersMapController.h"
 #import "BKNearbyUsersTableViewController.h"
 #import "BKNearbyBooksViewController.h"
+#import "BKTabBarController.h"
 
 typedef enum BKNearbyViewState {
     BKNearbyMapsView,
@@ -21,5 +22,6 @@ typedef enum BKNearbyViewState {
 
 @interface BKMainViewController : UIViewController <BKLogInViewDelegate,BKNearbyUsersMapControllerDelegate, BKNearbyUsersTableViewControllerDelegate, BKNearbyBooksViewControllerDelegate>
 
+@property (weak, nonatomic) IBOutlet BKLogInViewController *logInViewController;
 
 @end

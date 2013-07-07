@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @interface BKAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) NSString *goodReadsKey;
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) UINavigationController *navController;
+@property (strong, nonatomic) PFObject *currentUser;
 
 @end

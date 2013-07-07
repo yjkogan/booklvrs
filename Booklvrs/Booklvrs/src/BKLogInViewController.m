@@ -48,12 +48,28 @@
 
 - (void)logInBtnTapped:(id)sender {
     
-    [[UIApplication sharedApplication] setStatusBarHidden:NO animated:NO];
-
     [GROAuth loginWithGoodreadsWithCompletion:^(NSDictionary *authParams, NSError *error) {
-        NSString *result = [GROAuth XMLResponseForOAuthPath:@"api/auth_user" parameters:nil HTTPmethod:@"GET"];
-        NSLog(@"result: %@", result);
+        NSDictionary *result = [GROAuth dictionaryResponseForOAuthPath:@"api/auth_user" parameters:nil HTTPmethod:@"GET"];
+        NSDictionary *user = [result objectForKey:@"user"];
         
+        // See if this user already exists
+        PFQuery *userQuery = [PFQuery queryWithClassName:@"GoodreadsUser"];
+        NSString *goodreadsID = [user objectForKey:@"_id"];
+        [userQuery whereKey:@"goodreadsID" equalTo:goodreadsID];
+        [userQuery getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+            if (object) {
+               [self.delegate logInViewController:self didLogInUser:object];
+            } else {
+                PFObject *goodreadsUser = [PFObject objectWithClassName:@"GoodreadsUser"];
+                [goodreadsUser setObject:[user objectForKey:@"name"] forKey:@"name"];
+                [goodreadsUser setObject:goodreadsID forKey:@"goodreadsID"];
+                if ([goodreadsUser save]) {
+                    [self.delegate logInViewController:self didLogInUser:goodreadsUser];
+                } else {
+                    [self.delegate logInViewController:self didLogInUser:nil];
+                }
+            }
+        }];
     }];
 }
 

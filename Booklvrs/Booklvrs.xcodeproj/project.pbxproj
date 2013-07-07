@@ -82,7 +82,6 @@
 		E7C6CC9417528F5C00180C07 /* BKNearbyUsersMapController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C6CC8717528F5C00180C07 /* BKNearbyUsersMapController.m */; };
 		E7C6CC9517528F5C00180C07 /* BKNearbyUsersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C6CC8917528F5C00180C07 /* BKNearbyUsersTableViewController.m */; };
 		E7C6CC9617528F5C00180C07 /* BKProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C6CC8B17528F5C00180C07 /* BKProfileViewController.m */; };
-		E7C6CC9717528F5C00180C07 /* BKUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C6CC8D17528F5C00180C07 /* BKUserInfoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -176,8 +175,6 @@
 		E7C6CC8917528F5C00180C07 /* BKNearbyUsersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BKNearbyUsersTableViewController.m; path = src/BKNearbyUsersTableViewController.m; sourceTree = "<group>"; };
 		E7C6CC8A17528F5C00180C07 /* BKProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BKProfileViewController.h; path = src/BKProfileViewController.h; sourceTree = "<group>"; };
 		E7C6CC8B17528F5C00180C07 /* BKProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BKProfileViewController.m; path = src/BKProfileViewController.m; sourceTree = "<group>"; };
-		E7C6CC8C17528F5C00180C07 /* BKUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BKUserInfoViewController.h; path = src/BKUserInfoViewController.h; sourceTree = "<group>"; };
-		E7C6CC8D17528F5C00180C07 /* BKUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BKUserInfoViewController.m; path = src/BKUserInfoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,10 +182,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E78009141748135200DFC429 /* Social.framework in Frameworks */,
 				AC7462811748AED4002ADED3 /* MapKit.framework in Frameworks */,
 				E78008F2174809F900DFC429 /* CoreLocation.framework in Frameworks */,
 				E78008F817480A1100DFC429 /* QuartzCore.framework in Frameworks */,
-				E78009141748135200DFC429 /* Social.framework in Frameworks */,
 				E78008FA17480A1600DFC429 /* Security.framework in Frameworks */,
 				E78009121748134300DFC429 /* libsqlite3.dylib in Frameworks */,
 				E78009101748133B00DFC429 /* Accounts.framework in Frameworks */,
@@ -328,18 +325,11 @@
 			path = assets;
 			sourceTree = "<group>";
 		};
-		E7C6CC9817528F6300180C07 /* src */ = {
+		E780A19D178A1636006B02BF /* loggedInViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				ACAF55091752986600AEF17B /* BKStoryboard.storyboard */,
 				E7C6CC7C17528F5C00180C07 /* BKChatViewController.h */,
 				E7C6CC7D17528F5C00180C07 /* BKChatViewController.m */,
-				E7C6CC7E17528F5C00180C07 /* BKLogInViewController.h */,
-				E7C6CC7F17528F5C00180C07 /* BKLogInViewController.m */,
-				E7C6CC8017528F5C00180C07 /* BKMainViewController.h */,
-				E7C6CC8117528F5C00180C07 /* BKMainViewController.m */,
-				E7C6CC8217528F5C00180C07 /* BKNavViewController.h */,
-				E7C6CC8317528F5C00180C07 /* BKNavViewController.m */,
 				E7C6CC8417528F5C00180C07 /* BKNearbyBooksViewController.h */,
 				E7C6CC8517528F5C00180C07 /* BKNearbyBooksViewController.m */,
 				ACAF553D1752A93C00AEF17B /* BKBookCoverCell.h */,
@@ -350,10 +340,23 @@
 				E7C6CC8917528F5C00180C07 /* BKNearbyUsersTableViewController.m */,
 				E7C6CC8A17528F5C00180C07 /* BKProfileViewController.h */,
 				E7C6CC8B17528F5C00180C07 /* BKProfileViewController.m */,
-				E7C6CC8C17528F5C00180C07 /* BKUserInfoViewController.h */,
-				E7C6CC8D17528F5C00180C07 /* BKUserInfoViewController.m */,
 				ACAF55401752BB7600AEF17B /* BKTabBarController.h */,
 				ACAF55411752BB7700AEF17B /* BKTabBarController.m */,
+			);
+			name = loggedInViewControllers;
+			sourceTree = "<group>";
+		};
+		E7C6CC9817528F6300180C07 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				E780A19D178A1636006B02BF /* loggedInViewControllers */,
+				ACAF55091752986600AEF17B /* BKStoryboard.storyboard */,
+				E7C6CC7E17528F5C00180C07 /* BKLogInViewController.h */,
+				E7C6CC7F17528F5C00180C07 /* BKLogInViewController.m */,
+				E7C6CC8017528F5C00180C07 /* BKMainViewController.h */,
+				E7C6CC8117528F5C00180C07 /* BKMainViewController.m */,
+				E7C6CC8217528F5C00180C07 /* BKNavViewController.h */,
+				E7C6CC8317528F5C00180C07 /* BKNavViewController.m */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -513,7 +516,6 @@
 				E7C6CC9417528F5C00180C07 /* BKNearbyUsersMapController.m in Sources */,
 				E7C6CC9517528F5C00180C07 /* BKNearbyUsersTableViewController.m in Sources */,
 				E7C6CC9617528F5C00180C07 /* BKProfileViewController.m in Sources */,
-				E7C6CC9717528F5C00180C07 /* BKUserInfoViewController.m in Sources */,
 				ACAF553F1752A93D00AEF17B /* BKBookCoverCell.m in Sources */,
 				ACAF55421752BB7700AEF17B /* BKTabBarController.m in Sources */,
 			);

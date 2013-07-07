@@ -12,7 +12,7 @@
 
 @protocol BKLogInViewDelegate <NSObject>
 
-- (void)logInViewController:(BKLogInViewController *)controller didLogInUser:(PFUser *)user;
+- (void)logInViewController:(BKLogInViewController *)controller didLogInUser:(PFObject *)user;
 
 @end
 
