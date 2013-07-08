@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5996CC73234F408A96F73C56 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 72AB6A288DBC4C75A3045E21 /* libPods.a */; };
 		AC1B5377178A25CB00F580A5 /* BKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = E780A19F178A1D87006B02BF /* BKUser.m */; };
+		AC1B5379178A38B800F580A5 /* booklvrs_bkground_new.png in Resources */ = {isa = PBXBuildFile; fileRef = AC1B5378178A387C00F580A5 /* booklvrs_bkground_new.png */; };
 		AC7462811748AED4002ADED3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC7462801748AED4002ADED3 /* MapKit.framework */; };
 		ACAF550A1752986600AEF17B /* BKStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACAF55091752986600AEF17B /* BKStoryboard.storyboard */; };
 		ACAF553F1752A93D00AEF17B /* BKBookCoverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACAF553E1752A93C00AEF17B /* BKBookCoverCell.m */; };
@@ -91,6 +92,7 @@
 		72AB6A288DBC4C75A3045E21 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C7B367367804AF280BB852F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		AC1B5376178A213600F580A5 /* apiKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = apiKeys.h; sourceTree = "<group>"; };
+		AC1B5378178A387C00F580A5 /* booklvrs_bkground_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = booklvrs_bkground_new.png; sourceTree = "<group>"; };
 		AC7462801748AED4002ADED3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		ACAF55091752986600AEF17B /* BKStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BKStoryboard.storyboard; sourceTree = "<group>"; };
 		ACAF553D1752A93C00AEF17B /* BKBookCoverCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BKBookCoverCell.h; path = src/BKBookCoverCell.h; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 		E780090117480D2F00DFC429 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				AC1B5378178A387C00F580A5 /* booklvrs_bkground_new.png */,
 				E726174F17493C7A005B4B46 /* iphone_4_splash@2x.jpg */,
 				E726172117492C24005B4B46 /* cover_1984.png */,
 				E726172217492C24005B4B46 /* cover_casual_vacancy.png */,
@@ -438,6 +441,7 @@
 				E78008DD174807C000DFC429 /* Default-568h@2x.png in Resources */,
 				E780090317480D2F00DFC429 /* booklvrs_bkground.jpg in Resources */,
 				E78009081748111A00DFC429 /* booklvrs_bkground_blue.JPG in Resources */,
+				AC1B5379178A38B800F580A5 /* booklvrs_bkground_new.png in Resources */,
 				E780090C1748130F00DFC429 /* FacebookSDKResources.bundle in Resources */,
 				E78009171748151200DFC429 /* booklvrs_logo_black.png in Resources */,
 				E78009181748151200DFC429 /* booklvrs_logo_white.png in Resources */,

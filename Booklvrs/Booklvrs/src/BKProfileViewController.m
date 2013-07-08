@@ -42,8 +42,6 @@ CGFloat kCellViewHeight = 44.0f;
 -(void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [[self navigationController] setNavigationBarHidden:NO animated:YES];
-    
     NSString *goodreadsID = [self.user objectForKey:@"goodreadsID"];
     NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:goodreadsID, @"id", [GROAuth consumerKey], @"key", nil];
     NSDictionary *goodreadsUserInfo = [GROAuth dictionaryResponseForNonOAuthPath:@"user/show" parameters:parameters];
@@ -72,9 +70,14 @@ CGFloat kCellViewHeight = 44.0f;
     
 }
 
+-(void) viewDidAppear:(BOOL)animated {
+    [[self navigationController] setNavigationBarHidden:NO animated:animated];
+    [super viewDidAppear:animated];
+}
+
 - (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
     [[self navigationController] setNavigationBarHidden:YES animated:NO];
+    [super viewWillDisappear:animated];
 }
 
 #pragma mark - Table view data source

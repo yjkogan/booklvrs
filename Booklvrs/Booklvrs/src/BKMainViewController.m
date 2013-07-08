@@ -34,13 +34,22 @@
 
 - (void)viewDidLoad
 {
+    self.wantsFullScreenLayout = YES;
+    
+    
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+    
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    
     [super viewDidLoad];
     
     UIImageView *backgroundImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     
     backgroundImage.image = [UIImage imageNamed:@"iphone_4_splash.jpg"];
     [self.view addSubview:backgroundImage];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -81,10 +90,6 @@
 #pragma mark -- LogInView Delegate Methods --
 - (void)logInViewController:(BKLogInViewController *)controller didLogInUser:(PFObject *)user {
     if (user) {
-        
-//        NSDictionary *booklvrsDict = [NSDictionary dictionaryWithObjectsAndKeys:[user objectForKey:@"goodreadsID"],@"currentUser", nil];
-//        [[NSUserDefaults standardUserDefaults] setObject:booklvrsDict forKey:@"booklvrs"];
-//        [[NSUserDefaults standardUserDefaults] synchronize];
         
         [BKUser currentUser].parseUser = user;
         

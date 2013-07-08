@@ -29,7 +29,7 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"booklvrs_bkground.jpg"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"booklvrs_bkground_new.png"]];
     [self.tableView setSeparatorColor:[UIColor blackColor]];
 //    self.navigationItem.rightBarButtonItem = self.mapsButtonItem;
 }
