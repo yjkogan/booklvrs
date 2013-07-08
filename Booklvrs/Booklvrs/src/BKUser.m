@@ -11,6 +11,8 @@
 
 @implementation BKUser
 
+@synthesize parseUser=_parseUser;
+
 + (BKUser *)currentUser {
 
     static BKUser *currentUser = nil;
@@ -30,6 +32,34 @@
     }
     
     return self;
+}
+
+- (void)setParseUser:(PFObject *)parseUser {
+    
+    NSMutableDictionary *booklvrsDict = [[[NSUserDefaults standardUserDefaults] objectForKey:@"booklvrs"] mutableCopy];
+
+    if (!booklvrsDict) {
+        booklvrsDict = [NSMutableDictionary dictionary];
+    }
+
+    [booklvrsDict setObject:[parseUser objectForKey:@"goodreadsID"] forKey:@"currentUser"];
+    [[NSUserDefaults standardUserDefaults] setObject:booklvrsDict forKey:@"booklvrs"];
+    _parseUser = parseUser;
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (PFObject *)parseUser {
+    
+    if (!_parseUser) {
+        NSDictionary *booklvrsDict = [[NSUserDefaults standardUserDefaults] objectForKey:@"booklvrs"];
+        NSString *goodreadsID = [booklvrsDict objectForKey:@"currentUser"];
+    
+        if (goodreadsID) {
+            _parseUser = [[self class] parseUserWithGoodreadsID:goodreadsID];
+        }
+    }
+    
+    return _parseUser;
 }
 
 + (PFObject *)parseUserWithGoodreadsID:(NSString *)goodreadsID {

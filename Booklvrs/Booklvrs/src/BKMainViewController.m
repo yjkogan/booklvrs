@@ -82,10 +82,6 @@
 - (void)logInViewController:(BKLogInViewController *)controller didLogInUser:(PFObject *)user {
     if (user) {
         
-//        NSDictionary *booklvrsDict = [NSDictionary dictionaryWithObjectsAndKeys:[user objectForKey:@"goodreadsID"],@"currentUser", nil];
-//        [[NSUserDefaults standardUserDefaults] setObject:booklvrsDict forKey:@"booklvrs"];
-//        [[NSUserDefaults standardUserDefaults] synchronize];
-        
         [BKUser currentUser].parseUser = user;
         
         [self dismissViewControllerAnimated:NO completion:nil];
