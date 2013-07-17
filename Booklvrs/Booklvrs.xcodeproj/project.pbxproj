@@ -613,6 +613,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7C7B367367804AF280BB852F /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yonatan Kogan (FQ5K3K8223)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -635,6 +636,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7C7B367367804AF280BB852F /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yonatan Kogan (FQ5K3K8223)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
