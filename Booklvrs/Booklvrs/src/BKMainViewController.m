@@ -54,19 +54,9 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     
-//    if (!self.currentUser) {
-//        NSDictionary *booklvrsDict = [[NSUserDefaults standardUserDefaults] objectForKey:@"booklvrs"];
-//        NSString *goodreadsID = [booklvrsDict objectForKey:@"currentUser"];
-//        if (goodreadsID) {
-//            PFQuery *userQuery = [PFQuery queryWithClassName:@"GoodreadsUser"];
-//            [userQuery whereKey:@"goodreadsID" equalTo:goodreadsID];
-//            PFObject *object = [userQuery getFirstObject];
-//            if (object) {
-//                self.currentUser = object;
-//            }
-//        }
-//    }
-    
+    // If the user is not logged in, we present the loginVC
+    // Then once loginVC is dismissed (meaning the user is now logged in)
+    // viewDidAppear gets called again and we enter the else statement
     if (![BKUser currentUser].parseUser) { // not logged in
         self.logInViewController.delegate = self;
         [self presentViewController:self.logInViewController animated:NO completion:nil];
@@ -74,14 +64,14 @@
         
         if ([BKUser currentUser].nearbyUsers.count == 0) { // make sure nearby users is populated
             PFQuery *nearbyUsersQuery = [PFQuery queryWithClassName:@"GoodreadsUser"];
-            
+
+            // Commented out so that we can still see the profile view, even with no other users
 //            [nearbyUsersQuery whereKey:@"goodreadsID"
 //                            notEqualTo:[[BKUser currentUser].parseUser objectForKey:@"goodreadsID"]];
             [BKUser currentUser].nearbyUsers = [nearbyUsersQuery findObjects];
         }
         
         // now we have nearby users
-        
         UITabBarController *tabController = [self.navigationController.storyboard instantiateViewControllerWithIdentifier:@"tabBarController"];
         [self.navigationController pushViewController:tabController animated:YES];
     }
@@ -92,7 +82,6 @@
     if (user) {
         
         [BKUser currentUser].parseUser = user;
-        
         [self dismissViewControllerAnimated:NO completion:nil];
     } else {
         UIAlertView *failedLogIn = [[UIAlertView alloc] initWithTitle:@"Login Failed!"
