@@ -95,7 +95,12 @@
         
         [self dismissViewControllerAnimated:NO completion:nil];
     } else {
-        //        UIAlertView // alert about how failed to create a user
+        UIAlertView *failedLogIn = [[UIAlertView alloc] initWithTitle:@"Login Failed!"
+                                                              message:@"An error occured while logging you in. Please try again"
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Okay"
+                                                    otherButtonTitles: nil];
+        [failedLogIn show];
     }
 }
 
