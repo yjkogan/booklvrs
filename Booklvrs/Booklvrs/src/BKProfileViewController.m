@@ -126,6 +126,9 @@ CGFloat kCellViewHeight = 44.0f;
         }
     }
     
+    [cell.textLabel setMinimumScaleFactor:10.0/[UIFont labelFontSize]];
+    cell.textLabel.adjustsFontSizeToFitWidth = YES;
+    
     return cell;
 }
 
