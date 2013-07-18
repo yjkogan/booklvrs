@@ -48,6 +48,10 @@ CGFloat kCellViewHeight = 44.0f;
     
     NSString *profilePicPath = [goodreadsUserInfo valueForKeyPath:@"user.image_url"];
     self.profilePictureImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:profilePicPath]]];
+
+    // The profile picture is fine in iOS 7.0 but looks a bit fucked up in 6.1
+    // Spent a bit tonight trying to fix this with no success and i'm exhausted
+    // --YK 07-17-13
     self.profilePictureImageView.layer.cornerRadius = self.profilePictureImageView.frame.size.height/4;
     
     self.favoriteAuthors = [[NSMutableArray alloc] init];
