@@ -59,10 +59,17 @@ CGFloat kCellViewHeight = 44.0f;
         [self.favoriteAuthors addObject: [author valueForKeyPath:@"name"]];
     }
     
+    // I'm not sure that there's a better query to run, but for someone who's actually an active
+    // Goodreads user, this could be a problem because it has to sift through so much data
+    
+    // It looks like there's an API call for /reviews/list, which is more specific
+    
     for (NSDictionary *review in [goodreadsUserInfo valueForKeyPath:@"user.updates.update"]) {
         // less than two favorite authors = bug???
         if ([[review valueForKeyPath:@"_type"] isEqualToString:@"review"]) {
-            [self.reviewedBooks addObject: [review valueForKeyPath:@"object.book.title"]];
+            NSString *title = [review valueForKeyPath:@"object.book.title"];
+            NSString *coverURL = [review valueForKeyPath:@"image_url"];
+            [self.reviewedBooks addObject: @{@"title": title, @"cover": coverURL}];
         }
     }
     
@@ -108,23 +115,10 @@ CGFloat kCellViewHeight = 44.0f;
     if (indexPath.section == 1) {
         cell.textLabel.text = [self.favoriteAuthors objectAtIndex:indexPath.row];
     } else if (indexPath.section == 0) {
-        cell.textLabel.text = [self.reviewedBooks objectAtIndex:indexPath.row];
-        if([cell.textLabel.text isEqualToString:@"Lean In: Women, Work, and the Will to Lead"]) {
-            UIImage *image = [UIImage imageNamed:@"cover_lean_in.png"];
-            cell.imageView.image = image;
-        } else if([cell.textLabel.text isEqualToString:@"The Casual Vacancy"]) {
-            UIImage *image = [UIImage imageNamed:@"cover_casual_vacancy.png"];
-            cell.imageView.image = image;
-        } else if ([cell.textLabel.text isEqualToString:@"A Clockwork Orange"]) {
-            UIImage *image = [UIImage imageNamed:@"cover_clockwork_orange.png"];
-            cell.imageView.image = image;
-        } else if ([cell.textLabel.text isEqualToString:@"For Whom the Bell Tolls"]) {
-            UIImage *image = [UIImage imageNamed:@"for-whom-the-bell-tolls.jpg"];
-            cell.imageView.image = image;
-        } else if ([cell.textLabel.text isEqualToString:@"Ender's Game (Ender's Saga, #1)"]) {
-            UIImage *image = [UIImage imageNamed:@"endersgame.jpg"];
-            cell.imageView.image = image;
-        }
+        NSDictionary *book = [self.reviewedBooks objectAtIndex:indexPath.row];
+        cell.textLabel.text = [book objectForKey:@"title"];
+        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[book objectForKey:@"cover"]]]];
+        cell.imageView.image = image;
     }
     
     [cell.textLabel setMinimumScaleFactor:10.0/[UIFont labelFontSize]];
