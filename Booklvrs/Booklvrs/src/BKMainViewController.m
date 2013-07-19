@@ -34,8 +34,6 @@
 
 - (void)viewDidLoad
 {
-    self.wantsFullScreenLayout = YES;
-    
     
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
     

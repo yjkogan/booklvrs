@@ -49,9 +49,6 @@ CGFloat kCellViewHeight = 44.0f;
     NSString *profilePicPath = [goodreadsUserInfo valueForKeyPath:@"user.image_url"];
     self.profilePictureImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:profilePicPath]]];
 
-    // The profile picture is fine in iOS 7.0 but looks a bit fucked up in 6.1
-    // Spent a bit tonight trying to fix this with no success and i'm exhausted
-    // --YK 07-17-13
     self.profilePictureImageView.layer.cornerRadius = self.profilePictureImageView.frame.size.height/4;
     
     self.favoriteAuthors = [[NSMutableArray alloc] init];
@@ -93,9 +90,9 @@ CGFloat kCellViewHeight = 44.0f;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section==0) {
+    if (section==1) {
         return self.favoriteAuthors.count;
-    } else if (section==1) {
+    } else if (section==0) {
         return self.reviewedBooks.count;
     }
     return 0;
@@ -108,9 +105,9 @@ CGFloat kCellViewHeight = 44.0f;
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    if (indexPath.section == 0) {
+    if (indexPath.section == 1) {
         cell.textLabel.text = [self.favoriteAuthors objectAtIndex:indexPath.row];
-    } else if (indexPath.section == 1) {
+    } else if (indexPath.section == 0) {
         cell.textLabel.text = [self.reviewedBooks objectAtIndex:indexPath.row];
         if([cell.textLabel.text isEqualToString:@"Lean In: Women, Work, and the Will to Lead"]) {
             UIImage *image = [UIImage imageNamed:@"cover_lean_in.png"];
@@ -138,7 +135,7 @@ CGFloat kCellViewHeight = 44.0f;
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return @[@"Favorite Authors", @"Favorite Books"][section];
+    return @[@"Favorite Books", @"Favorite Authors"][section];
 }
 
 /*
