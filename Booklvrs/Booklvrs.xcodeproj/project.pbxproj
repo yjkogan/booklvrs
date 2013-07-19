@@ -627,6 +627,7 @@
 					"${PODS_HEADERS_SEARCH_PATHS}",
 				);
 				INFOPLIST_FILE = "Booklvrs/Booklvrs-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -650,6 +651,7 @@
 					"${PODS_HEADERS_SEARCH_PATHS}",
 				);
 				INFOPLIST_FILE = "Booklvrs/Booklvrs-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
