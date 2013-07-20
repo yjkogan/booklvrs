@@ -64,13 +64,16 @@ CGFloat kCellViewHeight = 44.0f;
     
     // It looks like there's an API call for /reviews/list, which is more specific
     
-    for (NSDictionary *review in [goodreadsUserInfo valueForKeyPath:@"user.updates.update"]) {
-        // less than two favorite authors = bug???
-        if ([[review valueForKeyPath:@"_type"] isEqualToString:@"review"]) {
-            NSString *title = [review valueForKeyPath:@"object.book.title"];
-            NSString *coverURL = [review valueForKeyPath:@"image_url"];
-            [self.reviewedBooks addObject: @{@"title": title, @"cover": coverURL}];
-        }
+    parameters = @{@"v": @(2), @"id": goodreadsID, @"key": [GROAuth consumerKey]};
+    
+    NSDictionary *reviews = [GROAuth dictionaryResponseForNonOAuthPath:@"review/list" parameters:parameters];
+    reviews = [reviews objectForKey:@"reviews"];
+    
+    for (NSDictionary *review in [reviews valueForKeyPath:@"review"]) {
+
+        NSString *title = [review valueForKeyPath:@"book.title"];
+        NSString *coverURL = [review valueForKeyPath:@"book.image_url"];
+        [self.reviewedBooks addObject: @{@"title": title, @"cover": coverURL}];
     }
     
     self.navigationItem.title = [self.user objectForKey:@"name"];
