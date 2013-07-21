@@ -59,12 +59,11 @@ CGFloat kCellViewHeight = 44.0f;
         [self.favoriteAuthors addObject: [author valueForKeyPath:@"name"]];
     }
     
-    // I'm not sure that there's a better query to run, but for someone who's actually an active
-    // Goodreads user, this could be a problem because it has to sift through so much data
-    
-    // It looks like there's an API call for /reviews/list, which is more specific
-    
-    parameters = @{@"v": @(2), @"id": goodreadsID, @"key": [GROAuth consumerKey]};
+    parameters = @{@"v": @(2),
+                   @"id": goodreadsID,
+                   @"sort": @"rating",
+                   @"per_page": @(10),
+                   @"key": [GROAuth consumerKey]};
     
     NSDictionary *reviews = [GROAuth dictionaryResponseForNonOAuthPath:@"review/list" parameters:parameters];
     reviews = [reviews objectForKey:@"reviews"];
