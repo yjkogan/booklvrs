@@ -65,7 +65,7 @@ CGFloat kCellViewHeight = 44.0f;
                    @"per_page": @(10),
                    @"key": [GROAuth consumerKey]};
     
-    NSDictionary *reviews = [GROAuth dictionaryResponseForNonOAuthPath:@"review/list" parameters:parameters];
+    NSDictionary *reviews = [GROAuth dictionaryResponseForOAuthPath:@"review/list" parameters:parameters HTTPmethod:@"POST"];
     reviews = [reviews objectForKey:@"reviews"];
     
     for (NSDictionary *review in [reviews valueForKeyPath:@"review"]) {
