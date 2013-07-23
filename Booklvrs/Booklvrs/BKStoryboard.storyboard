@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4471.1" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="uly-sL-ki7">
     <dependencies>
-        <deployment defaultVersion="1552" identifier="iOS"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3697.3"/>
     </dependencies>
     <scenes>
@@ -209,7 +209,13 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="Profile" id="zji-9R-vK8"/>
+                    <navigationItem key="navigationItem" title="Profile" id="zji-9R-vK8">
+                        <barButtonItem key="rightBarButtonItem" title="Chat" id="nVI-aU-D3j">
+                            <connections>
+                                <segue destination="Fvd-kN-uXr" kind="push" identifier="profileToChat" id="awl-Bu-dzJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -219,7 +225,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MwG-5f-V3a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1784" y="170"/>
+            <point key="canvasLocation" x="1832" y="170"/>
+        </scene>
+        <!--Chat View Controller - Chat with Hi-->
+        <scene sceneID="7DY-zu-XZH">
+            <objects>
+                <viewController id="Fvd-kN-uXr" customClass="BKChatViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Lcs-da-6T3"/>
+                        <viewControllerLayoutGuide type="bottom" id="pIU-Ci-dyF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wCc-aD-Km5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Chat with Hi" id="1L8-zN-7cF"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kiO-lO-KcS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2338" y="170"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ws6-Ff-VOv">
