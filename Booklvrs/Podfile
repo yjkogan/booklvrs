@@ -1,2 +1,2 @@
-platform :ios, '6.0'
-pod 'Goodreads-Oauth', :git => 'https://github.com/yjkogan/goodreads-oauth.git'
+platform :ios, '7.0'
+pod 'Goodreads-Oauth', :git => 'https://github.com/yjkogan/goodreads-oauth.git', :tag => '0.0.6'
