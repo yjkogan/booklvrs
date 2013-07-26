@@ -74,20 +74,15 @@ CGFloat kCellViewHeight = 44.0f;
         NSString *coverURL = [review valueForKeyPath:@"book.image_url"];
         [self.reviewedBooks addObject: @{@"title": title, @"cover": coverURL}];
     }
-    
+
     self.navigationItem.title = [self.user objectForKey:@"name"];
-    
-    
-}
-
--(void) viewDidAppear:(BOOL)animated {
+    [self.chatBtn setTarget:self];
+    [self.chatBtn setAction:@selector(chatBtnTapped:)];
     [[self navigationController] setNavigationBarHidden:NO animated:animated];
-    [super viewDidAppear:animated];
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [[self navigationController] setNavigationBarHidden:YES animated:NO];
-    [super viewWillDisappear:animated];
+- (void)chatBtnTapped:(id)sender {
+    [self performSegueWithIdentifier:@"profileToChat" sender:self];
 }
 
 #pragma mark - Table view data source

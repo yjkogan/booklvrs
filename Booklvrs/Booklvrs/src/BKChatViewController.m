@@ -27,14 +27,9 @@
     return self;
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [[self navigationController] setNavigationBarHidden:NO animated:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    [[self navigationController] setNavigationBarHidden:YES animated:animated];
 }
 
 - (void)viewDidLoad
@@ -45,10 +40,6 @@
     NSDictionary *message = [[NSDictionary alloc] initWithObjects:messageInfo forKeys:messageKeys];
     self.messages = [[NSMutableArray alloc] initWithObjects:message, nil];
     self.navigationItem.title = [NSString stringWithFormat:@"%@", [self.user objectForKey:@"name"]];
-
-    UIImageView *background = [[UIImageView alloc] initWithFrame:self.view.frame];
-    background.image = [UIImage imageNamed:@"chat_background.JPG"];
-    [self.view addSubview:background];
     
     UITextField *messageBox = [[UITextField alloc] initWithFrame:CGRectMake(5.0,
                                                                          self.view.frame.size.height - 75.0,

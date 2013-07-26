@@ -33,6 +33,11 @@
     [self.tableView setSeparatorColor:[UIColor blackColor]];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [[self navigationController] setNavigationBarHidden:YES animated:animated];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

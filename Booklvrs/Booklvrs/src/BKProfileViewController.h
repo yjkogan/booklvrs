@@ -13,5 +13,6 @@
 
 @property (strong, nonatomic) PFObject *user;
 @property (strong, nonatomic) IBOutlet UIImageView *profilePictureImageView;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *chatBtn;
 
 @end
