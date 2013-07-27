@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface BKChatViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
+@interface BKChatViewController : UITableViewController
 
-@property (strong,nonatomic) PFUser *user;
+@property (strong,nonatomic) PFObject *user;
 
 @end

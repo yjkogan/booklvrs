@@ -40,56 +40,6 @@
     NSDictionary *message = [[NSDictionary alloc] initWithObjects:messageInfo forKeys:messageKeys];
     self.messages = [[NSMutableArray alloc] initWithObjects:message, nil];
     self.navigationItem.title = [NSString stringWithFormat:@"%@", [self.user objectForKey:@"name"]];
-    
-    UITextField *messageBox = [[UITextField alloc] initWithFrame:CGRectMake(5.0,
-                                                                         self.view.frame.size.height - 75.0,
-                                                                         self.view.frame.size.width - 10.0,
-                                                                          30.0)];
-    [messageBox setBorderStyle:UITextBorderStyleRoundedRect];
-
-    messageBox.returnKeyType = UIReturnKeySend;
-    messageBox.delegate = self;
-    [self.view addSubview:messageBox];
-    self.messageBoxNaturalCenter = messageBox.center;
-    
-    self.chatTableView = [[UITableView alloc] initWithFrame:CGRectMake(0.0,
-                                                                               5.0,
-                                                                               self.view.frame.size.width,
-                                                                               messageBox.frame.origin.y - 2*5.0)
-                                                              style:UITableViewStylePlain];
-    
-    self.chatTableView.delegate = self;
-    self.chatTableView.dataSource = self;
-    self.chatTableView.backgroundView = nil;
-    self.chatTableView.backgroundColor = [UIColor clearColor];
-    [self.chatTableView setSeparatorColor:[UIColor blackColor]];
-    
-    [self.view addSubview:self.chatTableView];
-}
-
-#pragma mark --UITextField Delegate--
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-
-
-    
-    NSArray *messageInfo = [[NSArray alloc] initWithObjects:@"You",textField.text, nil];
-    NSArray *messageKeys = [[NSArray alloc] initWithObjects:@"sender",@"text", nil];
-    NSDictionary *message = [[NSDictionary alloc] initWithObjects:messageInfo forKeys:messageKeys];
-    
-    [self.messages addObject:message];
-    
-    textField.text = @"";
-    
-    [textField resignFirstResponder];
-    textField.center = self.messageBoxNaturalCenter;
-    [self.chatTableView reloadData];
-    
-    return YES;
-}
-
-- (void)textFieldDidBeginEditing:(UITextField *)textField {
-    textField.center = CGPointMake(self.view.center.x,self.view.center.y - 13.0);
 }
 
 #pragma mark - Table view data source
