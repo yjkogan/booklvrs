@@ -81,8 +81,12 @@ CGFloat kCellViewHeight = 44.0f;
     [[self navigationController] setNavigationBarHidden:NO animated:animated];
 }
 
-- (void)chatBtnTapped:(id)sender {
-    [self performSegueWithIdentifier:@"profileToChat" sender:self];
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"profileToChat"]) {
+        BKChatViewController *chatVC = [segue destinationViewController];
+        chatVC.user = self.user;
+    }
 }
 
 #pragma mark - Table view data source
