@@ -76,8 +76,6 @@ CGFloat kCellViewHeight = 44.0f;
     }
 
     self.navigationItem.title = [self.user objectForKey:@"name"];
-    [self.chatBtn setTarget:self];
-    [self.chatBtn setAction:@selector(chatBtnTapped:)];
     [[self navigationController] setNavigationBarHidden:NO animated:animated];
 }
 
