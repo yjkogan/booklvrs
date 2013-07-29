@@ -244,22 +244,27 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="525" id="PWu-Tq-2Tk"/>
                                     <constraint firstAttribute="width" constant="320" id="bsz-vK-2w3"/>
                                 </constraints>
                             </tableView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IxS-im-Mn1">
-                                <rect key="frame" x="0.0" y="533" width="320" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IxS-im-Mn1">
+                                <rect key="frame" x="5" y="533" width="310" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="310" id="7xm-BO-PFf"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="IxS-im-Mn1" firstAttribute="leading" secondItem="hCm-XV-h9t" secondAttribute="leading" constant="5" id="2X8-eg-jIa"/>
+                            <constraint firstAttribute="bottom" secondItem="nsY-Xr-KHU" secondAttribute="bottom" constant="43" id="Eaa-6J-tMx"/>
                             <constraint firstItem="nsY-Xr-KHU" firstAttribute="trailing" secondItem="hCm-XV-h9t" secondAttribute="trailing" id="Ldb-aP-Brs"/>
                             <constraint firstItem="nsY-Xr-KHU" firstAttribute="top" secondItem="hCm-XV-h9t" secondAttribute="top" id="PFo-lL-fnJ"/>
                             <constraint firstItem="nsY-Xr-KHU" firstAttribute="leading" secondItem="hCm-XV-h9t" secondAttribute="leading" id="WfR-1U-xHb"/>
+                            <constraint firstAttribute="bottom" secondItem="IxS-im-Mn1" secondAttribute="bottom" constant="5" id="a0x-k4-noU"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ngb-fo-ouz"/>
