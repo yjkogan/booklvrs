@@ -42,6 +42,12 @@
     self.navigationItem.title = [NSString stringWithFormat:@"%@", [self.user objectForKey:@"name"]];
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    NSLog(@"%@",textField.text);
+    [textField resignFirstResponder];
+    return YES;
+};
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
