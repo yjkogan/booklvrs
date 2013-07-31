@@ -40,6 +40,30 @@
     NSDictionary *message = [[NSDictionary alloc] initWithObjects:messageInfo forKeys:messageKeys];
     self.messages = [[NSMutableArray alloc] initWithObjects:message, nil];
     self.navigationItem.title = [NSString stringWithFormat:@"%@", [self.user objectForKey:@"name"]];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)keyboardWillShow:(NSNotification *)notification
+{
+    NSDictionary *userInfo = notification.userInfo;
+    NSLog(@"%@", userInfo);
+    CGFloat keyboardHeight = [[userInfo objectForKey:@"UIKeyboardBoundsUserInfoKey"] CGRectValue].size.height;
+    [self.view setFrame:CGRectMake(self.view.frame.origin.x,
+                                   self.view.frame.origin.y - keyboardHeight,
+                                   self.view.frame.size.width,
+                                   self.view.frame.size.height)];
+}
+
+-(void)keyboardWillHide:(NSNotification *)notification
+{
+    NSDictionary *userInfo = notification.userInfo;
+    CGFloat keyboardHeight = [[userInfo objectForKey:@"UIKeyboardBoundsUserInfoKey"] CGRectValue].size.height;
+    [self.view setFrame:CGRectMake(self.view.frame.origin.x,
+                                   self.view.frame.origin.y + keyboardHeight,
+                                   self.view.frame.size.width,
+                                   self.view.frame.size.height)];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
