@@ -49,31 +49,38 @@
 {
     NSDictionary *userInfo = notification.userInfo;
 
-    CGFloat keyboardHeight = [[userInfo objectForKey:@"UIKeyboardBoundsUserInfoKey"] CGRectValue].size.height;
-    CGFloat animationDuration = [[userInfo objectForKey:@"UIKeyboardAnimationDurationUserInfoKey"] floatValue];
+    CGFloat keyboardHeight = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size.height;
+    CGFloat animationDuration = [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
+    int curve = [[[notification userInfo] objectForKey:UIKeyboardAnimationCurveUserInfoKey] intValue];
 
-    [UIView animateWithDuration:animationDuration animations:^{
-        [self.view setFrame:CGRectMake(self.view.frame.origin.x,
-                                       self.view.frame.origin.y - keyboardHeight,
-                                       self.view.frame.size.width,
-                                       self.view.frame.size.height)];
-    }];
-
+    [UIView beginAnimations:@"shiftViewUp" context:nil];
+    [UIView setAnimationDuration:animationDuration];
+    [UIView setAnimationCurve:curve];
+    
+    [self.view setFrame:CGRectMake(self.view.frame.origin.x,
+                                   self.view.frame.origin.y - keyboardHeight,
+                                   self.view.frame.size.width,
+                                   self.view.frame.size.height)];
+    [UIView commitAnimations];
 }
 
 -(void)keyboardWillHide:(NSNotification *)notification
 {
     NSDictionary *userInfo = notification.userInfo;
 
-    CGFloat keyboardHeight = [[userInfo objectForKey:@"UIKeyboardBoundsUserInfoKey"] CGRectValue].size.height;
-    CGFloat animationDuration = [[userInfo objectForKey:@"UIKeyboardAnimationDurationUserInfoKey"] floatValue];
-
-    [UIView animateWithDuration:animationDuration animations:^{
-        [self.view setFrame:CGRectMake(self.view.frame.origin.x,
-                                       self.view.frame.origin.y + keyboardHeight,
-                                       self.view.frame.size.width,
-                                       self.view.frame.size.height)];
-    }];
+    CGFloat keyboardHeight = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size.height;
+    CGFloat animationDuration = [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
+    int curve = [[[notification userInfo] objectForKey:UIKeyboardAnimationCurveUserInfoKey] intValue];
+    
+    [UIView beginAnimations:@"shiftViewDown" context:nil];
+    [UIView setAnimationDuration:animationDuration];
+    [UIView setAnimationCurve:curve];
+    
+    [self.view setFrame:CGRectMake(self.view.frame.origin.x,
+                                   self.view.frame.origin.y + keyboardHeight,
+                                   self.view.frame.size.width,
+                                   self.view.frame.size.height)];
+    [UIView commitAnimations];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
