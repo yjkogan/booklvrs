@@ -48,22 +48,32 @@
 - (void)keyboardWillShow:(NSNotification *)notification
 {
     NSDictionary *userInfo = notification.userInfo;
-    NSLog(@"%@", userInfo);
+
     CGFloat keyboardHeight = [[userInfo objectForKey:@"UIKeyboardBoundsUserInfoKey"] CGRectValue].size.height;
-    [self.view setFrame:CGRectMake(self.view.frame.origin.x,
-                                   self.view.frame.origin.y - keyboardHeight,
-                                   self.view.frame.size.width,
-                                   self.view.frame.size.height)];
+    CGFloat animationDuration = [[userInfo objectForKey:@"UIKeyboardAnimationDurationUserInfoKey"] floatValue];
+
+    [UIView animateWithDuration:animationDuration animations:^{
+        [self.view setFrame:CGRectMake(self.view.frame.origin.x,
+                                       self.view.frame.origin.y - keyboardHeight,
+                                       self.view.frame.size.width,
+                                       self.view.frame.size.height)];
+    }];
+
 }
 
 -(void)keyboardWillHide:(NSNotification *)notification
 {
     NSDictionary *userInfo = notification.userInfo;
+
     CGFloat keyboardHeight = [[userInfo objectForKey:@"UIKeyboardBoundsUserInfoKey"] CGRectValue].size.height;
-    [self.view setFrame:CGRectMake(self.view.frame.origin.x,
-                                   self.view.frame.origin.y + keyboardHeight,
-                                   self.view.frame.size.width,
-                                   self.view.frame.size.height)];
+    CGFloat animationDuration = [[userInfo objectForKey:@"UIKeyboardAnimationDurationUserInfoKey"] floatValue];
+
+    [UIView animateWithDuration:animationDuration animations:^{
+        [self.view setFrame:CGRectMake(self.view.frame.origin.x,
+                                       self.view.frame.origin.y + keyboardHeight,
+                                       self.view.frame.size.width,
+                                       self.view.frame.size.height)];
+    }];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
