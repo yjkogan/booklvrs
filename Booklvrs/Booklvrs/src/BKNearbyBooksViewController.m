@@ -23,21 +23,13 @@ CGFloat kBookPadding = 12.5f;
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Map" style:UIBarButtonItemStylePlain target:self action:@selector(toggleMaps:)];
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"List" style:UIBarButtonItemStylePlain target:self action:@selector(toggleList:)];
+
     }
     return self;
 }
 
-- (void) toggleMaps: (id) sender {
-    [self.delegate changeToMapViewFrom:self];
-}
-
-- (void) toggleList: (id) sender {
-    [self.delegate changeToListViewFrom:self];
-}
-
 - (void) loadBooks {
+    // This is going to have to be pulled from Goodreads in some way
     self.books = [@[] mutableCopy];
     NSString *imageDirectoryPath = [[NSBundle mainBundle] resourcePath];
     NSLog(@"dir path is %@", imageDirectoryPath);
@@ -46,9 +38,7 @@ CGFloat kBookPadding = 12.5f;
         if ([imageFile rangeOfString:@"/cover_"].location != NSNotFound) {
             [self.books addObject:[UIImage imageWithContentsOfFile:imageFile]];
         }
-//        NSLog(@"%@",imageFile);
     }
-    NSLog(@"books: %@", self.books);
 }
 
 - (void)viewDidLoad
