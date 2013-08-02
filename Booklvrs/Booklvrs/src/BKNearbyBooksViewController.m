@@ -9,7 +9,8 @@
 #import "BKNearbyBooksViewController.h"
 #import "BKProfileViewController.h"
 #import "BKBookCoverCell.h"
-#import <Parse/Parse.h>
+#import "BKUser.h"
+#import "GROAuth.h"
 
 CGFloat kBookPadding = 12.5f;
 
@@ -29,14 +30,27 @@ CGFloat kBookPadding = 12.5f;
 }
 
 - (void) loadBooks {
-    // This is going to have to be pulled from Goodreads in some way
+
     self.books = [@[] mutableCopy];
-    NSString *imageDirectoryPath = [[NSBundle mainBundle] resourcePath];
-    NSLog(@"dir path is %@", imageDirectoryPath);
-    NSArray *imageFiles = [NSBundle pathsForResourcesOfType:@".png" inDirectory:imageDirectoryPath];
-    for ( NSString* imageFile in imageFiles) {
-        if ([imageFile rangeOfString:@"/cover_"].location != NSNotFound) {
-            [self.books addObject:[UIImage imageWithContentsOfFile:imageFile]];
+
+    // For now we're pulling 5 covers for every nearby user...
+    for (PFObject *nearbyUser in [BKUser currentUser].nearbyUsers) {
+        NSDictionary *parameters = @{@"v": @(2),
+                                       @"id": [nearbyUser objectForKey:@"goodreadsID"],
+                                       @"sort": @"rating",
+                                       @"per_page": @(5),
+                                       @"key": [GROAuth consumerKey]};
+        
+        NSDictionary *reviews = [GROAuth dictionaryResponseForOAuthPath:@"review/list" parameters:parameters HTTPmethod:@"POST"];
+        reviews = [reviews objectForKey:@"reviews"];
+        
+        for (NSDictionary *review in [reviews valueForKeyPath:@"review"]) {
+            NSString *coverURL = [review valueForKeyPath:@"book.image_url"];
+            // Only add the cover if goodreads has a cove
+            if ([coverURL rangeOfString:@"nocover"].location == NSNotFound) {
+                UIImage *bookCover = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:coverURL]]];
+                [self.books addObject:bookCover];
+            }
         }
     }
 }
@@ -52,16 +66,6 @@ CGFloat kBookPadding = 12.5f;
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     self.collectionView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"booklvrs_bkground.jpg"]];
 
-}
-
-- (void)showYK:(id)sender {
-    BKProfileViewController *profileVC = [[BKProfileViewController alloc] initWithNibName:nil bundle:nil];    
-    for (PFUser *nearbyUser in self.nearbyUsers) {
-        if ([[nearbyUser objectForKey:@"facebookId"] isEqualToString:@"1055040075"]) {
-            profileVC.user = nearbyUser;
-            return [self.navigationController pushViewController:profileVC animated:YES];
-        }
-    }
 }
 
 #pragma mark - UICollectionView Datasource

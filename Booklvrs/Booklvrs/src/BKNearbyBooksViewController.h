@@ -19,7 +19,6 @@
 
 @interface BKNearbyBooksViewController : UICollectionViewController
 
-@property (strong,nonatomic) NSArray *nearbyUsers;
 @property (strong,nonatomic) NSMutableArray *books;
 @property (weak, nonatomic) id<BKNearbyBooksViewControllerDelegate> delegate;
 
