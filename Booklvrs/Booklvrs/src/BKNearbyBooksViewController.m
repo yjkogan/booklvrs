@@ -49,7 +49,8 @@ CGFloat kBookPadding = 12.5f;
             // Only add the cover if goodreads has a cove
             if ([coverURL rangeOfString:@"nocover"].location == NSNotFound) {
                 UIImage *bookCover = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:coverURL]]];
-                [self.books addObject:bookCover];
+                NSDictionary *coverDict = [NSDictionary dictionaryWithObjectsAndKeys:nearbyUser,@"user",bookCover,@"coverImage", nil];
+                [self.books addObject:coverDict];
             }
         }
     }
@@ -59,13 +60,16 @@ CGFloat kBookPadding = 12.5f;
 {
     [super viewDidLoad];
     [self loadBooks];
-//    [self.collectionView registerClass:[BKBookCoverCell class] forCellWithReuseIdentifier:@"book"];
-//    [self.collectionView setBackgroundColor:[UIColor colorWithPatternImage:self.books[1]]];
-    self.navigationItem.title = @"Recommended";
-    self.navigationItem.hidesBackButton = YES;
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
+//    self.navigationItem.title = @"Recommended";
+//    self.navigationItem.hidesBackButton = YES;
+//    [self.navigationController setNavigationBarHidden:YES animated:YES];
     self.collectionView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"booklvrs_bkground.jpg"]];
 
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
 }
 
 #pragma mark - UICollectionView Datasource
@@ -82,7 +86,7 @@ CGFloat kBookPadding = 12.5f;
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     BKBookCoverCell *cell = [cv dequeueReusableCellWithReuseIdentifier:@"book" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor clearColor];
-    cell.imageView.image = self.books[indexPath.row];
+    cell.imageView.image = [self.books[indexPath.row] objectForKey:@"coverImage"];
     return cell;
 }
 // 4
@@ -91,5 +95,13 @@ CGFloat kBookPadding = 12.5f;
  {
  return [[UICollectionReusableView alloc] init];
  }*/
+
+// 5
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    PFObject *nearbyUser = [[self.books objectAtIndex:indexPath.row] objectForKey:@"user"];
+    BKProfileViewController *profileVC = [[self storyboard] instantiateViewControllerWithIdentifier:@"profile"];
+    profileVC.user = nearbyUser;
+    [self.navigationController pushViewController:profileVC animated:YES];
+}
 
 @end
