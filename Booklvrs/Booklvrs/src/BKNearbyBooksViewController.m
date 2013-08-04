@@ -54,6 +54,13 @@ CGFloat kBookPadding = 12.5f;
             }
         }
     }
+    NSUInteger count = [self.books count];
+    for (NSUInteger i = 0; i < count; ++i) {
+        // Select a random element between i and end of array to swap with.
+        NSInteger nElements = count - i;
+        NSInteger n = (arc4random() % nElements) + i;
+        [self.books exchangeObjectAtIndex:i withObjectAtIndex:n];
+    }
 }
 
 - (void)viewDidLoad
