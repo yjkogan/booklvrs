@@ -29,31 +29,14 @@ CGFloat nycLon = -73.989281;
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"List" style:UIBarButtonItemStylePlain target:self action:@selector(toggleMaps:)];
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Books" style:UIBarButtonItemStylePlain target:self action:@selector(toggleBooks:)];
     }
     return self;
-}
-
-- (void) toggleMaps: (id) sender {
-    [self.delegate changeToListViewFrom:self];
-}
-
-- (void) toggleBooks: (id) sender {
-    [self.delegate changeToBooksViewFrom:self];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    self.navigationItem.title = @"Nearby Users";
-    self.navigationItem.hidesBackButton = YES;
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
-    
-    self.mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width,self.view.frame.size.height)];
-    [self.mapView setUserTrackingMode:MKUserTrackingModeFollow animated:NO];
-    self.mapView.delegate = self;
     if(![self.mapView userLocation].location) {
         self.isSimulator = YES;
         [self.mapView setUserTrackingMode:MKUserTrackingModeNone animated:NO];
@@ -67,6 +50,11 @@ CGFloat nycLon = -73.989281;
     }
     
     [self.view addSubview:mapView];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation

@@ -80,11 +80,21 @@
                     <view key="view" contentMode="scaleToFill" id="LrZ-ED-Oub">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Rf0-Sh-MBW">
+                                <rect key="frame" x="-1" y="1" width="320" height="519"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="5O8-Kw-izy" id="C4Q-VF-gGJ"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Map" id="9nG-k6-lOw"/>
                     <connections>
+                        <outlet property="mapView" destination="Rf0-Sh-MBW" id="ZKt-Yw-1QM"/>
                         <segue destination="t4a-cZ-MIM" kind="push" identifier="mapViewToProfile" id="K47-J8-62Y"/>
                     </connections>
                 </viewController>
@@ -306,6 +316,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="KIc-L0-6ew"/>
+        <segue reference="K47-J8-62Y"/>
     </inferredMetricsTieBreakers>
 </document>
