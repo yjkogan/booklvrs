@@ -9,6 +9,7 @@
 #import "BKNearbyUsersMapController.h"
 #import "BKProfileViewController.h"
 #import <Parse/Parse.h>
+#import "BKUser.h"
 
 #define ARC4RANDOM_MAX      0x100000000
 
@@ -74,7 +75,7 @@ CGFloat nycLon = -73.989281;
     
     [self.mapView addAnnotation:point];
     
-    for (PFUser *nearbyUser in self.nearbyUsers) {
+    for (PFObject *nearbyUser in [BKUser currentUser].nearbyUsers) {
         MKPointAnnotation *userPoint = [[MKPointAnnotation alloc] init];
         CGFloat offsetx = ((double)arc4random() / ARC4RANDOM_MAX) * .01f;
         CGFloat offsety = ((double)arc4random() / ARC4RANDOM_MAX) * .01f;
@@ -91,7 +92,7 @@ CGFloat nycLon = -73.989281;
     if (![title isEqualToString:@"Your location"]) {
         
         BKProfileViewController *profileVC = [[BKProfileViewController alloc] initWithNibName:nil bundle:nil];
-        for (PFUser *nearbyUser in self.nearbyUsers) {
+        for (PFObject *nearbyUser in [BKUser currentUser].nearbyUsers) {
             if ([[nearbyUser objectForKey:@"name"] isEqualToString:title]) {
                 profileVC.user = nearbyUser;
                 return [self.navigationController pushViewController:profileVC animated:YES];

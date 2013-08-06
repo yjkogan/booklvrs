@@ -11,17 +11,8 @@
 
 @class BKNearbyUsersMapController;
 
-@protocol BKNearbyUsersMapControllerDelegate <NSObject>
-
-- (void)changeToListViewFrom:(UIViewController *)controller;
-- (void)changeToBooksViewFrom:(UIViewController *)controller;
-
-@end
-
 @interface BKNearbyUsersMapController : UIViewController <MKMapViewDelegate>
 
 @property (strong,nonatomic) IBOutlet MKMapView *mapView;
-@property (strong,nonatomic) NSArray *nearbyUsers;
-@property (weak, nonatomic) id<BKNearbyUsersMapControllerDelegate> delegate;
 
 @end
