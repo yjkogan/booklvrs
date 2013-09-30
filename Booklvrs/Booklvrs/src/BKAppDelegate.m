@@ -23,6 +23,7 @@
     
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
     
+    [Apptimize setUpWithApplicationKey:@"DT8HQ_SjMjPVFm-t7zgAkUswo5VeOlI"];
     return YES;
 }
 

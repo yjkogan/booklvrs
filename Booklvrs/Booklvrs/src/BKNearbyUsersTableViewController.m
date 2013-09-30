@@ -72,6 +72,18 @@
     cell.accessoryView = accessoryArrow;
     cell.textLabel.text = [user objectForKey:@"name"];
     
+    // Experiment "BooklvrsTest"
+    [Apptimize testWithExperimentID:982 baseline:^{
+        // Baseline variation "White Cell Background"
+        cell.backgroundColor = [UIColor whiteColor];
+    } variations:^{
+        // Variation "Blue Cell Background"
+        cell.backgroundColor = [UIColor blueColor];
+    }, ^{
+        // Variation "Light Gray Cell Background"
+        cell.backgroundColor = [UIColor lightGrayColor];
+    }, nil];
+    
     return cell;
 }
 
@@ -118,6 +130,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    // Goal "Click a cell"
+    [Apptimize goalReachedWithID:1777];
+    
     BKProfileViewController *profileVC = [[self storyboard] instantiateViewControllerWithIdentifier:@"profile"];
     profileVC.user = [[BKUser currentUser].nearbyUsers objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:profileVC animated:YES];
