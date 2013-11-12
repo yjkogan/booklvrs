@@ -17,6 +17,9 @@ profile
 DerivedData
 .idea/
 
+# Facebook Crap
+Booklvrs/Frameworks/FacebookSDK/Samples/*
+
 # Keynote
 Iconr
 

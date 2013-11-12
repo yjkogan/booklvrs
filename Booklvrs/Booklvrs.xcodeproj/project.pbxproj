@@ -89,6 +89,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		35222AF21831BFC3000E6144 /* OptimizelyPrepareNibs.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = OptimizelyPrepareNibs.py; sourceTree = SOURCE_ROOT; };
 		72AB6A288DBC4C75A3045E21 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C7B367367804AF280BB852F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		AC1B5376178A213600F580A5 /* apiKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = apiKeys.h; sourceTree = "<group>"; };
@@ -279,6 +280,7 @@
 		E78008CD174807C000DFC429 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				35222AF21831BFC3000E6144 /* OptimizelyPrepareNibs.py */,
 				E707D19F1754254B00E3433C /* apiKeys.h */,
 				E78008CE174807C000DFC429 /* Booklvrs-Info.plist */,
 				E78008CF174807C000DFC429 /* InfoPlist.strings */,
@@ -388,6 +390,7 @@
 			buildConfigurationList = E78008E0174807C000DFC429 /* Build configuration list for PBXNativeTarget "Booklvrs" */;
 			buildPhases = (
 				9685C82DDD9D423A9D7A667C /* Check Pods Manifest.lock */,
+				35222AF11831BF46000E6144 /* ShellScript */,
 				E78008BF174807C000DFC429 /* Sources */,
 				E78008C0174807C000DFC429 /* Frameworks */,
 				E78008C1174807C000DFC429 /* Resources */,
@@ -486,6 +489,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		35222AF11831BF46000E6144 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "python \"$SRCROOT/OptimizelyPrepareNibs.py\"";
+		};
 		9685C82DDD9D423A9D7A667C /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

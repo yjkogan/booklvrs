@@ -11,6 +11,7 @@
 #import "BKMainViewController.h"
 #import "GROAuth.h"
 #import "apiKeys.h"
+#import <Optimizely/Optimizely.h>
 
 @implementation BKAppDelegate
 
@@ -22,6 +23,12 @@
     [GROAuth setGoodreadsOAuthWithConsumerKey:GOODREADS_CONSUMER_KEY secret:GOODREADS_CONSUMER_SECRET];
     
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+    
+    #ifdef DEBUG
+    [Optimizely enableEditor];
+    #endif
+    
+    [Optimizely startWithProjectId:@"366" accountId:@"342" launchOptions:launchOptions];
     
     return YES;
 }
