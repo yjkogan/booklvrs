@@ -11,6 +11,9 @@
 #import <QuartzCore/QuartzCore.h>
 #import "GROAuth.h"
 #import "BKUser.h"
+#import "Leanplum.h"
+
+DEFINE_VAR_FLOAT(Powerups_Speed_Price, 10);
 
 @interface BKLogInViewController ()
 @property (nonatomic, strong) NSString *oauthToken;

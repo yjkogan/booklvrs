@@ -1,0 +1,267 @@
+#!/usr/bin/env python
+
+# All rights reserved. Leanplum. 2013.
+# Author: Atanas Dobrev (dobrev@leanplum.com)
+
+"""Leanplum client deploy script for iOS.
+
+You can use the script by putting it next to a xcode project file.
+It works by parsing and editing of the xcode project file using regexes.
+The overall structure is:
+  abstract_script.py - takes care of execution and termination of the script, 
+leanplum_installer and project_config extend it.
+  leanplum_installer - takes care of the workflow of the script, when to create
+a file, edit a file, back up a file.
+  project_config - gathers all the information needed by the script like file 
+paths and leanplum keys, also downloads the current version of the leanplum SDK.
+  All the files with prefix pbx or xc are representation of a Xcode class used 
+by Apple.
+  pbx_project_file.py - takes care of managing all other pbx or xc classes and 
+also of the modification of the real project file.
+"""
+
+import datetime
+import os
+import re
+import shutil
+import subprocess
+
+import abstract_script
+import analytics
+import project_config
+import pbx_project_file
+
+
+class LeanplumInstaller(abstract_script.AbstractScript):
+  """Represents an Installer object that handles the whole install flow."""
+
+  IOS_APPLICATION_FINISHED_LAUNCHING_CODE = (
+      '\s*-\s*\(\s*BOOL\s*\)\s*application\s*:\s*\( *UIApplication\s*\*\s*\)'
+      '\s*application\s*didFinishLaunchingWithOptions\s*:\s*\(\s*NSDictionary'
+      '\s*\*\s*\)\s*launchOptions\s*{')
+
+  LEANPLUM_INIT_CODE = """
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    //We\'ve inserted your API keys here for you :)
+    #ifdef DEBUG
+        [Leanplum setAppId:@"%(app_id)s" withDevelopmentKey:@"%(development_key)s"];
+    #else
+        [Leanplum setAppId:@"%(app_id)s" withProductionKey:@"%(production_key)s"];
+    #endif
+
+    // Syncs all the files between your main bundle and Leanplum.
+    // This allows you to swap out and A/B test any resource file
+    // in your project in realtime.
+    [Leanplum syncResources];
+                      
+    // Starts a new session and updates the app from Leanplum.
+    [Leanplum start];
+    
+"""
+
+  IMPLEMENTATION_HEADER_CODE = """
+@implementation %s
+
+%s
+"""
+
+  IOS_APPLICATION_FINISHED_LAUNCHING_ADDITIONAL_CODE = """
+    // Override point for customization after application launch.
+    return YES;
+}
+"""
+
+  def __init__(self):
+    self._confirm_to_continue(self.SCRIPT_INTRODUCTION_MESSAGE)
+    print(self.PROJECT_CONFIGURATION_STARTED)
+    self.project_config = project_config.ProjectConfig()
+    print(self.PROJECT_CONFIGURATION_FINISHED)
+    # We put it in the 3rd parent directory, because the script working 
+    # directory is inside the resource folder inside the script application 
+    # bundle.
+    self.backup_folder_path = os.path.normpath(
+         os.path.join(self.project_config.root_dir, '../../../backup' + 
+                      datetime.datetime.now().strftime('.%b.%d.%Y.%H.%M.%S')))
+    self.backup_xcode_proj_path = os.path.join(self.backup_folder_path, 
+        self.project_config.xcode_project_file_name)
+    
+  def install(self):
+    """Installs the Leanplum library inside a given project."""
+    self._backup_files()
+    print(self.BACKUP_FINISHED)
+    self._copy_leanplum_files()
+    print(self.SDK_FILES_INSTALLED)
+    proj_file = pbx_project_file.PBXProjectFile(self.project_config)
+    proj_file.install()
+    proj_file.save()
+    if self.project_config.hasFlurry:
+      analytics.FlurryAnalytics.run(self.project_config.source_files)
+      print(self.FLURRY_CALLS)
+    elif self.project_config.hasGoogleAnalytics:
+      analytics.GoogleAnalytics.run(self.project_config.source_files)
+      print(self.GOOGLE_ANALYTICS_CALLS)
+    
+    # TODO(Nasko) Uncomment after its fully tested that it is working. 
+    # The problem with it is that sometimes the project has a build error.
+    # Files imported into the prefix file are imported into all header
+    # and source files which means Leanplum.h gets imported into Leanplum.h.
+    # This leads to the build error, because every thing gets declared twice.
+    #_add_import_to_prefix_file(info)
+    self._add_leanplum_starter_code_to_app_delegate()
+    print('\nIf there is a problem you can restore your files from the backup '
+          'folder:\n  ' + self.backup_folder_path)
+    print('\nComplete successfully!\n')
+    self._send_log('Installer success!', 'The installer finished successfully!', 
+                   self.project_config)
+
+  def _copy_leanplum_files(self):
+    """Copies the leanplum files in their new location."""
+    leanplum_dest_path = os.path.join(self.project_config.project_path, 
+        self.project_config.main_group, 'Leanplum')
+    leanplum_h_path = os.path.join(self.project_config.root_dir, 'Leanplum.h')
+    leanplum_lib_path = os.path.join(self.project_config.root_dir, 
+                                     'libLeanplum.a')
+    
+    if not os.path.exists(leanplum_dest_path):
+      os.makedirs(leanplum_dest_path)
+    self._copy_leanplum_file('Leanplum.h',  leanplum_h_path, leanplum_dest_path)
+    self._copy_leanplum_file('libLeanplum.a', leanplum_lib_path, 
+                             leanplum_dest_path)
+      
+  def _copy_leanplum_file(self, name, path, destination_path):
+    """Copies a leanplum file in its new location.
+    
+    Args:
+      name: str, The file name.
+      path: str, The file path.
+      destination: str, The file destination path.
+    """
+    if os.path.exists(path):
+      shutil.copy(path, destination_path)
+      print('%s file added to folder:\n  %s/Leanplum' % 
+            (name, self.project_config.project_path))
+    else:
+      self._abort(
+          self.FILE_NOT_FOUND_IN_THE_SCRIPT_FOLDER % name, 
+          project_config = self.project_config)
+ 
+  # TODO (Nasko) Uncomment after its fully tested that it is working.       
+  #def _add_import_to_prefix_file(self):
+  #  """Adds the leanplum #import statement to the prefix file.
+  #  """
+  #  if os.path.exists(self.project_config.prefix_file_path):
+  #    with open(self.project_config.prefix_file_path, 'r+') as prefix_file:
+  #            
+  #      prefix_file_data = prefix_file.read()
+  #      leanplum_import_pattern = '#import\s+"Leanplum.h"'
+  #      match = re.search(leanplum_import_pattern, prefix_file_data)
+  #            
+  #      if match:
+  #        print('\nThe Prefix file already has the Leanplum import')
+  #      else:
+  #        objc_import_pattern = '#ifdef\s+__OBJC__'
+  #        replace_string = '#ifdef __OBJC__\n    #import "Leanplum.h"'
+  #        match = re.search(objc_import_pattern, prefix_file_data)
+  #                
+  #        if match:
+  #          prefix_file_data = re.sub(objc_import_pattern, replace_string, 
+  #                                    prefix_file_data)
+  #        else:
+  #          prefix_file_data += ('#ifdef __OBJC__\n    '
+  #                               '#import "Leanplum.h"\n#endif\n')
+  #                
+  #        prefix_file.seek(0,0)
+  #        prefix_file.write(prefix_file_data)
+  #        print('\nLeanplum imported to the Prefix file')
+  #  else:
+  #    print('\nThe file at path: ' + self.project_config.prefix_file_path + 
+  #          ' does not exists.\nLeanplum failed to add the #import "Leanplum.h"' +
+  #          ' statement.')
+         
+  def _add_leanplum_starter_code_to_app_delegate(self):
+    """Adds the leanplum starter code to the AppDelegate file."""
+    if not os.path.exists(self.project_config.app_delegate_path):
+      print('\nThe file at path: %s does not exists. Leanplum failed to add the'
+            ' starter code.' % self.project_config.app_delegate_path)
+    with open(self.project_config.app_delegate_path, 'r+') as app_delegate:
+      app_delegate_data = app_delegate.read()
+      app_id_pattern = 'Leanplum\s*setAppId'
+              
+      match = re.search(app_id_pattern, app_delegate_data)
+              
+      if match:
+        print('AppDelegate file already contains the Leanplum initialization '
+              'code')
+      else:
+        header_pattern = '#import\s+"Leanplum.h"'
+        if re.search(header_pattern, app_delegate_data):
+          print('Leanplum header file is already imported in your AppDelegate '
+                'file.')
+        else:
+          app_delegate_header_pattern = (
+              '#import((\s*)|(//((\S| )*\n))|(/\*(.*|\n)\*/))*"%s.h"' % 
+              self.project_config.app_delegate_name)
+          header_replace_string = (
+              '#import "%s.h"\n%s\n' % 
+              (self.project_config.app_delegate_name, '#import "Leanplum.h"'))
+  
+          app_delegate_data = re.sub(app_delegate_header_pattern, 
+                                     header_replace_string, 
+                                     app_delegate_data)
+          print('Leanplum header has been imported in your AppDelegate file.')
+                  
+        app_init_pattern = self.IOS_APPLICATION_FINISHED_LAUNCHING_CODE
+        
+        keys_dict = {
+          'app_id': self.project_config.app_id,
+          'development_key': self.project_config.development_key,
+          'production_key': self.project_config.production_key
+        }
+        
+        leanplum_init_code = self.LEANPLUM_INIT_CODE % keys_dict
+          
+        if re.search(app_init_pattern, app_delegate_data) is not None:
+          result = re.sub(app_init_pattern, leanplum_init_code, 
+                          app_delegate_data)
+        else:
+          app_delegate_base_name = self.project_config.app_delegate_name
+          app_init_pattern = '@implementation\s*' + app_delegate_base_name
+          leanplum_init_code += (
+              self.IOS_APPLICATION_FINISHED_LAUNCHING_ADDITIONAL_CODE)
+          leanplum_init_code = (
+              self.IMPLEMENTATION_HEADER_CODE % (app_delegate_base_name, 
+                                                 leanplum_init_code))
+                  
+          result = re.sub(app_init_pattern, leanplum_init_code, app_delegate_data)
+      
+        app_delegate.seek(0, 0)
+        app_delegate.write(result)
+                  
+        print('Leanplum initialization code has been added to your AppDelegate '
+              'file.')
+        
+  def _backup_files(self):
+    """Backs up the files that the script is going to modify."""
+    if not os.path.exists(self.backup_folder_path):
+      os.makedirs(self.backup_folder_path)
+    if os.path.exists(self.project_config.xcode_project_file_path):
+      shutil.copytree(self.project_config.xcode_project_file_path, 
+                      self.backup_xcode_proj_path)
+    if os.path.exists(self.project_config.app_delegate_path):
+      shutil.copy(self.project_config.app_delegate_path, 
+                  self.backup_folder_path)
+    if os.path.exists(self.project_config.prefix_file_path):
+      shutil.copy(self.project_config.prefix_file_path, 
+                  self.backup_folder_path)
+      
+  # (Nasko) We decided to not use this, to not surprise the user.
+  def _open_backup_folder(self):
+    """Opens the folder with the backup files."""
+    subprocess.call(['open', self.backup_folder_path])
+
+
+if __name__ == '__main__':
+  installer = LeanplumInstaller()
+  installer.install()

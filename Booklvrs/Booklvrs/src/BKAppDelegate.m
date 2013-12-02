@@ -7,6 +7,8 @@
 //
 
 #import "BKAppDelegate.h"
+#import "Leanplum.h"
+
 #import "BKNavViewController.h"
 #import "BKMainViewController.h"
 #import "GROAuth.h"
@@ -16,6 +18,22 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //We've inserted your API keys here for you :)
+    #ifdef DEBUG
+        [Leanplum setAppId:@"i5ECf21LqATDWsHPy3vJi3WswiVWidfvHw6OSCXNcTo" withDevelopmentKey:@"gPzGeVsJPABIOVo0OSyJVVZsWyF1txq9rNjhA5xxSQU"];
+    #else
+        [Leanplum setAppId:@"i5ECf21LqATDWsHPy3vJi3WswiVWidfvHw6OSCXNcTo" withProductionKey:@"nqMlZfaWstBf5sLuD7trxwOockxH7rpNhKcA18LRDwk"];
+    #endif
+
+    // Syncs all the files between your main bundle and Leanplum.
+    // This allows you to swap out and A/B test any resource file
+    // in your project in realtime.
+    [Leanplum syncResources];
+                      
+    // Starts a new session and updates the app from Leanplum.
+    [Leanplum start];
+    
+
     [Parse setApplicationId:PARSE_APP_ID
                   clientKey:PARSE_CLIENT_KEY];
     [PFFacebookUtils initializeFacebook];

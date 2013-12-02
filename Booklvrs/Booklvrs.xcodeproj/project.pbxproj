@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		186C8A8577B52720EA164EF9 /* libLeanplum.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C8F291526F450906CFE622C /* libLeanplum.a */; };
 		5996CC73234F408A96F73C56 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 72AB6A288DBC4C75A3045E21 /* libPods.a */; };
 		AC1B5377178A25CB00F580A5 /* BKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = E780A19F178A1D87006B02BF /* BKUser.m */; };
 		AC1B5379178A38B800F580A5 /* booklvrs_bkground_new.png in Resources */ = {isa = PBXBuildFile; fileRef = AC1B5378178A387C00F580A5 /* booklvrs_bkground_new.png */; };
@@ -14,7 +15,6 @@
 		ACAF550A1752986600AEF17B /* BKStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACAF55091752986600AEF17B /* BKStoryboard.storyboard */; };
 		ACAF553F1752A93D00AEF17B /* BKBookCoverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACAF553E1752A93C00AEF17B /* BKBookCoverCell.m */; };
 		ACAF55421752BB7700AEF17B /* BKTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACAF55411752BB7700AEF17B /* BKTabBarController.m */; };
-		E707D1A01754254B00E3433C /* apiKeys.h in Resources */ = {isa = PBXBuildFile; fileRef = E707D19F1754254B00E3433C /* apiKeys.h */; };
 		E72616F717489CC4005B4B46 /* iphone_splash_nobuttons.png in Resources */ = {isa = PBXBuildFile; fileRef = E72616F617489CC4005B4B46 /* iphone_splash_nobuttons.png */; };
 		E72616F917489E59005B4B46 /* fb_button.png in Resources */ = {isa = PBXBuildFile; fileRef = E72616F817489E59005B4B46 /* fb_button.png */; };
 		E72616FB1748AB0C005B4B46 /* booklvrs_arrow_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = E72616FA1748AB0C005B4B46 /* booklvrs_arrow_blue.png */; };
@@ -75,7 +75,6 @@
 		E78009231748878100DFC429 /* booklvr.png in Resources */ = {isa = PBXBuildFile; fileRef = E78009221748878100DFC429 /* booklvr.png */; };
 		E7800925174887FE00DFC429 /* booklvrs_read_discover_meet_subhead_blues.png in Resources */ = {isa = PBXBuildFile; fileRef = E7800924174887FE00DFC429 /* booklvrs_read_discover_meet_subhead_blues.png */; };
 		E780092717488A3E00DFC429 /* goodreads.png in Resources */ = {isa = PBXBuildFile; fileRef = E780092617488A3E00DFC429 /* goodreads.png */; };
-		E780A1A0178A1D87006B02BF /* BKUser.h in Resources */ = {isa = PBXBuildFile; fileRef = E780A19E178A1D87006B02BF /* BKUser.h */; };
 		E780A1A1178A1D87006B02BF /* BKUser.m in Resources */ = {isa = PBXBuildFile; fileRef = E780A19F178A1D87006B02BF /* BKUser.m */; };
 		E7C6CC8E17528F5C00180C07 /* BKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C6CC7B17528F5C00180C07 /* BKAppDelegate.m */; };
 		E7C6CC8F17528F5C00180C07 /* BKChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C6CC7D17528F5C00180C07 /* BKChatViewController.m */; };
@@ -89,8 +88,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		52DD1EDDE579CF8034300BB2 /* Leanplum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Leanplum.h; sourceTree = "<group>"; };
 		72AB6A288DBC4C75A3045E21 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C7B367367804AF280BB852F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		9C8F291526F450906CFE622C /* libLeanplum.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libLeanplum.a; sourceTree = "<group>"; };
 		AC1B5376178A213600F580A5 /* apiKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = apiKeys.h; sourceTree = "<group>"; };
 		AC1B5378178A387C00F580A5 /* booklvrs_bkground_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = booklvrs_bkground_new.png; sourceTree = "<group>"; };
 		AC7462801748AED4002ADED3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -210,12 +211,22 @@
 				E780090017480BFE00DFC429 /* Parse.framework in Frameworks */,
 				E780090A1748125200DFC429 /* FacebookSDK.framework in Frameworks */,
 				5996CC73234F408A96F73C56 /* libPods.a in Frameworks */,
+				186C8A8577B52720EA164EF9 /* libLeanplum.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		54BFE8ADB7987BF37DE5577F /* Leanplum */ = {
+			isa = PBXGroup;
+			children = (
+				52DD1EDDE579CF8034300BB2 /* Leanplum.h */,
+				9C8F291526F450906CFE622C /* libLeanplum.a */,
+			);
+			path = Leanplum;
+			sourceTree = "<group>";
+		};
 		E78008BA174807C000DFC429 = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +283,7 @@
 				E7C6CC9C17528F7900180C07 /* lib */,
 				E7C6CC9817528F6300180C07 /* src */,
 				E78008CD174807C000DFC429 /* Supporting Files */,
+				54BFE8ADB7987BF37DE5577F /* Leanplum */,
 			);
 			path = Booklvrs;
 			sourceTree = "<group>";
@@ -436,7 +448,6 @@
 			files = (
 				E78008D1174807C000DFC429 /* InfoPlist.strings in Resources */,
 				E78008D9174807C000DFC429 /* Default.png in Resources */,
-				E780A1A0178A1D87006B02BF /* BKUser.h in Resources */,
 				E78008DB174807C000DFC429 /* Default@2x.png in Resources */,
 				E78008DD174807C000DFC429 /* Default-568h@2x.png in Resources */,
 				E780090317480D2F00DFC429 /* booklvrs_bkground.jpg in Resources */,
@@ -479,7 +490,6 @@
 				E726174E17493C03005B4B46 /* chat_background.JPG in Resources */,
 				E726175017493C7A005B4B46 /* iphone_4_splash@2x.jpg in Resources */,
 				ACAF550A1752986600AEF17B /* BKStoryboard.storyboard in Resources */,
-				E707D1A01754254B00E3433C /* apiKeys.h in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -628,6 +638,15 @@
 				);
 				INFOPLIST_FILE = "Booklvrs/Booklvrs-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Booklvrs/Leanplum\"",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-fobjc",
+					"-arc",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -652,6 +671,15 @@
 				);
 				INFOPLIST_FILE = "Booklvrs/Booklvrs-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Booklvrs/Leanplum\"",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-fobjc",
+					"-arc",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
